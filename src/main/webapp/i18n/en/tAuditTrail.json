@@ -1,0 +1,31 @@
+{
+  "sainsApp": {
+    "tAuditTrail": {
+      "home": {
+        "title": "T Audit Trails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T Audit Trail",
+        "createOrEditLabel": "Create or edit a T Audit Trail",
+        "notFound": "No T Audit Trails found"
+      },
+      "created": "A new T Audit Trail is created with identifier {{ param }}",
+      "updated": "A T Audit Trail is updated with identifier {{ param }}",
+      "deleted": "A T Audit Trail is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T Audit Trail {{ id }}?"
+      },
+      "detail": {
+        "title": "T Audit Trail"
+      },
+      "id": "ID",
+      "userId": "User Id",
+      "dateTime": "Date Time",
+      "tableName": "Table Name",
+      "auditAction": "Audit Action",
+      "recordId": "Record Id",
+      "fieldDesc": "Field Desc",
+      "atStatus": "At Status",
+      "stFullDesc": "St Full Desc"
+    }
+  }
+}

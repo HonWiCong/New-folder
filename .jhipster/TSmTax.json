@@ -1,0 +1,113 @@
+{
+  "applications": "*",
+  "changelogDate": "20240109064602",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "t_sm_tax",
+  "fields": [
+    {
+      "fieldName": "smTaxCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "smTaxType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxGstCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxGstType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxCollectedGlCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxCollectedGlDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxCollectedCostCenter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxPaidGlCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxPaidGlDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxPaidCostCenter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxTaxAuthority",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxStatus",
+      "fieldType": "TaxStatus",
+      "fieldValues": "Y,N"
+    },
+    {
+      "fieldName": "smTaxEnteredBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "smTaxEnteredDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "smTaxModifiedBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "smTaxModifiedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "smTaxConfirmedBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "smTaxConfirmedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "smTaxNarration",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxRcmFlag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smTaxCga",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TSmTax",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

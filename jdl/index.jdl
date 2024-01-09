@@ -1,0 +1,221 @@
+entity TCountryCode {
+  countryCode String
+  countryName String
+  countryNationality String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+  orgCustomerType String
+}
+
+entity TStateCode {
+  stateName String
+  stateCode String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TDivisionCode {
+  divName String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TDistrictCode {
+  disName String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TCityCode {
+  cityCode String
+  cityName String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TIndustryCode {
+  industryName String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TSectorCode {
+  sectorName String
+  sectorDescription String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TBrandCode {
+  brandName String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TAuditTrail {
+  userId Integer
+  dateTime ZonedDateTime
+  tableName String
+  auditAction String
+  recordId Integer
+  fieldDesc String
+  atStatus String
+  stFullDesc String
+}
+
+relationship ManyToOne {
+  TStateCode to TCountryCode
+  TCityCode to TStateCode
+  TDistrictCode to TDivisionCode
+}
+
+enum TaxStatus {
+	Y
+  N
+}
+
+entity TSupplierCategory {
+  spcCategory String
+  enteredBy Integer
+  enteredDate ZonedDateTime
+  modifiedBy Integer
+  modifiedDate ZonedDateTime
+}
+
+entity TSmTax {
+    smTaxCode String
+    smTaxDescription String
+    smTaxPercentage BigDecimal
+    smTaxType String
+    smTaxGstCode String
+    smTaxGstType String
+    smTaxCollectedGlCode String
+    smTaxCollectedGlDesc String
+    smTaxCollectedCostCenter String
+    smTaxPaidGlCode String
+    smTaxPaidGlDesc String
+    smTaxPaidCostCenter String
+    smTaxTaxAuthority String
+    smTaxStatus TaxStatus
+    smTaxEnteredBy Integer
+    smTaxEnteredDate ZonedDateTime
+    smTaxModifiedBy Integer
+    smTaxModifiedDate ZonedDateTime
+    smTaxConfirmedBy Integer
+    smTaxConfirmedDate ZonedDateTime
+    smTaxNarration String
+    smTaxDisplay String
+    smTaxRcmFlag String
+    smTaxCga String
+}
+
+entity TOrgContactPerson {
+    ocpOrgcodeid Long
+    ocpTitle String
+    ocpName String
+    ocpDesignation String
+    ocpTelephone1 String
+    ocpHandphone String
+    ocpMail String
+    ocpSector String
+    ocpStatus String
+    enteredBy Integer
+    enteredDate ZonedDateTime
+    modifiedBy Integer
+    modifiedDate ZonedDateTime
+}
+
+entity TTitleCode {
+    ttTitle String
+    enteredBy Integer
+    enteredDate ZonedDateTime
+    modifiedBy Integer
+    modifiedDate ZonedDateTime
+}
+
+entity TOrganization {
+    orgHqid Integer
+    orgHqBr String
+    orgCode String
+    orgBrn String
+    orgPtaxid Long
+    orgDefaultTaxCode String
+    orgCompanyGstNo String
+    orgCompanyGstRegDate LocalDate
+    orgCompanyGstDeregDate LocalDate
+    orgPoTaxInclusive String
+    orgName String
+    orgNameOther String
+    orgShortname String
+    orgAddress String
+    orgShippingAddress String
+    orgBillingAddress String
+    orgPostcode String
+    orgCity String
+    orgState String
+    orgCountry String
+    orgOffPhone1 String
+    orgOffPhone2 String
+    orgOffPhone3 String
+    orgOffFax1 String
+    orgOffFax2 String
+    orgCredittermid Long
+    orgCreditLimit BigDecimal
+    orgAgencyid Long
+    orgDivision String
+    orgDistrict String
+    orgWebsite String
+    orgEmail String
+    orgSupplierCategory String
+    orgCurrencyCode String
+    orgType String
+    orgSectorid Long
+    orgSector String
+    orgIndustry String
+    orgSainsGroup String
+    orgBumiputra String
+    orgUpkReg String
+    orgMofReg String
+    orgDesignation String
+    orgContpersonTitle String
+    orgContperson String
+    orgDirectline String
+    orgContpEmail String
+    orgContpHp String
+    orgRemarks String
+    orgActiveStatus String
+    orgCcGc String
+    orgCustomerCateCode String
+    orgVendorCateCode String
+    orgSalesCateCode String
+    orgOutstandingBalance BigDecimal
+    orgOutstandingBalanceEx BigDecimal
+    orgCompanyCode String
+    orgDcrownPostStatus String
+    confirmedBy Integer
+    confirmedDate ZonedDateTime
+    enteredBy Integer
+    enteredDate ZonedDateTime
+    modifiedBy Integer
+    modifiedDate ZonedDateTime
+}
+
+relationship ManyToOne {
+  TOrgContactPerson to TOrganization
+}

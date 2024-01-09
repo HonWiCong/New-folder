@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity TOrganization.
+    -->
+    <changeSet id="20240109064605-1" author="jhipster">
+        <createTable tableName="t_organization">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="org_hqid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_hq_br" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_brn" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_ptaxid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_default_tax_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_company_gst_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_company_gst_reg_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_company_gst_dereg_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_po_tax_inclusive" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_name_other" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_shortname" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_shipping_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_billing_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_postcode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_city" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_state" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_country" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_off_phone_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_off_phone_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_off_phone_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_off_fax_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_off_fax_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_credittermid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_credit_limit" type="decimal(21,2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_agencyid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_division" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_district" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_website" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_supplier_category" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_currency_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_sectorid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_sector" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_industry" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_sains_group" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_bumiputra" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_upk_reg" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_mof_reg" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_designation" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_contperson_title" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_contperson" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_directline" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_contp_email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_contp_hp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_remarks" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_active_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_cc_gc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_customer_cate_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_vendor_cate_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_sales_cate_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_outstanding_balance" type="decimal(21,2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_outstanding_balance_ex" type="decimal(21,2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_company_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="org_dcrown_post_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="confirmed_by" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="confirmed_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="entered_by" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="entered_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_by" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="t_organization" columnName="confirmed_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="t_organization" columnName="entered_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="t_organization" columnName="modified_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20240109064605-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/t_organization.csv"
+                  separator=";"
+                  tableName="t_organization"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="org_hqid" type="numeric"/>
+            <column name="org_hq_br" type="string"/>
+            <column name="org_code" type="string"/>
+            <column name="org_brn" type="string"/>
+            <column name="org_ptaxid" type="numeric"/>
+            <column name="org_default_tax_code" type="string"/>
+            <column name="org_company_gst_no" type="string"/>
+            <column name="org_company_gst_reg_date" type="date"/>
+            <column name="org_company_gst_dereg_date" type="date"/>
+            <column name="org_po_tax_inclusive" type="string"/>
+            <column name="org_name" type="string"/>
+            <column name="org_name_other" type="string"/>
+            <column name="org_shortname" type="string"/>
+            <column name="org_address" type="string"/>
+            <column name="org_shipping_address" type="string"/>
+            <column name="org_billing_address" type="string"/>
+            <column name="org_postcode" type="string"/>
+            <column name="org_city" type="string"/>
+            <column name="org_state" type="string"/>
+            <column name="org_country" type="string"/>
+            <column name="org_off_phone_1" type="string"/>
+            <column name="org_off_phone_2" type="string"/>
+            <column name="org_off_phone_3" type="string"/>
+            <column name="org_off_fax_1" type="string"/>
+            <column name="org_off_fax_2" type="string"/>
+            <column name="org_credittermid" type="numeric"/>
+            <column name="org_credit_limit" type="numeric"/>
+            <column name="org_agencyid" type="numeric"/>
+            <column name="org_division" type="string"/>
+            <column name="org_district" type="string"/>
+            <column name="org_website" type="string"/>
+            <column name="org_email" type="string"/>
+            <column name="org_supplier_category" type="string"/>
+            <column name="org_currency_code" type="string"/>
+            <column name="org_type" type="string"/>
+            <column name="org_sectorid" type="numeric"/>
+            <column name="org_sector" type="string"/>
+            <column name="org_industry" type="string"/>
+            <column name="org_sains_group" type="string"/>
+            <column name="org_bumiputra" type="string"/>
+            <column name="org_upk_reg" type="string"/>
+            <column name="org_mof_reg" type="string"/>
+            <column name="org_designation" type="string"/>
+            <column name="org_contperson_title" type="string"/>
+            <column name="org_contperson" type="string"/>
+            <column name="org_directline" type="string"/>
+            <column name="org_contp_email" type="string"/>
+            <column name="org_contp_hp" type="string"/>
+            <column name="org_remarks" type="string"/>
+            <column name="org_active_status" type="string"/>
+            <column name="org_cc_gc" type="string"/>
+            <column name="org_customer_cate_code" type="string"/>
+            <column name="org_vendor_cate_code" type="string"/>
+            <column name="org_sales_cate_code" type="string"/>
+            <column name="org_outstanding_balance" type="numeric"/>
+            <column name="org_outstanding_balance_ex" type="numeric"/>
+            <column name="org_company_code" type="string"/>
+            <column name="org_dcrown_post_status" type="string"/>
+            <column name="confirmed_by" type="numeric"/>
+            <column name="confirmed_date" type="date"/>
+            <column name="entered_by" type="numeric"/>
+            <column name="entered_date" type="date"/>
+            <column name="modified_by" type="numeric"/>
+            <column name="modified_date" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

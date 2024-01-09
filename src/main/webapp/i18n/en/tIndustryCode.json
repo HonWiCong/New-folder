@@ -1,0 +1,28 @@
+{
+  "sainsApp": {
+    "tIndustryCode": {
+      "home": {
+        "title": "T Industry Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T Industry Code",
+        "createOrEditLabel": "Create or edit a T Industry Code",
+        "notFound": "No T Industry Codes found"
+      },
+      "created": "A new T Industry Code is created with identifier {{ param }}",
+      "updated": "A T Industry Code is updated with identifier {{ param }}",
+      "deleted": "A T Industry Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T Industry Code {{ id }}?"
+      },
+      "detail": {
+        "title": "T Industry Code"
+      },
+      "id": "ID",
+      "industryName": "Industry Name",
+      "enteredBy": "Entered By",
+      "enteredDate": "Entered Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date"
+    }
+  }
+}

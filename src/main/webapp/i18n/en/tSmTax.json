@@ -1,0 +1,47 @@
+{
+  "sainsApp": {
+    "tSmTax": {
+      "home": {
+        "title": "T Sm Taxes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T Sm Tax",
+        "createOrEditLabel": "Create or edit a T Sm Tax",
+        "notFound": "No T Sm Taxes found"
+      },
+      "created": "A new T Sm Tax is created with identifier {{ param }}",
+      "updated": "A T Sm Tax is updated with identifier {{ param }}",
+      "deleted": "A T Sm Tax is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T Sm Tax {{ id }}?"
+      },
+      "detail": {
+        "title": "T Sm Tax"
+      },
+      "id": "ID",
+      "smTaxCode": "Sm Tax Code",
+      "smTaxDescription": "Sm Tax Description",
+      "smTaxPercentage": "Sm Tax Percentage",
+      "smTaxType": "Sm Tax Type",
+      "smTaxGstCode": "Sm Tax Gst Code",
+      "smTaxGstType": "Sm Tax Gst Type",
+      "smTaxCollectedGlCode": "Sm Tax Collected Gl Code",
+      "smTaxCollectedGlDesc": "Sm Tax Collected Gl Desc",
+      "smTaxCollectedCostCenter": "Sm Tax Collected Cost Center",
+      "smTaxPaidGlCode": "Sm Tax Paid Gl Code",
+      "smTaxPaidGlDesc": "Sm Tax Paid Gl Desc",
+      "smTaxPaidCostCenter": "Sm Tax Paid Cost Center",
+      "smTaxTaxAuthority": "Sm Tax Tax Authority",
+      "smTaxStatus": "Sm Tax Status",
+      "smTaxEnteredBy": "Sm Tax Entered By",
+      "smTaxEnteredDate": "Sm Tax Entered Date",
+      "smTaxModifiedBy": "Sm Tax Modified By",
+      "smTaxModifiedDate": "Sm Tax Modified Date",
+      "smTaxConfirmedBy": "Sm Tax Confirmed By",
+      "smTaxConfirmedDate": "Sm Tax Confirmed Date",
+      "smTaxNarration": "Sm Tax Narration",
+      "smTaxDisplay": "Sm Tax Display",
+      "smTaxRcmFlag": "Sm Tax Rcm Flag",
+      "smTaxCga": "Sm Tax Cga"
+    }
+  }
+}

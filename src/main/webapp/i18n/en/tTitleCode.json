@@ -1,0 +1,28 @@
+{
+  "sainsApp": {
+    "tTitleCode": {
+      "home": {
+        "title": "T Title Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T Title Code",
+        "createOrEditLabel": "Create or edit a T Title Code",
+        "notFound": "No T Title Codes found"
+      },
+      "created": "A new T Title Code is created with identifier {{ param }}",
+      "updated": "A T Title Code is updated with identifier {{ param }}",
+      "deleted": "A T Title Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T Title Code {{ id }}?"
+      },
+      "detail": {
+        "title": "T Title Code"
+      },
+      "id": "ID",
+      "ttTitle": "Tt Title",
+      "enteredBy": "Entered By",
+      "enteredDate": "Entered Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date"
+    }
+  }
+}

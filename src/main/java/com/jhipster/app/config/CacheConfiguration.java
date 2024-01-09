@@ -48,6 +48,24 @@ public class CacheConfiguration {
             createCache(cm, com.jhipster.app.domain.User.class.getName());
             createCache(cm, com.jhipster.app.domain.Authority.class.getName());
             createCache(cm, com.jhipster.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName() + ".tStateCodes");
+            createCache(cm, com.jhipster.app.domain.TStateCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName() + ".tCityCodes");
+            createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName() + ".tDistrictCodes");
+            createCache(cm, com.jhipster.app.domain.TDistrictCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TCityCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TIndustryCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TSectorCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TBrandCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TAuditTrail.class.getName());
+            createCache(cm, com.jhipster.app.domain.TSupplierCategory.class.getName());
+            createCache(cm, com.jhipster.app.domain.TSmTax.class.getName());
+            createCache(cm, com.jhipster.app.domain.TOrgContactPerson.class.getName());
+            createCache(cm, com.jhipster.app.domain.TTitleCode.class.getName());
+            createCache(cm, com.jhipster.app.domain.TOrganization.class.getName());
+            createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".tOrgContactPeople");
             // jhipster-needle-ehcache-add-entry
         };
     }

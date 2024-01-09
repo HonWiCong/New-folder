@@ -1,0 +1,29 @@
+{
+  "sainsApp": {
+    "tDistrictCode": {
+      "home": {
+        "title": "T District Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T District Code",
+        "createOrEditLabel": "Create or edit a T District Code",
+        "notFound": "No T District Codes found"
+      },
+      "created": "A new T District Code is created with identifier {{ param }}",
+      "updated": "A T District Code is updated with identifier {{ param }}",
+      "deleted": "A T District Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T District Code {{ id }}?"
+      },
+      "detail": {
+        "title": "T District Code"
+      },
+      "id": "ID",
+      "disName": "Dis Name",
+      "enteredBy": "Entered By",
+      "enteredDate": "Entered Date",
+      "modifyBy": "Modify By",
+      "modifiedDate": "Modified Date",
+      "tDivisionCode": "T Division Code"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20240109041310",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "t_industry_code",
+  "fields": [
+    {
+      "fieldName": "industryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enteredBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "enteredDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modifyBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TIndustryCode",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20240109041307",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "t_division_code",
+  "fields": [
+    {
+      "fieldName": "divName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enteredBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "enteredDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modifyBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TDivisionCode",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tCityCode",
+      "otherEntityRelationshipName": "tDivisionCode",
+      "relationshipName": "tCityCode",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tDistrictCode",
+      "otherEntityRelationshipName": "tDivisionCode",
+      "relationshipName": "tDistrictCode",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

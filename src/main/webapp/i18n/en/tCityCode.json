@@ -1,0 +1,30 @@
+{
+  "sainsApp": {
+    "tCityCode": {
+      "home": {
+        "title": "T City Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new T City Code",
+        "createOrEditLabel": "Create or edit a T City Code",
+        "notFound": "No T City Codes found"
+      },
+      "created": "A new T City Code is created with identifier {{ param }}",
+      "updated": "A T City Code is updated with identifier {{ param }}",
+      "deleted": "A T City Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete T City Code {{ id }}?"
+      },
+      "detail": {
+        "title": "T City Code"
+      },
+      "id": "ID",
+      "cityCode": "City Code",
+      "cityName": "City Name",
+      "enteredBy": "Entered By",
+      "enteredDate": "Entered Date",
+      "modifyBy": "Modify By",
+      "modifiedDate": "Modified Date",
+      "tDivisionCode": "T Division Code"
+    }
+  }
+}

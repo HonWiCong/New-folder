@@ -1,0 +1,279 @@
+{
+  "applications": "*",
+  "changelogDate": "20240109041318",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "t_organization",
+  "fields": [
+    {
+      "fieldName": "orgHqid",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "orgHqBr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgBrn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgPtaxid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "orgDefaultTaxCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCompanyGstNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCompanyGstRegDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "orgCompanyGstDeregDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "orgPoTaxInclusive",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgNameOther",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgShortname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgShippingAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgBillingAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgPostcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgState",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCountry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOffPhone1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOffPhone2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOffPhone3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOffFax1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOffFax2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCredittermid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "orgCreditLimit",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "orgAgencyid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "orgDivision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgDistrict",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgWebsite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgSupplierCategory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCurrencyCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgSectorid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "orgSector",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgIndustry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgSainsGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgBumiputra",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgUpkReg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgMofReg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgDesignation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgContpersonTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgContperson",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgDirectline",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgContpEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgContpHp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgRemarks",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgActiveStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCcGc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgCustomerCateCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgVendorCateCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgSalesCateCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgOutstandingBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "orgOutstandingBalanceEx",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "orgCompanyCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgDcrownPostStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "confirmedBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "confirmedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "enteredBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "enteredDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modifiedBy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TOrganization",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tOrgContactPerson",
+      "otherEntityRelationshipName": "tOrganization",
+      "relationshipName": "tOrgContactPerson",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

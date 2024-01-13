@@ -1,247 +1,157 @@
-package com.jhipster.app.domain;
+package com.jhipster.app.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.jhipster.app.domain.dto.TOrganizationDTO;
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jhipster.app.domain.TOrgContactPerson;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.persistence.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-/**
- * A TOrganization.
- */
-@Entity
-@Table(name = "t_organization")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@SuppressWarnings("common-java:DuplicatedBlocks")
-public class TOrganization implements Serializable {
+public class TOrganizationDTO {
 
-	private static final long serialVersionUID = 1L;
-
-	@Transient
-	@JsonInclude
-	@JsonProperty("deletedId")
 	public List<Long> deletedId;
 
-	public void setDeletedId(List<Long> deletedId) {
-		this.deletedId = deletedId;
-	}
-
-	public List<Long> getDeletedId() {
-		return deletedId;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "org_hqid")
 	private Integer orgHqid;
 
-	@Column(name = "org_hq_br")
 	private String orgHqBr;
 
-	@Column(name = "org_code")
 	private String orgCode;
 
-	@Column(name = "org_brn")
 	private String orgBrn;
 
-	@Column(name = "org_ptaxid")
 	private Long orgPtaxid;
 
-	@Column(name = "org_default_tax_code")
 	private String orgDefaultTaxCode;
 
-	@Column(name = "org_company_gst_no")
 	private String orgCompanyGstNo;
 
-	@Column(name = "org_company_gst_reg_date")
 	private LocalDate orgCompanyGstRegDate;
 
-	@Column(name = "org_company_gst_dereg_date")
 	private LocalDate orgCompanyGstDeregDate;
 
-	@Column(name = "org_po_tax_inclusive")
 	private String orgPoTaxInclusive;
 
-	@Column(name = "org_name")
 	private String orgName;
 
-	@Column(name = "org_name_other")
 	private String orgNameOther;
 
-	@Column(name = "org_shortname")
 	private String orgShortname;
 
-	@Column(name = "org_address")
 	private String orgAddress;
 
-	@Column(name = "org_shipping_address")
 	private String orgShippingAddress;
 
-	@Column(name = "org_billing_address")
 	private String orgBillingAddress;
 
-	@Column(name = "org_postcode")
 	private String orgPostcode;
 
-	@Column(name = "org_city")
 	private String orgCity;
 
-	@Column(name = "org_state")
 	private String orgState;
 
-	@Column(name = "org_country")
 	private String orgCountry;
 
-	@Column(name = "org_off_phone_1")
 	private String orgOffPhone1;
 
-	@Column(name = "org_off_phone_2")
 	private String orgOffPhone2;
 
-	@Column(name = "org_off_phone_3")
 	private String orgOffPhone3;
 
-	@Column(name = "org_off_fax_1")
 	private String orgOffFax1;
 
-	@Column(name = "org_off_fax_2")
 	private String orgOffFax2;
 
-	@Column(name = "org_credittermid")
 	private Long orgCredittermid;
 
-	@Column(name = "org_credit_limit", precision = 21, scale = 2)
 	private BigDecimal orgCreditLimit;
 
-	@Column(name = "org_agencyid")
 	private Long orgAgencyid;
 
-	@Column(name = "org_division")
 	private String orgDivision;
 
-	@Column(name = "org_district")
 	private String orgDistrict;
 
-	@Column(name = "org_website")
 	private String orgWebsite;
 
-	@Column(name = "org_email")
 	private String orgEmail;
 
-	@Column(name = "org_supplier_category")
 	private String orgSupplierCategory;
 
-	@Column(name = "org_currency_code")
 	private String orgCurrencyCode;
 
-	@Column(name = "org_type")
 	private String orgType;
 
-	@Column(name = "org_sectorid")
 	private Long orgSectorid;
 
-	@Column(name = "org_sector")
 	private String orgSector;
 
-	@Column(name = "org_industry")
 	private String orgIndustry;
 
-	@Column(name = "org_sains_group")
 	private String orgSainsGroup;
 
-	@Column(name = "org_bumiputra")
 	private String orgBumiputra;
 
-	@Column(name = "org_upk_reg")
 	private String orgUpkReg;
 
-	@Column(name = "org_mof_reg")
 	private String orgMofReg;
 
-	@Column(name = "org_designation")
 	private String orgDesignation;
 
-	@Column(name = "org_contperson_title")
 	private String orgContpersonTitle;
 
-	@Column(name = "org_contperson")
 	private String orgContperson;
 
-	@Column(name = "org_directline")
 	private String orgDirectline;
 
-	@Column(name = "org_contp_email")
 	private String orgContpEmail;
 
-	@Column(name = "org_contp_hp")
 	private String orgContpHp;
 
-	@Column(name = "org_remarks")
 	private String orgRemarks;
 
-	@Column(name = "org_active_status")
 	private String orgActiveStatus;
 
-	@Column(name = "org_cc_gc")
 	private String orgCcGc;
 
-	@Column(name = "org_customer_cate_code")
 	private String orgCustomerCateCode;
 
-	@Column(name = "org_vendor_cate_code")
 	private String orgVendorCateCode;
 
-	@Column(name = "org_sales_cate_code")
 	private String orgSalesCateCode;
 
-	@Column(name = "org_outstanding_balance", precision = 21, scale = 2)
 	private BigDecimal orgOutstandingBalance;
 
-	@Column(name = "org_outstanding_balance_ex", precision = 21, scale = 2)
 	private BigDecimal orgOutstandingBalanceEx;
 
-	@Column(name = "org_company_code")
 	private String orgCompanyCode;
 
-	@Column(name = "org_dcrown_post_status")
 	private String orgDcrownPostStatus;
 
-	@Column(name = "confirmed_by")
 	private Integer confirmedBy;
 
-	@Column(name = "confirmed_date")
 	private ZonedDateTime confirmedDate;
 
-	@Column(name = "entered_by")
 	private Integer enteredBy;
 
-	@Column(name = "entered_date")
 	private ZonedDateTime enteredDate;
 
-	@Column(name = "modified_by")
 	private Integer modifiedBy;
 
-	@Column(name = "modified_date")
 	private ZonedDateTime modifiedDate;
 
-	@OneToMany(mappedBy = "tOrganization")
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	@JsonIgnoreProperties(value = { "tOrganization" }, allowSetters = true)
-	private Set<TOrgContactPerson> tOrgContactPeople = new HashSet<>();
+	@JsonIgnore
+	public Set<TOrgContactPerson> tOrgContactPeople;
+
+	public void setTOrgContactPeople(Set<TOrgContactPerson> tOrgContactPeople) {
+		this.tOrgContactPeople = tOrgContactPeople;
+	}
+
+	public Set<TOrgContactPerson> getTOrgContactPeople() {
+		return tOrgContactPeople;
+	}
 
 	// jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -249,7 +159,7 @@ public class TOrganization implements Serializable {
 		return this.id;
 	}
 
-	public TOrganization id(Long id) {
+	public TOrganizationDTO id(Long id) {
 		this.setId(id);
 		return this;
 	}
@@ -262,7 +172,7 @@ public class TOrganization implements Serializable {
 		return this.orgHqid;
 	}
 
-	public TOrganization orgHqid(Integer orgHqid) {
+	public TOrganizationDTO orgHqid(Integer orgHqid) {
 		this.setOrgHqid(orgHqid);
 		return this;
 	}
@@ -275,7 +185,7 @@ public class TOrganization implements Serializable {
 		return this.orgHqBr;
 	}
 
-	public TOrganization orgHqBr(String orgHqBr) {
+	public TOrganizationDTO orgHqBr(String orgHqBr) {
 		this.setOrgHqBr(orgHqBr);
 		return this;
 	}
@@ -288,7 +198,7 @@ public class TOrganization implements Serializable {
 		return this.orgCode;
 	}
 
-	public TOrganization orgCode(String orgCode) {
+	public TOrganizationDTO orgCode(String orgCode) {
 		this.setOrgCode(orgCode);
 		return this;
 	}
@@ -301,7 +211,7 @@ public class TOrganization implements Serializable {
 		return this.orgBrn;
 	}
 
-	public TOrganization orgBrn(String orgBrn) {
+	public TOrganizationDTO orgBrn(String orgBrn) {
 		this.setOrgBrn(orgBrn);
 		return this;
 	}
@@ -314,7 +224,7 @@ public class TOrganization implements Serializable {
 		return this.orgPtaxid;
 	}
 
-	public TOrganization orgPtaxid(Long orgPtaxid) {
+	public TOrganizationDTO orgPtaxid(Long orgPtaxid) {
 		this.setOrgPtaxid(orgPtaxid);
 		return this;
 	}
@@ -327,7 +237,7 @@ public class TOrganization implements Serializable {
 		return this.orgDefaultTaxCode;
 	}
 
-	public TOrganization orgDefaultTaxCode(String orgDefaultTaxCode) {
+	public TOrganizationDTO orgDefaultTaxCode(String orgDefaultTaxCode) {
 		this.setOrgDefaultTaxCode(orgDefaultTaxCode);
 		return this;
 	}
@@ -340,7 +250,7 @@ public class TOrganization implements Serializable {
 		return this.orgCompanyGstNo;
 	}
 
-	public TOrganization orgCompanyGstNo(String orgCompanyGstNo) {
+	public TOrganizationDTO orgCompanyGstNo(String orgCompanyGstNo) {
 		this.setOrgCompanyGstNo(orgCompanyGstNo);
 		return this;
 	}
@@ -353,7 +263,7 @@ public class TOrganization implements Serializable {
 		return this.orgCompanyGstRegDate;
 	}
 
-	public TOrganization orgCompanyGstRegDate(LocalDate orgCompanyGstRegDate) {
+	public TOrganizationDTO orgCompanyGstRegDate(LocalDate orgCompanyGstRegDate) {
 		this.setOrgCompanyGstRegDate(orgCompanyGstRegDate);
 		return this;
 	}
@@ -366,7 +276,7 @@ public class TOrganization implements Serializable {
 		return this.orgCompanyGstDeregDate;
 	}
 
-	public TOrganization orgCompanyGstDeregDate(LocalDate orgCompanyGstDeregDate) {
+	public TOrganizationDTO orgCompanyGstDeregDate(LocalDate orgCompanyGstDeregDate) {
 		this.setOrgCompanyGstDeregDate(orgCompanyGstDeregDate);
 		return this;
 	}
@@ -379,7 +289,7 @@ public class TOrganization implements Serializable {
 		return this.orgPoTaxInclusive;
 	}
 
-	public TOrganization orgPoTaxInclusive(String orgPoTaxInclusive) {
+	public TOrganizationDTO orgPoTaxInclusive(String orgPoTaxInclusive) {
 		this.setOrgPoTaxInclusive(orgPoTaxInclusive);
 		return this;
 	}
@@ -392,7 +302,7 @@ public class TOrganization implements Serializable {
 		return this.orgName;
 	}
 
-	public TOrganization orgName(String orgName) {
+	public TOrganizationDTO orgName(String orgName) {
 		this.setOrgName(orgName);
 		return this;
 	}
@@ -405,7 +315,7 @@ public class TOrganization implements Serializable {
 		return this.orgNameOther;
 	}
 
-	public TOrganization orgNameOther(String orgNameOther) {
+	public TOrganizationDTO orgNameOther(String orgNameOther) {
 		this.setOrgNameOther(orgNameOther);
 		return this;
 	}
@@ -418,7 +328,7 @@ public class TOrganization implements Serializable {
 		return this.orgShortname;
 	}
 
-	public TOrganization orgShortname(String orgShortname) {
+	public TOrganizationDTO orgShortname(String orgShortname) {
 		this.setOrgShortname(orgShortname);
 		return this;
 	}
@@ -431,7 +341,7 @@ public class TOrganization implements Serializable {
 		return this.orgAddress;
 	}
 
-	public TOrganization orgAddress(String orgAddress) {
+	public TOrganizationDTO orgAddress(String orgAddress) {
 		this.setOrgAddress(orgAddress);
 		return this;
 	}
@@ -444,7 +354,7 @@ public class TOrganization implements Serializable {
 		return this.orgShippingAddress;
 	}
 
-	public TOrganization orgShippingAddress(String orgShippingAddress) {
+	public TOrganizationDTO orgShippingAddress(String orgShippingAddress) {
 		this.setOrgShippingAddress(orgShippingAddress);
 		return this;
 	}
@@ -457,7 +367,7 @@ public class TOrganization implements Serializable {
 		return this.orgBillingAddress;
 	}
 
-	public TOrganization orgBillingAddress(String orgBillingAddress) {
+	public TOrganizationDTO orgBillingAddress(String orgBillingAddress) {
 		this.setOrgBillingAddress(orgBillingAddress);
 		return this;
 	}
@@ -470,7 +380,7 @@ public class TOrganization implements Serializable {
 		return this.orgPostcode;
 	}
 
-	public TOrganization orgPostcode(String orgPostcode) {
+	public TOrganizationDTO orgPostcode(String orgPostcode) {
 		this.setOrgPostcode(orgPostcode);
 		return this;
 	}
@@ -483,7 +393,7 @@ public class TOrganization implements Serializable {
 		return this.orgCity;
 	}
 
-	public TOrganization orgCity(String orgCity) {
+	public TOrganizationDTO orgCity(String orgCity) {
 		this.setOrgCity(orgCity);
 		return this;
 	}
@@ -496,7 +406,7 @@ public class TOrganization implements Serializable {
 		return this.orgState;
 	}
 
-	public TOrganization orgState(String orgState) {
+	public TOrganizationDTO orgState(String orgState) {
 		this.setOrgState(orgState);
 		return this;
 	}
@@ -509,7 +419,7 @@ public class TOrganization implements Serializable {
 		return this.orgCountry;
 	}
 
-	public TOrganization orgCountry(String orgCountry) {
+	public TOrganizationDTO orgCountry(String orgCountry) {
 		this.setOrgCountry(orgCountry);
 		return this;
 	}
@@ -522,7 +432,7 @@ public class TOrganization implements Serializable {
 		return this.orgOffPhone1;
 	}
 
-	public TOrganization orgOffPhone1(String orgOffPhone1) {
+	public TOrganizationDTO orgOffPhone1(String orgOffPhone1) {
 		this.setOrgOffPhone1(orgOffPhone1);
 		return this;
 	}
@@ -535,7 +445,7 @@ public class TOrganization implements Serializable {
 		return this.orgOffPhone2;
 	}
 
-	public TOrganization orgOffPhone2(String orgOffPhone2) {
+	public TOrganizationDTO orgOffPhone2(String orgOffPhone2) {
 		this.setOrgOffPhone2(orgOffPhone2);
 		return this;
 	}
@@ -548,7 +458,7 @@ public class TOrganization implements Serializable {
 		return this.orgOffPhone3;
 	}
 
-	public TOrganization orgOffPhone3(String orgOffPhone3) {
+	public TOrganizationDTO orgOffPhone3(String orgOffPhone3) {
 		this.setOrgOffPhone3(orgOffPhone3);
 		return this;
 	}
@@ -561,7 +471,7 @@ public class TOrganization implements Serializable {
 		return this.orgOffFax1;
 	}
 
-	public TOrganization orgOffFax1(String orgOffFax1) {
+	public TOrganizationDTO orgOffFax1(String orgOffFax1) {
 		this.setOrgOffFax1(orgOffFax1);
 		return this;
 	}
@@ -574,7 +484,7 @@ public class TOrganization implements Serializable {
 		return this.orgOffFax2;
 	}
 
-	public TOrganization orgOffFax2(String orgOffFax2) {
+	public TOrganizationDTO orgOffFax2(String orgOffFax2) {
 		this.setOrgOffFax2(orgOffFax2);
 		return this;
 	}
@@ -587,7 +497,7 @@ public class TOrganization implements Serializable {
 		return this.orgCredittermid;
 	}
 
-	public TOrganization orgCredittermid(Long orgCredittermid) {
+	public TOrganizationDTO orgCredittermid(Long orgCredittermid) {
 		this.setOrgCredittermid(orgCredittermid);
 		return this;
 	}
@@ -600,7 +510,7 @@ public class TOrganization implements Serializable {
 		return this.orgCreditLimit;
 	}
 
-	public TOrganization orgCreditLimit(BigDecimal orgCreditLimit) {
+	public TOrganizationDTO orgCreditLimit(BigDecimal orgCreditLimit) {
 		this.setOrgCreditLimit(orgCreditLimit);
 		return this;
 	}
@@ -613,7 +523,7 @@ public class TOrganization implements Serializable {
 		return this.orgAgencyid;
 	}
 
-	public TOrganization orgAgencyid(Long orgAgencyid) {
+	public TOrganizationDTO orgAgencyid(Long orgAgencyid) {
 		this.setOrgAgencyid(orgAgencyid);
 		return this;
 	}
@@ -626,7 +536,7 @@ public class TOrganization implements Serializable {
 		return this.orgDivision;
 	}
 
-	public TOrganization orgDivision(String orgDivision) {
+	public TOrganizationDTO orgDivision(String orgDivision) {
 		this.setOrgDivision(orgDivision);
 		return this;
 	}
@@ -639,7 +549,7 @@ public class TOrganization implements Serializable {
 		return this.orgDistrict;
 	}
 
-	public TOrganization orgDistrict(String orgDistrict) {
+	public TOrganizationDTO orgDistrict(String orgDistrict) {
 		this.setOrgDistrict(orgDistrict);
 		return this;
 	}
@@ -652,7 +562,7 @@ public class TOrganization implements Serializable {
 		return this.orgWebsite;
 	}
 
-	public TOrganization orgWebsite(String orgWebsite) {
+	public TOrganizationDTO orgWebsite(String orgWebsite) {
 		this.setOrgWebsite(orgWebsite);
 		return this;
 	}
@@ -665,7 +575,7 @@ public class TOrganization implements Serializable {
 		return this.orgEmail;
 	}
 
-	public TOrganization orgEmail(String orgEmail) {
+	public TOrganizationDTO orgEmail(String orgEmail) {
 		this.setOrgEmail(orgEmail);
 		return this;
 	}
@@ -678,7 +588,7 @@ public class TOrganization implements Serializable {
 		return this.orgSupplierCategory;
 	}
 
-	public TOrganization orgSupplierCategory(String orgSupplierCategory) {
+	public TOrganizationDTO orgSupplierCategory(String orgSupplierCategory) {
 		this.setOrgSupplierCategory(orgSupplierCategory);
 		return this;
 	}
@@ -691,7 +601,7 @@ public class TOrganization implements Serializable {
 		return this.orgCurrencyCode;
 	}
 
-	public TOrganization orgCurrencyCode(String orgCurrencyCode) {
+	public TOrganizationDTO orgCurrencyCode(String orgCurrencyCode) {
 		this.setOrgCurrencyCode(orgCurrencyCode);
 		return this;
 	}
@@ -704,7 +614,7 @@ public class TOrganization implements Serializable {
 		return this.orgType;
 	}
 
-	public TOrganization orgType(String orgType) {
+	public TOrganizationDTO orgType(String orgType) {
 		this.setOrgType(orgType);
 		return this;
 	}
@@ -717,7 +627,7 @@ public class TOrganization implements Serializable {
 		return this.orgSectorid;
 	}
 
-	public TOrganization orgSectorid(Long orgSectorid) {
+	public TOrganizationDTO orgSectorid(Long orgSectorid) {
 		this.setOrgSectorid(orgSectorid);
 		return this;
 	}
@@ -730,7 +640,7 @@ public class TOrganization implements Serializable {
 		return this.orgSector;
 	}
 
-	public TOrganization orgSector(String orgSector) {
+	public TOrganizationDTO orgSector(String orgSector) {
 		this.setOrgSector(orgSector);
 		return this;
 	}
@@ -743,7 +653,7 @@ public class TOrganization implements Serializable {
 		return this.orgIndustry;
 	}
 
-	public TOrganization orgIndustry(String orgIndustry) {
+	public TOrganizationDTO orgIndustry(String orgIndustry) {
 		this.setOrgIndustry(orgIndustry);
 		return this;
 	}
@@ -756,7 +666,7 @@ public class TOrganization implements Serializable {
 		return this.orgSainsGroup;
 	}
 
-	public TOrganization orgSainsGroup(String orgSainsGroup) {
+	public TOrganizationDTO orgSainsGroup(String orgSainsGroup) {
 		this.setOrgSainsGroup(orgSainsGroup);
 		return this;
 	}
@@ -769,7 +679,7 @@ public class TOrganization implements Serializable {
 		return this.orgBumiputra;
 	}
 
-	public TOrganization orgBumiputra(String orgBumiputra) {
+	public TOrganizationDTO orgBumiputra(String orgBumiputra) {
 		this.setOrgBumiputra(orgBumiputra);
 		return this;
 	}
@@ -782,7 +692,7 @@ public class TOrganization implements Serializable {
 		return this.orgUpkReg;
 	}
 
-	public TOrganization orgUpkReg(String orgUpkReg) {
+	public TOrganizationDTO orgUpkReg(String orgUpkReg) {
 		this.setOrgUpkReg(orgUpkReg);
 		return this;
 	}
@@ -795,7 +705,7 @@ public class TOrganization implements Serializable {
 		return this.orgMofReg;
 	}
 
-	public TOrganization orgMofReg(String orgMofReg) {
+	public TOrganizationDTO orgMofReg(String orgMofReg) {
 		this.setOrgMofReg(orgMofReg);
 		return this;
 	}
@@ -808,7 +718,7 @@ public class TOrganization implements Serializable {
 		return this.orgDesignation;
 	}
 
-	public TOrganization orgDesignation(String orgDesignation) {
+	public TOrganizationDTO orgDesignation(String orgDesignation) {
 		this.setOrgDesignation(orgDesignation);
 		return this;
 	}
@@ -821,7 +731,7 @@ public class TOrganization implements Serializable {
 		return this.orgContpersonTitle;
 	}
 
-	public TOrganization orgContpersonTitle(String orgContpersonTitle) {
+	public TOrganizationDTO orgContpersonTitle(String orgContpersonTitle) {
 		this.setOrgContpersonTitle(orgContpersonTitle);
 		return this;
 	}
@@ -834,7 +744,7 @@ public class TOrganization implements Serializable {
 		return this.orgContperson;
 	}
 
-	public TOrganization orgContperson(String orgContperson) {
+	public TOrganizationDTO orgContperson(String orgContperson) {
 		this.setOrgContperson(orgContperson);
 		return this;
 	}
@@ -847,7 +757,7 @@ public class TOrganization implements Serializable {
 		return this.orgDirectline;
 	}
 
-	public TOrganization orgDirectline(String orgDirectline) {
+	public TOrganizationDTO orgDirectline(String orgDirectline) {
 		this.setOrgDirectline(orgDirectline);
 		return this;
 	}
@@ -860,7 +770,7 @@ public class TOrganization implements Serializable {
 		return this.orgContpEmail;
 	}
 
-	public TOrganization orgContpEmail(String orgContpEmail) {
+	public TOrganizationDTO orgContpEmail(String orgContpEmail) {
 		this.setOrgContpEmail(orgContpEmail);
 		return this;
 	}
@@ -873,7 +783,7 @@ public class TOrganization implements Serializable {
 		return this.orgContpHp;
 	}
 
-	public TOrganization orgContpHp(String orgContpHp) {
+	public TOrganizationDTO orgContpHp(String orgContpHp) {
 		this.setOrgContpHp(orgContpHp);
 		return this;
 	}
@@ -886,7 +796,7 @@ public class TOrganization implements Serializable {
 		return this.orgRemarks;
 	}
 
-	public TOrganization orgRemarks(String orgRemarks) {
+	public TOrganizationDTO orgRemarks(String orgRemarks) {
 		this.setOrgRemarks(orgRemarks);
 		return this;
 	}
@@ -899,7 +809,7 @@ public class TOrganization implements Serializable {
 		return this.orgActiveStatus;
 	}
 
-	public TOrganization orgActiveStatus(String orgActiveStatus) {
+	public TOrganizationDTO orgActiveStatus(String orgActiveStatus) {
 		this.setOrgActiveStatus(orgActiveStatus);
 		return this;
 	}
@@ -912,7 +822,7 @@ public class TOrganization implements Serializable {
 		return this.orgCcGc;
 	}
 
-	public TOrganization orgCcGc(String orgCcGc) {
+	public TOrganizationDTO orgCcGc(String orgCcGc) {
 		this.setOrgCcGc(orgCcGc);
 		return this;
 	}
@@ -925,7 +835,7 @@ public class TOrganization implements Serializable {
 		return this.orgCustomerCateCode;
 	}
 
-	public TOrganization orgCustomerCateCode(String orgCustomerCateCode) {
+	public TOrganizationDTO orgCustomerCateCode(String orgCustomerCateCode) {
 		this.setOrgCustomerCateCode(orgCustomerCateCode);
 		return this;
 	}
@@ -938,7 +848,7 @@ public class TOrganization implements Serializable {
 		return this.orgVendorCateCode;
 	}
 
-	public TOrganization orgVendorCateCode(String orgVendorCateCode) {
+	public TOrganizationDTO orgVendorCateCode(String orgVendorCateCode) {
 		this.setOrgVendorCateCode(orgVendorCateCode);
 		return this;
 	}
@@ -951,7 +861,7 @@ public class TOrganization implements Serializable {
 		return this.orgSalesCateCode;
 	}
 
-	public TOrganization orgSalesCateCode(String orgSalesCateCode) {
+	public TOrganizationDTO orgSalesCateCode(String orgSalesCateCode) {
 		this.setOrgSalesCateCode(orgSalesCateCode);
 		return this;
 	}
@@ -964,7 +874,7 @@ public class TOrganization implements Serializable {
 		return this.orgOutstandingBalance;
 	}
 
-	public TOrganization orgOutstandingBalance(BigDecimal orgOutstandingBalance) {
+	public TOrganizationDTO orgOutstandingBalance(BigDecimal orgOutstandingBalance) {
 		this.setOrgOutstandingBalance(orgOutstandingBalance);
 		return this;
 	}
@@ -977,7 +887,7 @@ public class TOrganization implements Serializable {
 		return this.orgOutstandingBalanceEx;
 	}
 
-	public TOrganization orgOutstandingBalanceEx(BigDecimal orgOutstandingBalanceEx) {
+	public TOrganizationDTO orgOutstandingBalanceEx(BigDecimal orgOutstandingBalanceEx) {
 		this.setOrgOutstandingBalanceEx(orgOutstandingBalanceEx);
 		return this;
 	}
@@ -990,7 +900,7 @@ public class TOrganization implements Serializable {
 		return this.orgCompanyCode;
 	}
 
-	public TOrganization orgCompanyCode(String orgCompanyCode) {
+	public TOrganizationDTO orgCompanyCode(String orgCompanyCode) {
 		this.setOrgCompanyCode(orgCompanyCode);
 		return this;
 	}
@@ -1003,7 +913,7 @@ public class TOrganization implements Serializable {
 		return this.orgDcrownPostStatus;
 	}
 
-	public TOrganization orgDcrownPostStatus(String orgDcrownPostStatus) {
+	public TOrganizationDTO orgDcrownPostStatus(String orgDcrownPostStatus) {
 		this.setOrgDcrownPostStatus(orgDcrownPostStatus);
 		return this;
 	}
@@ -1016,7 +926,7 @@ public class TOrganization implements Serializable {
 		return this.confirmedBy;
 	}
 
-	public TOrganization confirmedBy(Integer confirmedBy) {
+	public TOrganizationDTO confirmedBy(Integer confirmedBy) {
 		this.setConfirmedBy(confirmedBy);
 		return this;
 	}
@@ -1029,7 +939,7 @@ public class TOrganization implements Serializable {
 		return this.confirmedDate;
 	}
 
-	public TOrganization confirmedDate(ZonedDateTime confirmedDate) {
+	public TOrganizationDTO confirmedDate(ZonedDateTime confirmedDate) {
 		this.setConfirmedDate(confirmedDate);
 		return this;
 	}
@@ -1042,7 +952,7 @@ public class TOrganization implements Serializable {
 		return this.enteredBy;
 	}
 
-	public TOrganization enteredBy(Integer enteredBy) {
+	public TOrganizationDTO enteredBy(Integer enteredBy) {
 		this.setEnteredBy(enteredBy);
 		return this;
 	}
@@ -1055,7 +965,7 @@ public class TOrganization implements Serializable {
 		return this.enteredDate;
 	}
 
-	public TOrganization enteredDate(ZonedDateTime enteredDate) {
+	public TOrganizationDTO enteredDate(ZonedDateTime enteredDate) {
 		this.setEnteredDate(enteredDate);
 		return this;
 	}
@@ -1068,7 +978,7 @@ public class TOrganization implements Serializable {
 		return this.modifiedBy;
 	}
 
-	public TOrganization modifiedBy(Integer modifiedBy) {
+	public TOrganizationDTO modifiedBy(Integer modifiedBy) {
 		this.setModifiedBy(modifiedBy);
 		return this;
 	}
@@ -1081,7 +991,7 @@ public class TOrganization implements Serializable {
 		return this.modifiedDate;
 	}
 
-	public TOrganization modifiedDate(ZonedDateTime modifiedDate) {
+	public TOrganizationDTO modifiedDate(ZonedDateTime modifiedDate) {
 		this.setModifiedDate(modifiedDate);
 		return this;
 	}
@@ -1090,132 +1000,193 @@ public class TOrganization implements Serializable {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Set<TOrgContactPerson> getTOrgContactPeople() {
-		return this.tOrgContactPeople;
-	}
-
-	public void setTOrgContactPeople(Set<TOrgContactPerson> tOrgContactPeople) {
-		if (this.tOrgContactPeople != null) {
-			this.tOrgContactPeople.forEach(i -> i.setTOrganization(null));
-		}
-		if (tOrgContactPeople != null) {
-			tOrgContactPeople.forEach(i -> i.setTOrganization(this));
-		}
-		this.tOrgContactPeople = tOrgContactPeople;
-	}
-
-	public TOrganization tOrgContactPeople(Set<TOrgContactPerson> tOrgContactPeople) {
-		this.setTOrgContactPeople(tOrgContactPeople);
-		return this;
-	}
-
-	public TOrganization addTOrgContactPerson(TOrgContactPerson tOrgContactPerson) {
-		this.tOrgContactPeople.add(tOrgContactPerson);
-		tOrgContactPerson.setTOrganization(this);
-		return this;
-	}
-
-	public TOrganization removeTOrgContactPerson(TOrgContactPerson tOrgContactPerson) {
-		this.tOrgContactPeople.remove(tOrgContactPerson);
-		tOrgContactPerson.setTOrganization(null);
-		return this;
-	}
-
-	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (!(o instanceof TOrganization)) {
-			return false;
-		}
-		return id != null && id.equals(((TOrganization) o).id);
-	}
-
-	@Override
-	public int hashCode() {
-		// see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-		return getClass().hashCode();
-	}
-
-	// prettier-ignore
-    @Override
-    public String toString() {
-        return "TOrganization{" +
-            "id=" + getId() +
-            ", orgHqid=" + getOrgHqid() +
-            ", orgHqBr='" + getOrgHqBr() + "'" +
-            ", orgCode='" + getOrgCode() + "'" +
-            ", orgBrn='" + getOrgBrn() + "'" +
-            ", orgPtaxid=" + getOrgPtaxid() +
-            ", orgDefaultTaxCode='" + getOrgDefaultTaxCode() + "'" +
-            ", orgCompanyGstNo='" + getOrgCompanyGstNo() + "'" +
-            ", orgCompanyGstRegDate='" + getOrgCompanyGstRegDate() + "'" +
-            ", orgCompanyGstDeregDate='" + getOrgCompanyGstDeregDate() + "'" +
-            ", orgPoTaxInclusive='" + getOrgPoTaxInclusive() + "'" +
-            ", orgName='" + getOrgName() + "'" +
-            ", orgNameOther='" + getOrgNameOther() + "'" +
-            ", orgShortname='" + getOrgShortname() + "'" +
-            ", orgAddress='" + getOrgAddress() + "'" +
-            ", orgShippingAddress='" + getOrgShippingAddress() + "'" +
-            ", orgBillingAddress='" + getOrgBillingAddress() + "'" +
-            ", orgPostcode='" + getOrgPostcode() + "'" +
-            ", orgCity='" + getOrgCity() + "'" +
-            ", orgState='" + getOrgState() + "'" +
-            ", orgCountry='" + getOrgCountry() + "'" +
-            ", orgOffPhone1='" + getOrgOffPhone1() + "'" +
-            ", orgOffPhone2='" + getOrgOffPhone2() + "'" +
-            ", orgOffPhone3='" + getOrgOffPhone3() + "'" +
-            ", orgOffFax1='" + getOrgOffFax1() + "'" +
-            ", orgOffFax2='" + getOrgOffFax2() + "'" +
-            ", orgCredittermid=" + getOrgCredittermid() +
-            ", orgCreditLimit=" + getOrgCreditLimit() +
-            ", orgAgencyid=" + getOrgAgencyid() +
-            ", orgDivision='" + getOrgDivision() + "'" +
-            ", orgDistrict='" + getOrgDistrict() + "'" +
-            ", orgWebsite='" + getOrgWebsite() + "'" +
-            ", orgEmail='" + getOrgEmail() + "'" +
-            ", orgSupplierCategory='" + getOrgSupplierCategory() + "'" +
-            ", orgCurrencyCode='" + getOrgCurrencyCode() + "'" +
-            ", orgType='" + getOrgType() + "'" +
-            ", orgSectorid=" + getOrgSectorid() +
-            ", orgSector='" + getOrgSector() + "'" +
-            ", orgIndustry='" + getOrgIndustry() + "'" +
-            ", orgSainsGroup='" + getOrgSainsGroup() + "'" +
-            ", orgBumiputra='" + getOrgBumiputra() + "'" +
-            ", orgUpkReg='" + getOrgUpkReg() + "'" +
-            ", orgMofReg='" + getOrgMofReg() + "'" +
-            ", orgDesignation='" + getOrgDesignation() + "'" +
-            ", orgContpersonTitle='" + getOrgContpersonTitle() + "'" +
-            ", orgContperson='" + getOrgContperson() + "'" +
-            ", orgDirectline='" + getOrgDirectline() + "'" +
-            ", orgContpEmail='" + getOrgContpEmail() + "'" +
-            ", orgContpHp='" + getOrgContpHp() + "'" +
-            ", orgRemarks='" + getOrgRemarks() + "'" +
-            ", orgActiveStatus='" + getOrgActiveStatus() + "'" +
-            ", orgCcGc='" + getOrgCcGc() + "'" +
-            ", orgCustomerCateCode='" + getOrgCustomerCateCode() + "'" +
-            ", orgVendorCateCode='" + getOrgVendorCateCode() + "'" +
-            ", orgSalesCateCode='" + getOrgSalesCateCode() + "'" +
-            ", orgOutstandingBalance=" + getOrgOutstandingBalance() +
-            ", orgOutstandingBalanceEx=" + getOrgOutstandingBalanceEx() +
-            ", orgCompanyCode='" + getOrgCompanyCode() + "'" +
-            ", orgDcrownPostStatus='" + getOrgDcrownPostStatus() + "'" +
-            ", confirmedBy=" + getConfirmedBy() +
-            ", confirmedDate='" + getConfirmedDate() + "'" +
-            ", enteredBy=" + getEnteredBy() +
-            ", enteredDate='" + getEnteredDate() + "'" +
-            ", modifiedBy=" + getModifiedBy() +
-            ", modifiedDate='" + getModifiedDate() + "'" +
-            "}";
-    }
-
-	public TOrganization dtoToEntity(TOrganizationDTO tOrganizationDTO) {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.registerModule(new JavaTimeModule());
-		TOrganization tOrganization = mapper.convertValue(tOrganizationDTO, TOrganization.class);
-		return tOrganization;
+	public String toString() {
+		return (
+			"TOrganization{" +
+			"id=" +
+			getId() +
+			", orgHqid=" +
+			getOrgHqid() +
+			", orgHqBr='" +
+			getOrgHqBr() +
+			"'" +
+			", orgCode='" +
+			getOrgCode() +
+			"'" +
+			", orgBrn='" +
+			getOrgBrn() +
+			"'" +
+			", orgPtaxid=" +
+			getOrgPtaxid() +
+			", orgDefaultTaxCode='" +
+			getOrgDefaultTaxCode() +
+			"'" +
+			", orgCompanyGstNo='" +
+			getOrgCompanyGstNo() +
+			"'" +
+			", orgCompanyGstRegDate='" +
+			getOrgCompanyGstRegDate() +
+			"'" +
+			", orgCompanyGstDeregDate='" +
+			getOrgCompanyGstDeregDate() +
+			"'" +
+			", orgPoTaxInclusive='" +
+			getOrgPoTaxInclusive() +
+			"'" +
+			", orgName='" +
+			getOrgName() +
+			"'" +
+			", orgNameOther='" +
+			getOrgNameOther() +
+			"'" +
+			", orgShortname='" +
+			getOrgShortname() +
+			"'" +
+			", orgAddress='" +
+			getOrgAddress() +
+			"'" +
+			", orgShippingAddress='" +
+			getOrgShippingAddress() +
+			"'" +
+			", orgBillingAddress='" +
+			getOrgBillingAddress() +
+			"'" +
+			", orgPostcode='" +
+			getOrgPostcode() +
+			"'" +
+			", orgCity='" +
+			getOrgCity() +
+			"'" +
+			", orgState='" +
+			getOrgState() +
+			"'" +
+			", orgCountry='" +
+			getOrgCountry() +
+			"'" +
+			", orgOffPhone1='" +
+			getOrgOffPhone1() +
+			"'" +
+			", orgOffPhone2='" +
+			getOrgOffPhone2() +
+			"'" +
+			", orgOffPhone3='" +
+			getOrgOffPhone3() +
+			"'" +
+			", orgOffFax1='" +
+			getOrgOffFax1() +
+			"'" +
+			", orgOffFax2='" +
+			getOrgOffFax2() +
+			"'" +
+			", orgCredittermid=" +
+			getOrgCredittermid() +
+			", orgCreditLimit=" +
+			getOrgCreditLimit() +
+			", orgAgencyid=" +
+			getOrgAgencyid() +
+			", orgDivision='" +
+			getOrgDivision() +
+			"'" +
+			", orgDistrict='" +
+			getOrgDistrict() +
+			"'" +
+			", orgWebsite='" +
+			getOrgWebsite() +
+			"'" +
+			", orgEmail='" +
+			getOrgEmail() +
+			"'" +
+			", orgSupplierCategory='" +
+			getOrgSupplierCategory() +
+			"'" +
+			", orgCurrencyCode='" +
+			getOrgCurrencyCode() +
+			"'" +
+			", orgType='" +
+			getOrgType() +
+			"'" +
+			", orgSectorid=" +
+			getOrgSectorid() +
+			", orgSector='" +
+			getOrgSector() +
+			"'" +
+			", orgIndustry='" +
+			getOrgIndustry() +
+			"'" +
+			", orgSainsGroup='" +
+			getOrgSainsGroup() +
+			"'" +
+			", orgBumiputra='" +
+			getOrgBumiputra() +
+			"'" +
+			", orgUpkReg='" +
+			getOrgUpkReg() +
+			"'" +
+			", orgMofReg='" +
+			getOrgMofReg() +
+			"'" +
+			", orgDesignation='" +
+			getOrgDesignation() +
+			"'" +
+			", orgContpersonTitle='" +
+			getOrgContpersonTitle() +
+			"'" +
+			", orgContperson='" +
+			getOrgContperson() +
+			"'" +
+			", orgDirectline='" +
+			getOrgDirectline() +
+			"'" +
+			", orgContpEmail='" +
+			getOrgContpEmail() +
+			"'" +
+			", orgContpHp='" +
+			getOrgContpHp() +
+			"'" +
+			", orgRemarks='" +
+			getOrgRemarks() +
+			"'" +
+			", orgActiveStatus='" +
+			getOrgActiveStatus() +
+			"'" +
+			", orgCcGc='" +
+			getOrgCcGc() +
+			"'" +
+			", orgCustomerCateCode='" +
+			getOrgCustomerCateCode() +
+			"'" +
+			", orgVendorCateCode='" +
+			getOrgVendorCateCode() +
+			"'" +
+			", orgSalesCateCode='" +
+			getOrgSalesCateCode() +
+			"'" +
+			", orgOutstandingBalance=" +
+			getOrgOutstandingBalance() +
+			", orgOutstandingBalanceEx=" +
+			getOrgOutstandingBalanceEx() +
+			", orgCompanyCode='" +
+			getOrgCompanyCode() +
+			"'" +
+			", orgDcrownPostStatus='" +
+			getOrgDcrownPostStatus() +
+			"'" +
+			", confirmedBy=" +
+			getConfirmedBy() +
+			", confirmedDate='" +
+			getConfirmedDate() +
+			"'" +
+			", enteredBy=" +
+			getEnteredBy() +
+			", enteredDate='" +
+			getEnteredDate() +
+			"'" +
+			", modifiedBy=" +
+			getModifiedBy() +
+			", modifiedDate='" +
+			getModifiedDate() +
+			"'" +
+			"}"
+		);
 	}
 }

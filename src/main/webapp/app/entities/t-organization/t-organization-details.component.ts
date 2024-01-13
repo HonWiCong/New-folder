@@ -6,31 +6,31 @@ import AlertService from '@/shared/alert/alert.service';
 
 @Component
 export default class TOrganizationDetails extends Vue {
-  @Inject('tOrganizationService') private tOrganizationService: () => TOrganizationService;
-  @Inject('alertService') private alertService: () => AlertService;
+	@Inject('tOrganizationService') private tOrganizationService: () => TOrganizationService;
+	@Inject('alertService') private alertService: () => AlertService;
 
-  public tOrganization: ITOrganization = {};
+	public tOrganization: ITOrganization = {};
 
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if (to.params.tOrganizationId) {
-        vm.retrieveTOrganization(to.params.tOrganizationId);
-      }
-    });
-  }
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			if (to.params.tOrganizationId) {
+				vm.retrieveTOrganization(to.params.tOrganizationId);
+			}
+		});
+	}
 
-  public retrieveTOrganization(tOrganizationId) {
-    this.tOrganizationService()
-      .find(tOrganizationId)
-      .then(res => {
-        this.tOrganization = res;
-      })
-      .catch(error => {
-        this.alertService().showHttpError(this, error.response);
-      });
-  }
+	public retrieveTOrganization(tOrganizationId) {
+		this.tOrganizationService()
+			.find(tOrganizationId)
+			.then(res => {
+				this.tOrganization = res;
+			})
+			.catch(error => {
+				this.alertService().showHttpError(this, error.response);
+			});
+	}
 
-  public previousState() {
-    this.$router.go(-1);
-  }
+	public previousState() {
+		this.$router.go(-1);
+	}
 }

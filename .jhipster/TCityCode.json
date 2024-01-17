@@ -1,47 +1,47 @@
 {
-  "applications": "*",
-  "changelogDate": "20240109064556",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "t_city_code",
-  "fields": [
-    {
-      "fieldName": "cityCode",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "cityName",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "enteredBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "enteredDate",
-      "fieldType": "ZonedDateTime"
-    },
-    {
-      "fieldName": "modifiedBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "modifiedDate",
-      "fieldType": "ZonedDateTime"
-    }
-  ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "TCityCode",
-  "pagination": "no",
-  "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "tStateCode",
-      "otherEntityRelationshipName": "tCityCode",
-      "relationshipName": "tStateCode",
-      "relationshipType": "many-to-one"
-    }
-  ],
-  "service": "no"
+	"applications": "*",
+	"changelogDate": "20240109064556",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_city_code",
+	"fields": [
+		{
+			"fieldName": "cityCode",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "cityName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TCityCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tStateCode",
+			"otherEntityRelationshipName": "tCityCode",
+			"relationshipName": "tStateCode",
+			"relationshipType": "many-to-one"
+		}
+	],
+	"service": "no"
 }

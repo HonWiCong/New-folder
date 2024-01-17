@@ -30,104 +30,104 @@ localVue.component('b-form-datepicker', {});
 localVue.component('b-form-input', {});
 
 describe('Component Tests', () => {
-  describe('TOrgContactPerson Management Update Component', () => {
-    let wrapper: Wrapper<TOrgContactPersonClass>;
-    let comp: TOrgContactPersonClass;
-    let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
+	describe('TOrgContactPerson Management Update Component', () => {
+		let wrapper: Wrapper<TOrgContactPersonClass>;
+		let comp: TOrgContactPersonClass;
+		let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
 
-    beforeEach(() => {
-      tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
+		beforeEach(() => {
+			tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
 
-      wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonUpdateComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: {
-          tOrgContactPersonService: () => tOrgContactPersonServiceStub,
-          alertService: () => new AlertService(),
+			wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonUpdateComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: {
+					tOrgContactPersonService: () => tOrgContactPersonServiceStub,
+					alertService: () => new AlertService(),
 
-          tOrganizationService: () =>
-            sinon.createStubInstance<TOrganizationService>(TOrganizationService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
-        },
-      });
-      comp = wrapper.vm;
-    });
+					tOrganizationService: () =>
+						sinon.createStubInstance<TOrganizationService>(TOrganizationService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('load', () => {
-      it('Should convert date from string', () => {
-        // GIVEN
-        const date = new Date('2019-10-15T11:42:02Z');
+		describe('load', () => {
+			it('Should convert date from string', () => {
+				// GIVEN
+				const date = new Date('2019-10-15T11:42:02Z');
 
-        // WHEN
-        const convertedDate = comp.convertDateTimeFromServer(date);
+				// WHEN
+				const convertedDate = comp.convertDateTimeFromServer(date);
 
-        // THEN
-        expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
-      });
+				// THEN
+				expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
+			});
 
-      it('Should not convert date if date is not present', () => {
-        expect(comp.convertDateTimeFromServer(null)).toBeNull();
-      });
-    });
+			it('Should not convert date if date is not present', () => {
+				expect(comp.convertDateTimeFromServer(null)).toBeNull();
+			});
+		});
 
-    describe('save', () => {
-      it('Should call update service on save for existing entity', async () => {
-        // GIVEN
-        const entity = { id: 123 };
-        comp.tOrgContactPerson = entity;
-        tOrgContactPersonServiceStub.update.resolves(entity);
+		describe('save', () => {
+			it('Should call update service on save for existing entity', async () => {
+				// GIVEN
+				const entity = { id: 123 };
+				comp.tOrgContactPerson = entity;
+				tOrgContactPersonServiceStub.update.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tOrgContactPersonServiceStub.update.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
+				// THEN
+				expect(tOrgContactPersonServiceStub.update.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
 
-      it('Should call create service on save for new entity', async () => {
-        // GIVEN
-        const entity = {};
-        comp.tOrgContactPerson = entity;
-        tOrgContactPersonServiceStub.create.resolves(entity);
+			it('Should call create service on save for new entity', async () => {
+				// GIVEN
+				const entity = {};
+				comp.tOrgContactPerson = entity;
+				tOrgContactPersonServiceStub.create.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tOrgContactPersonServiceStub.create.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
-    });
+				// THEN
+				expect(tOrgContactPersonServiceStub.create.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTOrgContactPerson = { id: 123 };
-        tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
-        tOrgContactPersonServiceStub.retrieve.resolves([foundTOrgContactPerson]);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTOrgContactPerson = { id: 123 };
+				tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
+				tOrgContactPersonServiceStub.retrieve.resolves([foundTOrgContactPerson]);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tOrgContactPersonId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tOrgContactPersonId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
-      });
-    });
+				// THEN
+				expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

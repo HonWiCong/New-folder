@@ -22,62 +22,62 @@ localVue.component('b-button', {});
 localVue.component('router-link', {});
 
 const bModalStub = {
-  render: () => {},
-  methods: {
-    hide: () => {},
-    show: () => {},
-  },
+	render: () => {},
+	methods: {
+		hide: () => {},
+		show: () => {},
+	},
 };
 
 describe('Component Tests', () => {
-  describe('TOrgContactPerson Management Component', () => {
-    let wrapper: Wrapper<TOrgContactPersonClass>;
-    let comp: TOrgContactPersonClass;
-    let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
+	describe('TOrgContactPerson Management Component', () => {
+		let wrapper: Wrapper<TOrgContactPersonClass>;
+		let comp: TOrgContactPersonClass;
+		let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
 
-    beforeEach(() => {
-      tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
-      tOrgContactPersonServiceStub.retrieve.resolves({ headers: {} });
+		beforeEach(() => {
+			tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
+			tOrgContactPersonServiceStub.retrieve.resolves({ headers: {} });
 
-      wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonComponent, {
-        store,
-        i18n,
-        localVue,
-        stubs: { bModal: bModalStub as any },
-        provide: {
-          tOrgContactPersonService: () => tOrgContactPersonServiceStub,
-          alertService: () => new AlertService(),
-        },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonComponent, {
+				store,
+				i18n,
+				localVue,
+				stubs: { bModal: bModalStub as any },
+				provide: {
+					tOrgContactPersonService: () => tOrgContactPersonServiceStub,
+					alertService: () => new AlertService(),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    it('Should call load all on init', async () => {
-      // GIVEN
-      tOrgContactPersonServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
+		it('Should call load all on init', async () => {
+			// GIVEN
+			tOrgContactPersonServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
 
-      // WHEN
-      comp.retrieveAllTOrgContactPersons();
-      await comp.$nextTick();
+			// WHEN
+			comp.retrieveAllTOrgContactPersons();
+			await comp.$nextTick();
 
-      // THEN
-      expect(tOrgContactPersonServiceStub.retrieve.called).toBeTruthy();
-      expect(comp.tOrgContactPeople[0]).toEqual(expect.objectContaining({ id: 123 }));
-    });
-    it('Should call delete service on confirmDelete', async () => {
-      // GIVEN
-      tOrgContactPersonServiceStub.delete.resolves({});
+			// THEN
+			expect(tOrgContactPersonServiceStub.retrieve.called).toBeTruthy();
+			expect(comp.tOrgContactPeople[0]).toEqual(expect.objectContaining({ id: 123 }));
+		});
+		it('Should call delete service on confirmDelete', async () => {
+			// GIVEN
+			tOrgContactPersonServiceStub.delete.resolves({});
 
-      // WHEN
-      comp.prepareRemove({ id: 123 });
-      expect(tOrgContactPersonServiceStub.retrieve.callCount).toEqual(1);
+			// WHEN
+			comp.prepareRemove({ id: 123 });
+			expect(tOrgContactPersonServiceStub.retrieve.callCount).toEqual(1);
 
-      comp.removeTOrgContactPerson();
-      await comp.$nextTick();
+			comp.removeTOrgContactPerson();
+			await comp.$nextTick();
 
-      // THEN
-      expect(tOrgContactPersonServiceStub.delete.called).toBeTruthy();
-      expect(tOrgContactPersonServiceStub.retrieve.callCount).toEqual(2);
-    });
-  });
+			// THEN
+			expect(tOrgContactPersonServiceStub.delete.called).toBeTruthy();
+			expect(tOrgContactPersonServiceStub.retrieve.callCount).toEqual(2);
+		});
+	});
 });

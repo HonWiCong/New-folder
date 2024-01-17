@@ -8,7 +8,6 @@ entity TCountryCode {
   modifiedDate ZonedDateTime
   orgCustomerType String
 }
-
 entity TStateCode {
   stateName String
   stateCode String
@@ -17,7 +16,6 @@ entity TStateCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TDivisionCode {
   divName String
   enteredBy Integer
@@ -25,7 +23,6 @@ entity TDivisionCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TDistrictCode {
   disName String
   enteredBy Integer
@@ -33,7 +30,6 @@ entity TDistrictCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TCityCode {
   cityCode String
   cityName String
@@ -42,7 +38,6 @@ entity TCityCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TIndustryCode {
   industryName String
   enteredBy Integer
@@ -50,7 +45,6 @@ entity TIndustryCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TSectorCode {
   sectorName String
   sectorDescription String
@@ -59,7 +53,6 @@ entity TSectorCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TBrandCode {
   brandName String
   enteredBy Integer
@@ -67,7 +60,6 @@ entity TBrandCode {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TAuditTrail {
   userId Integer
   dateTime ZonedDateTime
@@ -78,18 +70,15 @@ entity TAuditTrail {
   atStatus String
   stFullDesc String
 }
-
 relationship ManyToOne {
   TStateCode to TCountryCode
   TCityCode to TStateCode
   TDistrictCode to TDivisionCode
 }
-
 enum TaxStatus {
-	Y
+  Y
   N
 }
-
 entity TSupplierCategory {
   spcCategory String
   enteredBy Integer
@@ -97,9 +86,8 @@ entity TSupplierCategory {
   modifiedBy Integer
   modifiedDate ZonedDateTime
 }
-
 entity TSmTax {
-    smTaxCode String
+  smTaxCode String
     smTaxDescription String
     smTaxPercentage BigDecimal
     smTaxType String
@@ -124,9 +112,8 @@ entity TSmTax {
     smTaxRcmFlag String
     smTaxCga String
 }
-
 entity TOrgContactPerson {
-    ocpOrgcodeid Long
+  ocpOrgcodeid Long
     ocpTitle String
     ocpName String
     ocpDesignation String
@@ -140,17 +127,15 @@ entity TOrgContactPerson {
     modifiedBy Integer
     modifiedDate ZonedDateTime
 }
-
 entity TTitleCode {
-    ttTitle String
+  ttTitle String
     enteredBy Integer
     enteredDate ZonedDateTime
     modifiedBy Integer
     modifiedDate ZonedDateTime
 }
-
 entity TOrganization {
-    orgHqid Integer
+  orgHqid Integer
     orgHqBr String
     orgCode String
     orgBrn String
@@ -215,7 +200,6 @@ entity TOrganization {
     modifiedBy Integer
     modifiedDate ZonedDateTime
 }
-
 relationship ManyToOne {
-  TOrgContactPerson to TOrganization
+  TOrgContactPerson{organization} to TOrganization{contactPersons}
 }

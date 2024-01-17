@@ -6,31 +6,31 @@ import AlertService from '@/shared/alert/alert.service';
 
 @Component
 export default class TOrgContactPersonDetails extends Vue {
-  @Inject('tOrgContactPersonService') private tOrgContactPersonService: () => TOrgContactPersonService;
-  @Inject('alertService') private alertService: () => AlertService;
+	@Inject('tOrgContactPersonService') private tOrgContactPersonService: () => TOrgContactPersonService;
+	@Inject('alertService') private alertService: () => AlertService;
 
-  public tOrgContactPerson: ITOrgContactPerson = {};
+	public tOrgContactPerson: ITOrgContactPerson = {};
 
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if (to.params.tOrgContactPersonId) {
-        vm.retrieveTOrgContactPerson(to.params.tOrgContactPersonId);
-      }
-    });
-  }
+	beforeRouteEnter(to, from, next) {
+		next(vm => {
+			if (to.params.tOrgContactPersonId) {
+				vm.retrieveTOrgContactPerson(to.params.tOrgContactPersonId);
+			}
+		});
+	}
 
-  public retrieveTOrgContactPerson(tOrgContactPersonId) {
-    this.tOrgContactPersonService()
-      .find(tOrgContactPersonId)
-      .then(res => {
-        this.tOrgContactPerson = res;
-      })
-      .catch(error => {
-        this.alertService().showHttpError(this, error.response);
-      });
-  }
+	public retrieveTOrgContactPerson(tOrgContactPersonId) {
+		this.tOrgContactPersonService()
+			.find(tOrgContactPersonId)
+			.then(res => {
+				this.tOrgContactPerson = res;
+			})
+			.catch(error => {
+				this.alertService().showHttpError(this, error.response);
+			});
+	}
 
-  public previousState() {
-    this.$router.go(-1);
-  }
+	public previousState() {
+		this.$router.go(-1);
+	}
 }

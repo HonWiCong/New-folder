@@ -1,43 +1,43 @@
 {
-  "applications": "*",
-  "changelogDate": "20240109064554",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "t_division_code",
-  "fields": [
-    {
-      "fieldName": "divName",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "enteredBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "enteredDate",
-      "fieldType": "ZonedDateTime"
-    },
-    {
-      "fieldName": "modifiedBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "modifiedDate",
-      "fieldType": "ZonedDateTime"
-    }
-  ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "TDivisionCode",
-  "pagination": "no",
-  "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "tDistrictCode",
-      "otherEntityRelationshipName": "tDivisionCode",
-      "relationshipName": "tDistrictCode",
-      "relationshipType": "one-to-many"
-    }
-  ],
-  "service": "no"
+	"applications": "*",
+	"changelogDate": "20240109064554",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_division_code",
+	"fields": [
+		{
+			"fieldName": "divName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TDivisionCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tDistrictCode",
+			"otherEntityRelationshipName": "tDivisionCode",
+			"relationshipName": "tDistrictCode",
+			"relationshipType": "one-to-many"
+		}
+	],
+	"service": "no"
 }

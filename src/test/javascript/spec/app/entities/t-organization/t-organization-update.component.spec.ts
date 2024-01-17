@@ -30,104 +30,104 @@ localVue.component('b-form-datepicker', {});
 localVue.component('b-form-input', {});
 
 describe('Component Tests', () => {
-  describe('TOrganization Management Update Component', () => {
-    let wrapper: Wrapper<TOrganizationClass>;
-    let comp: TOrganizationClass;
-    let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
+	describe('TOrganization Management Update Component', () => {
+		let wrapper: Wrapper<TOrganizationClass>;
+		let comp: TOrganizationClass;
+		let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
 
-    beforeEach(() => {
-      tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
+		beforeEach(() => {
+			tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
 
-      wrapper = shallowMount<TOrganizationClass>(TOrganizationUpdateComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: {
-          tOrganizationService: () => tOrganizationServiceStub,
-          alertService: () => new AlertService(),
+			wrapper = shallowMount<TOrganizationClass>(TOrganizationUpdateComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: {
+					tOrganizationService: () => tOrganizationServiceStub,
+					alertService: () => new AlertService(),
 
-          tOrgContactPersonService: () =>
-            sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
-        },
-      });
-      comp = wrapper.vm;
-    });
+					tOrgContactPersonService: () =>
+						sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('load', () => {
-      it('Should convert date from string', () => {
-        // GIVEN
-        const date = new Date('2019-10-15T11:42:02Z');
+		describe('load', () => {
+			it('Should convert date from string', () => {
+				// GIVEN
+				const date = new Date('2019-10-15T11:42:02Z');
 
-        // WHEN
-        const convertedDate = comp.convertDateTimeFromServer(date);
+				// WHEN
+				const convertedDate = comp.convertDateTimeFromServer(date);
 
-        // THEN
-        expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
-      });
+				// THEN
+				expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
+			});
 
-      it('Should not convert date if date is not present', () => {
-        expect(comp.convertDateTimeFromServer(null)).toBeNull();
-      });
-    });
+			it('Should not convert date if date is not present', () => {
+				expect(comp.convertDateTimeFromServer(null)).toBeNull();
+			});
+		});
 
-    describe('save', () => {
-      it('Should call update service on save for existing entity', async () => {
-        // GIVEN
-        const entity = { id: 123 };
-        comp.tOrganization = entity;
-        tOrganizationServiceStub.update.resolves(entity);
+		describe('save', () => {
+			it('Should call update service on save for existing entity', async () => {
+				// GIVEN
+				const entity = { id: 123 };
+				comp.tOrganization = entity;
+				tOrganizationServiceStub.update.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tOrganizationServiceStub.update.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
+				// THEN
+				expect(tOrganizationServiceStub.update.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
 
-      it('Should call create service on save for new entity', async () => {
-        // GIVEN
-        const entity = {};
-        comp.tOrganization = entity;
-        tOrganizationServiceStub.create.resolves(entity);
+			it('Should call create service on save for new entity', async () => {
+				// GIVEN
+				const entity = {};
+				comp.tOrganization = entity;
+				tOrganizationServiceStub.create.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tOrganizationServiceStub.create.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
-    });
+				// THEN
+				expect(tOrganizationServiceStub.create.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTOrganization = { id: 123 };
-        tOrganizationServiceStub.find.resolves(foundTOrganization);
-        tOrganizationServiceStub.retrieve.resolves([foundTOrganization]);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTOrganization = { id: 123 };
+				tOrganizationServiceStub.find.resolves(foundTOrganization);
+				tOrganizationServiceStub.retrieve.resolves([foundTOrganization]);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tOrganizationId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tOrganizationId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrganization).toBe(foundTOrganization);
-      });
-    });
+				// THEN
+				expect(comp.tOrganization).toBe(foundTOrganization);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

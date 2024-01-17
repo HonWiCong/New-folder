@@ -20,61 +20,61 @@ localVue.component('font-awesome-icon', {});
 localVue.component('router-link', {});
 
 describe('Component Tests', () => {
-  describe('TOrganization Management Detail Component', () => {
-    let wrapper: Wrapper<TOrganizationClass>;
-    let comp: TOrganizationClass;
-    let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
+	describe('TOrganization Management Detail Component', () => {
+		let wrapper: Wrapper<TOrganizationClass>;
+		let comp: TOrganizationClass;
+		let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
 
-    beforeEach(() => {
-      tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
+		beforeEach(() => {
+			tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
 
-      wrapper = shallowMount<TOrganizationClass>(TOrganizationDetailComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: { tOrganizationService: () => tOrganizationServiceStub, alertService: () => new AlertService() },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TOrganizationClass>(TOrganizationDetailComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: { tOrganizationService: () => tOrganizationServiceStub, alertService: () => new AlertService() },
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('OnInit', () => {
-      it('Should call load all on init', async () => {
-        // GIVEN
-        const foundTOrganization = { id: 123 };
-        tOrganizationServiceStub.find.resolves(foundTOrganization);
+		describe('OnInit', () => {
+			it('Should call load all on init', async () => {
+				// GIVEN
+				const foundTOrganization = { id: 123 };
+				tOrganizationServiceStub.find.resolves(foundTOrganization);
 
-        // WHEN
-        comp.retrieveTOrganization(123);
-        await comp.$nextTick();
+				// WHEN
+				comp.retrieveTOrganization(123);
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrganization).toBe(foundTOrganization);
-      });
-    });
+				// THEN
+				expect(comp.tOrganization).toBe(foundTOrganization);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTOrganization = { id: 123 };
-        tOrganizationServiceStub.find.resolves(foundTOrganization);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTOrganization = { id: 123 };
+				tOrganizationServiceStub.find.resolves(foundTOrganization);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tOrganizationId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tOrganizationId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrganization).toBe(foundTOrganization);
-      });
-    });
+				// THEN
+				expect(comp.tOrganization).toBe(foundTOrganization);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

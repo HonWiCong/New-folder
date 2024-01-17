@@ -53,7 +53,7 @@
             <column name="modified_date" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
-            <column name="t_organization_id" type="bigint">
+            <column name="organization_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

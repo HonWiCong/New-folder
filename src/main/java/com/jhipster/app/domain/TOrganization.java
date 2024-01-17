@@ -1,17 +1,11 @@
 package com.jhipster.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.jhipster.app.domain.dto.TOrganizationDTO;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
@@ -27,19 +21,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class TOrganization implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@Transient
-	@JsonInclude
-	@JsonProperty("deletedId")
-	public List<Long> deletedId;
-
-	public void setDeletedId(List<Long> deletedId) {
-		this.deletedId = deletedId;
-	}
-
-	public List<Long> getDeletedId() {
-		return deletedId;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -238,10 +219,10 @@ public class TOrganization implements Serializable {
 	@Column(name = "modified_date")
 	private ZonedDateTime modifiedDate;
 
-	@OneToMany(mappedBy = "tOrganization")
+	@OneToMany(mappedBy = "organization", cascade = CascadeType.ALL, orphanRemoval = true)
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	@JsonIgnoreProperties(value = { "tOrganization" }, allowSetters = true)
-	private Set<TOrgContactPerson> tOrgContactPeople = new HashSet<>();
+	@JsonIgnoreProperties(value = { "organization" }, allowSetters = true)
+	private Set<TOrgContactPerson> contactPersons = new HashSet<>();
 
 	// jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -1090,34 +1071,34 @@ public class TOrganization implements Serializable {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public Set<TOrgContactPerson> getTOrgContactPeople() {
-		return this.tOrgContactPeople;
+	public Set<TOrgContactPerson> getContactPersons() {
+		return this.contactPersons;
 	}
 
-	public void setTOrgContactPeople(Set<TOrgContactPerson> tOrgContactPeople) {
-		if (this.tOrgContactPeople != null) {
-			this.tOrgContactPeople.forEach(i -> i.setTOrganization(null));
+	public void setContactPersons(Set<TOrgContactPerson> tOrgContactPeople) {
+		if (this.contactPersons != null) {
+			this.contactPersons.forEach(i -> i.setOrganization(null));
 		}
 		if (tOrgContactPeople != null) {
-			tOrgContactPeople.forEach(i -> i.setTOrganization(this));
+			tOrgContactPeople.forEach(i -> i.setOrganization(this));
 		}
-		this.tOrgContactPeople = tOrgContactPeople;
+		this.contactPersons = tOrgContactPeople;
 	}
 
-	public TOrganization tOrgContactPeople(Set<TOrgContactPerson> tOrgContactPeople) {
-		this.setTOrgContactPeople(tOrgContactPeople);
+	public TOrganization contactPersons(Set<TOrgContactPerson> tOrgContactPeople) {
+		this.setContactPersons(tOrgContactPeople);
 		return this;
 	}
 
-	public TOrganization addTOrgContactPerson(TOrgContactPerson tOrgContactPerson) {
-		this.tOrgContactPeople.add(tOrgContactPerson);
-		tOrgContactPerson.setTOrganization(this);
+	public TOrganization addContactPersons(TOrgContactPerson tOrgContactPerson) {
+		this.contactPersons.add(tOrgContactPerson);
+		tOrgContactPerson.setOrganization(this);
 		return this;
 	}
 
-	public TOrganization removeTOrgContactPerson(TOrgContactPerson tOrgContactPerson) {
-		this.tOrgContactPeople.remove(tOrgContactPerson);
-		tOrgContactPerson.setTOrganization(null);
+	public TOrganization removeContactPersons(TOrgContactPerson tOrgContactPerson) {
+		this.contactPersons.remove(tOrgContactPerson);
+		tOrgContactPerson.setOrganization(null);
 		return this;
 	}
 
@@ -1211,11 +1192,4 @@ public class TOrganization implements Serializable {
             ", modifiedDate='" + getModifiedDate() + "'" +
             "}";
     }
-
-	public TOrganization dtoToEntity(TOrganizationDTO tOrganizationDTO) {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.registerModule(new JavaTimeModule());
-		TOrganization tOrganization = mapper.convertValue(tOrganizationDTO, TOrganization.class);
-		return tOrganization;
-	}
 }

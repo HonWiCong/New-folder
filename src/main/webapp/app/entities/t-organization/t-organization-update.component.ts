@@ -38,7 +38,6 @@ import { ITSectorCode } from '@/shared/model/t-sector-code.model';
 
 import TIndustryCodeService from '../t-industry-code/t-industry-code.service';
 import { ITIndustryCode } from '@/shared/model/t-industry-code.model';
-import { getSystemErrorMap } from 'util';
 
 const validations: any = {
 	tOrganization: {
@@ -162,7 +161,7 @@ export default class TOrganizationUpdate extends Vue {
 	public tOrganization: ITOrganization = new TOrganization();
 
 	@Inject('tOrgContactPersonService') private tOrgContactPersonService: () => TOrgContactPersonService;
-	// public tOrgContactPeople: ITOrgContactPerson[] = [];
+	public tOrgContactPeople: ITOrgContactPerson[] = [];
 
 	@Inject('tCountryCodeService') private tCountryCodeService: () => TCountryCodeService;
 	public tCountryCodes: ITCountryCode[] = [];
@@ -201,12 +200,15 @@ export default class TOrganizationUpdate extends Vue {
 	public selectedState = '';
 	public selectedDivision = '';
 
-	public deleted_id: number[] = [];
+	public deletedId: number[] = [];
 
 	beforeRouteEnter(to, from, next) {
 		next(vm => {
 			if (to.params.tOrganizationId) {
 				vm.retrieveTOrganization(to.params.tOrganizationId);
+			} else {
+				// prevent undefined error
+				vm.tOrganization.contactPersons = [new TOrgContactPerson()];
 			}
 			vm.initRelationships();
 		});
@@ -225,8 +227,7 @@ export default class TOrganizationUpdate extends Vue {
 	public save(): void {
 		this.isSaving = true;
 		if (this.tOrganization.id) {
-			console.log('Update');
-			this.tOrganization.deletedId = this.deleted_id;
+			this.tOrganization.deletedId = this.deletedId;
 			console.log(this.tOrganization);
 			this.tOrganizationService()
 				.update(this.tOrganization)
@@ -296,6 +297,7 @@ export default class TOrganizationUpdate extends Vue {
 		this.tOrganizationService()
 			.find(tOrganizationId)
 			.then(res => {
+				console.log(res);
 				res.confirmedDate = new Date(res.confirmedDate);
 				res.enteredDate = new Date(res.enteredDate);
 				res.modifiedDate = new Date(res.modifiedDate);
@@ -311,14 +313,6 @@ export default class TOrganizationUpdate extends Vue {
 	}
 
 	public initRelationships(): void {
-		this.tOrgContactPersonService()
-			.retrieve()
-			.then(res => {
-				this.tOrganization.torgContactPeople = res.data;
-				if (this.tOrganization.torgContactPeople.length < 1) {
-					this.addContactPerson();
-				}
-			});
 		this.tCountryCodeService()
 			.retrieve()
 			.then(res => {
@@ -370,18 +364,20 @@ export default class TOrganizationUpdate extends Vue {
 	}
 
 	public addContactPerson(): void {
-		this.tOrganization.torgContactPeople.push(new TOrgContactPerson());
+		this.tOrganization.contactPersons.push(new TOrgContactPerson());
+		console.log(this.tOrganization.contactPersons);
 	}
 
 	public removeContactPerson(index: number): void {
-		if (this.tOrganization.torgContactPeople.length > 1) {
-			this.deleted_id.push(this.tOrganization.torgContactPeople[index].id);
-			this.tOrganization.torgContactPeople.splice(index, 1);
+		if (this.tOrganization.contactPersons !== undefined && this.tOrganization.contactPersons.length > 1) {
+			this.deletedId.push(this.tOrganization.contactPersons[index].id);
+			this.tOrganization.contactPersons.splice(index, 1);
 		}
 	}
 
 	public checkInvalid() {
-		this.tOrganization.deletedId = this.deleted_id;
+		this.tOrganization.deletedId = this.deletedId;
 		console.log(this.tOrganization);
+		console.log(this.$v.tOrganization);
 	}
 }

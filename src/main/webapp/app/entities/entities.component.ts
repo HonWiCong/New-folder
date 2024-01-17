@@ -19,20 +19,20 @@ import TOrganizationService from './t-organization/t-organization.service';
 
 @Component
 export default class Entities extends Vue {
-  @Provide('userService') private userService = () => new UserService();
-  @Provide('tCountryCodeService') private tCountryCodeService = () => new TCountryCodeService();
-  @Provide('tStateCodeService') private tStateCodeService = () => new TStateCodeService();
-  @Provide('tDivisionCodeService') private tDivisionCodeService = () => new TDivisionCodeService();
-  @Provide('tDistrictCodeService') private tDistrictCodeService = () => new TDistrictCodeService();
-  @Provide('tCityCodeService') private tCityCodeService = () => new TCityCodeService();
-  @Provide('tIndustryCodeService') private tIndustryCodeService = () => new TIndustryCodeService();
-  @Provide('tSectorCodeService') private tSectorCodeService = () => new TSectorCodeService();
-  @Provide('tBrandCodeService') private tBrandCodeService = () => new TBrandCodeService();
-  @Provide('tAuditTrailService') private tAuditTrailService = () => new TAuditTrailService();
-  @Provide('tSupplierCategoryService') private tSupplierCategoryService = () => new TSupplierCategoryService();
-  @Provide('tSmTaxService') private tSmTaxService = () => new TSmTaxService();
-  @Provide('tOrgContactPersonService') private tOrgContactPersonService = () => new TOrgContactPersonService();
-  @Provide('tTitleCodeService') private tTitleCodeService = () => new TTitleCodeService();
-  @Provide('tOrganizationService') private tOrganizationService = () => new TOrganizationService();
-  // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
+	@Provide('userService') private userService = () => new UserService();
+	@Provide('tCountryCodeService') private tCountryCodeService = () => new TCountryCodeService();
+	@Provide('tStateCodeService') private tStateCodeService = () => new TStateCodeService();
+	@Provide('tDivisionCodeService') private tDivisionCodeService = () => new TDivisionCodeService();
+	@Provide('tDistrictCodeService') private tDistrictCodeService = () => new TDistrictCodeService();
+	@Provide('tCityCodeService') private tCityCodeService = () => new TCityCodeService();
+	@Provide('tIndustryCodeService') private tIndustryCodeService = () => new TIndustryCodeService();
+	@Provide('tSectorCodeService') private tSectorCodeService = () => new TSectorCodeService();
+	@Provide('tBrandCodeService') private tBrandCodeService = () => new TBrandCodeService();
+	@Provide('tAuditTrailService') private tAuditTrailService = () => new TAuditTrailService();
+	@Provide('tSupplierCategoryService') private tSupplierCategoryService = () => new TSupplierCategoryService();
+	@Provide('tSmTaxService') private tSmTaxService = () => new TSmTaxService();
+	@Provide('tOrgContactPersonService') private tOrgContactPersonService = () => new TOrgContactPersonService();
+	@Provide('tTitleCodeService') private tTitleCodeService = () => new TTitleCodeService();
+	@Provide('tOrganizationService') private tOrganizationService = () => new TOrganizationService();
+	// jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

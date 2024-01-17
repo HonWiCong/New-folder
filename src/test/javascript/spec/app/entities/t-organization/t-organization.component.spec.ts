@@ -22,62 +22,62 @@ localVue.component('b-button', {});
 localVue.component('router-link', {});
 
 const bModalStub = {
-  render: () => {},
-  methods: {
-    hide: () => {},
-    show: () => {},
-  },
+	render: () => {},
+	methods: {
+		hide: () => {},
+		show: () => {},
+	},
 };
 
 describe('Component Tests', () => {
-  describe('TOrganization Management Component', () => {
-    let wrapper: Wrapper<TOrganizationClass>;
-    let comp: TOrganizationClass;
-    let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
+	describe('TOrganization Management Component', () => {
+		let wrapper: Wrapper<TOrganizationClass>;
+		let comp: TOrganizationClass;
+		let tOrganizationServiceStub: SinonStubbedInstance<TOrganizationService>;
 
-    beforeEach(() => {
-      tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
-      tOrganizationServiceStub.retrieve.resolves({ headers: {} });
+		beforeEach(() => {
+			tOrganizationServiceStub = sinon.createStubInstance<TOrganizationService>(TOrganizationService);
+			tOrganizationServiceStub.retrieve.resolves({ headers: {} });
 
-      wrapper = shallowMount<TOrganizationClass>(TOrganizationComponent, {
-        store,
-        i18n,
-        localVue,
-        stubs: { bModal: bModalStub as any },
-        provide: {
-          tOrganizationService: () => tOrganizationServiceStub,
-          alertService: () => new AlertService(),
-        },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TOrganizationClass>(TOrganizationComponent, {
+				store,
+				i18n,
+				localVue,
+				stubs: { bModal: bModalStub as any },
+				provide: {
+					tOrganizationService: () => tOrganizationServiceStub,
+					alertService: () => new AlertService(),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    it('Should call load all on init', async () => {
-      // GIVEN
-      tOrganizationServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
+		it('Should call load all on init', async () => {
+			// GIVEN
+			tOrganizationServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
 
-      // WHEN
-      comp.retrieveAllTOrganizations();
-      await comp.$nextTick();
+			// WHEN
+			comp.retrieveAllTOrganizations();
+			await comp.$nextTick();
 
-      // THEN
-      expect(tOrganizationServiceStub.retrieve.called).toBeTruthy();
-      expect(comp.tOrganizations[0]).toEqual(expect.objectContaining({ id: 123 }));
-    });
-    it('Should call delete service on confirmDelete', async () => {
-      // GIVEN
-      tOrganizationServiceStub.delete.resolves({});
+			// THEN
+			expect(tOrganizationServiceStub.retrieve.called).toBeTruthy();
+			expect(comp.tOrganizations[0]).toEqual(expect.objectContaining({ id: 123 }));
+		});
+		it('Should call delete service on confirmDelete', async () => {
+			// GIVEN
+			tOrganizationServiceStub.delete.resolves({});
 
-      // WHEN
-      comp.prepareRemove({ id: 123 });
-      expect(tOrganizationServiceStub.retrieve.callCount).toEqual(1);
+			// WHEN
+			comp.prepareRemove({ id: 123 });
+			expect(tOrganizationServiceStub.retrieve.callCount).toEqual(1);
 
-      comp.removeTOrganization();
-      await comp.$nextTick();
+			comp.removeTOrganization();
+			await comp.$nextTick();
 
-      // THEN
-      expect(tOrganizationServiceStub.delete.called).toBeTruthy();
-      expect(tOrganizationServiceStub.retrieve.callCount).toEqual(2);
-    });
-  });
+			// THEN
+			expect(tOrganizationServiceStub.delete.called).toBeTruthy();
+			expect(tOrganizationServiceStub.retrieve.callCount).toEqual(2);
+		});
+	});
 });

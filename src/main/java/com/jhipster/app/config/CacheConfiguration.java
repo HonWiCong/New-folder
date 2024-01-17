@@ -19,78 +19,79 @@ import tech.jhipster.config.cache.PrefixedKeyGenerator;
 @EnableCaching
 public class CacheConfiguration {
 
-    private GitProperties gitProperties;
-    private BuildProperties buildProperties;
-    private final javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration;
+	private GitProperties gitProperties;
+	private BuildProperties buildProperties;
+	private final javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration;
 
-    public CacheConfiguration(JHipsterProperties jHipsterProperties) {
-        JHipsterProperties.Cache.Ehcache ehcache = jHipsterProperties.getCache().getEhcache();
+	public CacheConfiguration(JHipsterProperties jHipsterProperties) {
+		JHipsterProperties.Cache.Ehcache ehcache = jHipsterProperties.getCache().getEhcache();
 
-        jcacheConfiguration =
-            Eh107Configuration.fromEhcacheCacheConfiguration(
-                CacheConfigurationBuilder
-                    .newCacheConfigurationBuilder(Object.class, Object.class, ResourcePoolsBuilder.heap(ehcache.getMaxEntries()))
-                    .withExpiry(ExpiryPolicyBuilder.timeToLiveExpiration(Duration.ofSeconds(ehcache.getTimeToLiveSeconds())))
-                    .build()
-            );
-    }
+		jcacheConfiguration =
+			Eh107Configuration.fromEhcacheCacheConfiguration(
+				CacheConfigurationBuilder
+					.newCacheConfigurationBuilder(Object.class, Object.class, ResourcePoolsBuilder.heap(ehcache.getMaxEntries()))
+					.withExpiry(ExpiryPolicyBuilder.timeToLiveExpiration(Duration.ofSeconds(ehcache.getTimeToLiveSeconds())))
+					.build()
+			);
+	}
 
-    @Bean
-    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(javax.cache.CacheManager cacheManager) {
-        return hibernateProperties -> hibernateProperties.put(ConfigSettings.CACHE_MANAGER, cacheManager);
-    }
+	@Bean
+	public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(javax.cache.CacheManager cacheManager) {
+		return hibernateProperties -> hibernateProperties.put(ConfigSettings.CACHE_MANAGER, cacheManager);
+	}
 
-    @Bean
-    public JCacheManagerCustomizer cacheManagerCustomizer() {
-        return cm -> {
-            createCache(cm, com.jhipster.app.repository.UserRepository.USERS_BY_LOGIN_CACHE);
-            createCache(cm, com.jhipster.app.repository.UserRepository.USERS_BY_EMAIL_CACHE);
-            createCache(cm, com.jhipster.app.domain.User.class.getName());
-            createCache(cm, com.jhipster.app.domain.Authority.class.getName());
-            createCache(cm, com.jhipster.app.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName() + ".tStateCodes");
-            createCache(cm, com.jhipster.app.domain.TStateCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TStateCode.class.getName() + ".tCityCodes");
-            createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName() + ".tDistrictCodes");
-            createCache(cm, com.jhipster.app.domain.TDistrictCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TCityCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TIndustryCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TSectorCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TBrandCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TAuditTrail.class.getName());
-            createCache(cm, com.jhipster.app.domain.TSupplierCategory.class.getName());
-            createCache(cm, com.jhipster.app.domain.TSmTax.class.getName());
-            createCache(cm, com.jhipster.app.domain.TOrgContactPerson.class.getName());
-            createCache(cm, com.jhipster.app.domain.TTitleCode.class.getName());
-            createCache(cm, com.jhipster.app.domain.TOrganization.class.getName());
-            createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".tOrgContactPeople");
-            // jhipster-needle-ehcache-add-entry
-        };
-    }
+	@Bean
+	public JCacheManagerCustomizer cacheManagerCustomizer() {
+		return cm -> {
+			createCache(cm, com.jhipster.app.repository.UserRepository.USERS_BY_LOGIN_CACHE);
+			createCache(cm, com.jhipster.app.repository.UserRepository.USERS_BY_EMAIL_CACHE);
+			createCache(cm, com.jhipster.app.domain.User.class.getName());
+			createCache(cm, com.jhipster.app.domain.Authority.class.getName());
+			createCache(cm, com.jhipster.app.domain.User.class.getName() + ".authorities");
+			createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TCountryCode.class.getName() + ".tStateCodes");
+			createCache(cm, com.jhipster.app.domain.TStateCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TStateCode.class.getName() + ".tCityCodes");
+			createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TDivisionCode.class.getName() + ".tDistrictCodes");
+			createCache(cm, com.jhipster.app.domain.TDistrictCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TCityCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TIndustryCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TSectorCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TBrandCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TAuditTrail.class.getName());
+			createCache(cm, com.jhipster.app.domain.TSupplierCategory.class.getName());
+			createCache(cm, com.jhipster.app.domain.TSmTax.class.getName());
+			createCache(cm, com.jhipster.app.domain.TOrgContactPerson.class.getName());
+			createCache(cm, com.jhipster.app.domain.TTitleCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName());
+			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".tOrgContactPeople");
+			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".contactPersons");
+			// jhipster-needle-ehcache-add-entry
+		};
+	}
 
-    private void createCache(javax.cache.CacheManager cm, String cacheName) {
-        javax.cache.Cache<Object, Object> cache = cm.getCache(cacheName);
-        if (cache != null) {
-            cache.clear();
-        } else {
-            cm.createCache(cacheName, jcacheConfiguration);
-        }
-    }
+	private void createCache(javax.cache.CacheManager cm, String cacheName) {
+		javax.cache.Cache<Object, Object> cache = cm.getCache(cacheName);
+		if (cache != null) {
+			cache.clear();
+		} else {
+			cm.createCache(cacheName, jcacheConfiguration);
+		}
+	}
 
-    @Autowired(required = false)
-    public void setGitProperties(GitProperties gitProperties) {
-        this.gitProperties = gitProperties;
-    }
+	@Autowired(required = false)
+	public void setGitProperties(GitProperties gitProperties) {
+		this.gitProperties = gitProperties;
+	}
 
-    @Autowired(required = false)
-    public void setBuildProperties(BuildProperties buildProperties) {
-        this.buildProperties = buildProperties;
-    }
+	@Autowired(required = false)
+	public void setBuildProperties(BuildProperties buildProperties) {
+		this.buildProperties = buildProperties;
+	}
 
-    @Bean
-    public KeyGenerator keyGenerator() {
-        return new PrefixedKeyGenerator(this.gitProperties, this.buildProperties);
-    }
+	@Bean
+	public KeyGenerator keyGenerator() {
+		return new PrefixedKeyGenerator(this.gitProperties, this.buildProperties);
+	}
 }

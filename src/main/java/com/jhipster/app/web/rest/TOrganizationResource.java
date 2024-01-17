@@ -1,9 +1,6 @@
 package com.jhipster.app.web.rest;
 
-import com.jhipster.app.domain.TOrgContactPerson;
 import com.jhipster.app.domain.TOrganization;
-import com.jhipster.app.domain.dto.TOrganizationDTO;
-import com.jhipster.app.domain.mapper.TOrganizationMapper;
 import com.jhipster.app.repository.TOrgContactPersonRepository;
 import com.jhipster.app.repository.TOrganizationRepository;
 import com.jhipster.app.web.rest.errors.BadRequestAlertException;
@@ -12,7 +9,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -53,26 +49,20 @@ public class TOrganizationResource {
 	 * @throws URISyntaxException if the Location URI syntax is incorrect.
 	 */
 	@PostMapping("/t-organizations")
-	public void createTOrganization(@RequestBody TOrganization tOrganization) throws URISyntaxException {
-		if (tOrganization.getTOrgContactPeople() != null) {
-			for (TOrgContactPerson tOrgContactPerson : tOrganization.getTOrgContactPeople()) {
-				System.out.println("Printed");
-				tOrgContactPersonRepository.save(tOrgContactPerson);
-			}
-		} else {
-			System.out.println("No contact person");
-		}
-
-		// log.debug("REST request to save TOrganization : {}", tOrganization);
+	public ResponseEntity<TOrganization> createTOrganization(@RequestBody TOrganization tOrganization) throws URISyntaxException {
+		log.debug("REST request to save TOrganization : {}", tOrganization);
 		if (tOrganization.getId() != null) {
 			throw new BadRequestAlertException("A new tOrganization cannot already have an ID", ENTITY_NAME, "idexists");
 		}
+
+		if (tOrganization.getContactPersons() != null && tOrganization.getContactPersons().size() > 0) {
+			tOrgContactPersonRepository.saveAll(tOrganization.getContactPersons());
+		}
 		TOrganization result = tOrganizationRepository.save(tOrganization);
-		System.out.println("Repository: " + result);
-		// return ResponseEntity
-		//     .created(new URI("/api/t-organizations/" + result.getId()))
-		//     .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-		//     .body(result);
+		return ResponseEntity
+			.created(new URI("/api/t-organizations/" + result.getId()))
+			.headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+			.body(result);
 	}
 
 	/**
@@ -86,15 +76,11 @@ public class TOrganizationResource {
 	 * @throws URISyntaxException if the Location URI syntax is incorrect.
 	 */
 	@PutMapping("/t-organizations/{id}")
-	public void updateTOrganization(
+	public ResponseEntity<TOrganization> updateTOrganization(
 		@PathVariable(value = "id", required = false) final Long id,
-		@RequestBody TOrganizationDTO tOrganizationDTO
+		@RequestBody TOrganization tOrganization
 	) throws URISyntaxException {
-		TOrganizationMapper mapper = Mappers.getMapper(TOrganizationMapper.class);
-		TOrganization tOrganization = mapper.dtoToEntity(tOrganizationDTO);
-		System.out.println("Object Converted: " + tOrganization.toString());
-
-		// log.debug("REST request to update TOrganization : {}, {}", id, tOrganization);
+		log.debug("REST request to update TOrganization : {}, {}", id, tOrganization);
 		if (tOrganization.getId() == null) {
 			throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
 		}
@@ -106,32 +92,14 @@ public class TOrganizationResource {
 			throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
 		}
 
-		System.out.println("Contact People: " + tOrganization.getTOrgContactPeople());
-		System.out.println("Deleted ID: " + tOrganization.deletedId);
-
-		if (tOrganization.getTOrgContactPeople() != null) {
-			for (TOrgContactPerson tOrgContactPerson : tOrganization.getTOrgContactPeople()) {
-				tOrgContactPersonRepository.save(tOrgContactPerson);
-			}
-		} else {
-			System.out.println("No contact person");
+		if (tOrganization.getContactPersons() != null && tOrganization.getContactPersons().size() > 0) {
+			tOrgContactPersonRepository.saveAll(tOrganization.getContactPersons());
 		}
-
-		if (tOrganization.deletedId != null) {
-			System.out.println(" deletedId: " + tOrganization.deletedId);
-			for (Long delete_id : tOrganization.deletedId) {
-				tOrgContactPersonRepository.deleteById(delete_id);
-				System.out.println("Delete Complete: " + delete_id);
-			}
-		} else {
-			System.out.println("No contact person");
-		}
-
 		TOrganization result = tOrganizationRepository.save(tOrganization);
-		// return ResponseEntity
-		//     .ok()
-		//     .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, tOrganization.getId().toString()))
-		//     .body(result);
+		return ResponseEntity
+			.ok()
+			.headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, tOrganization.getId().toString()))
+			.body(result);
 	}
 
 	/**
@@ -375,7 +343,7 @@ public class TOrganizationResource {
 	 */
 	@GetMapping("/t-organizations")
 	public List<TOrganization> getAllTOrganizations() {
-		// log.debug("REST request to get all TOrganizations");
+		log.debug("REST request to get all TOrganizations");
 		return tOrganizationRepository.findAll();
 	}
 
@@ -387,8 +355,11 @@ public class TOrganizationResource {
 	 */
 	@GetMapping("/t-organizations/{id}")
 	public ResponseEntity<TOrganization> getTOrganization(@PathVariable Long id) {
-		// log.debug("REST request to get TOrganization : {}", id);
+		log.debug("REST request to get TOrganization : {}", id);
 		Optional<TOrganization> tOrganization = tOrganizationRepository.findById(id);
+		System.out.println("tOrganization = " + tOrganization);
+		System.out.println("tOrganization.get() = " + tOrganization.get().getContactPersons());
+		tOrganization.get().setContactPersons(tOrganization.get().getContactPersons());
 		return ResponseUtil.wrapOrNotFound(tOrganization);
 	}
 
@@ -401,10 +372,21 @@ public class TOrganizationResource {
 	@DeleteMapping("/t-organizations/{id}")
 	public ResponseEntity<Void> deleteTOrganization(@PathVariable Long id) {
 		log.debug("REST request to delete TOrganization : {}", id);
-		tOrganizationRepository.deleteById(id);
-		return ResponseEntity
-			.noContent()
-			.headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
-			.build();
+
+		// Fetch the TOrganization entity
+		Optional<TOrganization> organizationOptional = tOrganizationRepository.findById(id);
+		if (organizationOptional.isPresent()) {
+			TOrganization organization = organizationOptional.get();
+
+			organization.getContactPersons().clear();
+			tOrganizationRepository.deleteById(id);
+
+			return ResponseEntity
+				.noContent()
+				.headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+				.build();
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 }

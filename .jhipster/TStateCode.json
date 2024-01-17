@@ -1,53 +1,53 @@
 {
-  "applications": "*",
-  "changelogDate": "20240109064553",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "t_state_code",
-  "fields": [
-    {
-      "fieldName": "stateName",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "stateCode",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "enteredBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "enteredDate",
-      "fieldType": "ZonedDateTime"
-    },
-    {
-      "fieldName": "modifiedBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "modifiedDate",
-      "fieldType": "ZonedDateTime"
-    }
-  ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "TStateCode",
-  "pagination": "no",
-  "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "tCountryCode",
-      "otherEntityRelationshipName": "tStateCode",
-      "relationshipName": "tCountryCode",
-      "relationshipType": "many-to-one"
-    },
-    {
-      "otherEntityName": "tCityCode",
-      "otherEntityRelationshipName": "tStateCode",
-      "relationshipName": "tCityCode",
-      "relationshipType": "one-to-many"
-    }
-  ],
-  "service": "no"
+	"applications": "*",
+	"changelogDate": "20240109064553",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_state_code",
+	"fields": [
+		{
+			"fieldName": "stateName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "stateCode",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TStateCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tCountryCode",
+			"otherEntityRelationshipName": "tStateCode",
+			"relationshipName": "tCountryCode",
+			"relationshipType": "many-to-one"
+		},
+		{
+			"otherEntityName": "tCityCode",
+			"otherEntityRelationshipName": "tStateCode",
+			"relationshipName": "tCityCode",
+			"relationshipType": "one-to-many"
+		}
+	],
+	"service": "no"
 }

@@ -42,7 +42,7 @@
 						<th scope="row"><span v-text="$t('sainsApp.tOrgContactPerson.enteredDate')">Entered Date</span></th>
 						<th scope="row"><span v-text="$t('sainsApp.tOrgContactPerson.modifiedBy')">Modified By</span></th>
 						<th scope="row"><span v-text="$t('sainsApp.tOrgContactPerson.modifiedDate')">Modified Date</span></th>
-						<th scope="row"><span v-text="$t('sainsApp.tOrgContactPerson.tOrganization')">T Organization</span></th>
+						<th scope="row"><span v-text="$t('sainsApp.tOrgContactPerson.organization')">Organization</span></th>
 						<th scope="row"></th>
 					</tr>
 				</thead>
@@ -67,10 +67,10 @@
 						<td>{{ tOrgContactPerson.modifiedBy }}</td>
 						<td>{{ tOrgContactPerson.modifiedDate ? $d(Date.parse(tOrgContactPerson.modifiedDate), 'short') : '' }}</td>
 						<td>
-							<div v-if="tOrgContactPerson.torganization">
+							<div v-if="tOrgContactPerson.organization">
 								<router-link
-									:to="{ name: 'TOrganizationView', params: { tOrganizationId: tOrgContactPerson.torganization.id } }"
-									>{{ tOrgContactPerson.torganization.id }}</router-link
+									:to="{ name: 'TOrganizationView', params: { tOrganizationId: tOrgContactPerson.organization.id } }"
+									>{{ tOrgContactPerson.organization.id }}</router-link
 								>
 							</div>
 						</td>

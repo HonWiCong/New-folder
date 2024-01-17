@@ -1,75 +1,75 @@
 {
-  "applications": "*",
-  "changelogDate": "20240109064603",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "t_org_contact_person",
-  "fields": [
-    {
-      "fieldName": "ocpOrgcodeid",
-      "fieldType": "Long"
-    },
-    {
-      "fieldName": "ocpTitle",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpName",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpDesignation",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpTelephone1",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpHandphone",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpMail",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpSector",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "ocpStatus",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "enteredBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "enteredDate",
-      "fieldType": "ZonedDateTime"
-    },
-    {
-      "fieldName": "modifiedBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "modifiedDate",
-      "fieldType": "ZonedDateTime"
-    }
-  ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "TOrgContactPerson",
-  "pagination": "no",
-  "readOnly": false,
-  "relationships": [
-    {
-      "otherEntityName": "tOrganization",
-      "otherEntityRelationshipName": "tOrgContactPerson",
-      "relationshipName": "tOrganization",
-      "relationshipType": "many-to-one"
-    }
-  ],
-  "service": "no"
+	"applications": "*",
+	"changelogDate": "20240109064603",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_org_contact_person",
+	"fields": [
+		{
+			"fieldName": "ocpOrgcodeid",
+			"fieldType": "Long"
+		},
+		{
+			"fieldName": "ocpTitle",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpDesignation",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpTelephone1",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpHandphone",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpMail",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpSector",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "ocpStatus",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TOrgContactPerson",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tOrganization",
+			"otherEntityRelationshipName": "contactPersons",
+			"relationshipName": "organization",
+			"relationshipType": "many-to-one"
+		}
+	],
+	"service": "no"
 }

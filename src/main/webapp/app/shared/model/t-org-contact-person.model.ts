@@ -15,7 +15,7 @@ export interface ITOrgContactPerson {
 	enteredDate?: Date | null;
 	modifiedBy?: number | null;
 	modifiedDate?: Date | null;
-	torganization?: ITOrganization | null;
+	organization?: ITOrganization | null;
 }
 
 export class TOrgContactPerson implements ITOrgContactPerson {
@@ -34,6 +34,6 @@ export class TOrgContactPerson implements ITOrgContactPerson {
 		public enteredDate?: Date | null,
 		public modifiedBy?: number | null,
 		public modifiedDate?: Date | null,
-		public torganization?: ITOrganization | null
+		public organization?: ITOrganization | null
 	) {}
 }

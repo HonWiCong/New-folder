@@ -66,8 +66,10 @@ export interface ITOrganization {
 	enteredDate?: Date | null;
 	modifiedBy?: number | null;
 	modifiedDate?: Date | null;
+	contactPersons?: ITOrgContactPerson[] | null;
+
+	// custom
 	deletedId?: number[] | null;
-	torgContactPeople?: ITOrgContactPerson[] | null;
 }
 
 export class TOrganization implements ITOrganization {
@@ -137,7 +139,9 @@ export class TOrganization implements ITOrganization {
 		public enteredDate?: Date | null,
 		public modifiedBy?: number | null,
 		public modifiedDate?: Date | null,
-		public deletedId?: number[] | null,
-		public torgContactPeople?: ITOrgContactPerson[] | null
+		public contactPersons?: ITOrgContactPerson[] | null,
+
+		// custom
+		public deletedId?: number[] | null
 	) {}
 }

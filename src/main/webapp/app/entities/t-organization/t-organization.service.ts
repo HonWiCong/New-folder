@@ -18,6 +18,19 @@ export default class TOrganizationService {
 		});
 	}
 
+	public findCustom(id: number): Promise<ITOrganization> {
+		return new Promise<ITOrganization>((resolve, reject) => {
+			axios
+				.get(`${baseApiUrl}_custom/${id}`)
+				.then(res => {
+					resolve(res.data);
+				})
+				.catch(err => {
+					reject(err);
+				});
+		});
+	}
+
 	public retrieve(): Promise<any> {
 		return new Promise<any>((resolve, reject) => {
 			axios

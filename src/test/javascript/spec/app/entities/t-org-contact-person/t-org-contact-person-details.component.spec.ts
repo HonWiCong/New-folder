@@ -20,61 +20,61 @@ localVue.component('font-awesome-icon', {});
 localVue.component('router-link', {});
 
 describe('Component Tests', () => {
-  describe('TOrgContactPerson Management Detail Component', () => {
-    let wrapper: Wrapper<TOrgContactPersonClass>;
-    let comp: TOrgContactPersonClass;
-    let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
+	describe('TOrgContactPerson Management Detail Component', () => {
+		let wrapper: Wrapper<TOrgContactPersonClass>;
+		let comp: TOrgContactPersonClass;
+		let tOrgContactPersonServiceStub: SinonStubbedInstance<TOrgContactPersonService>;
 
-    beforeEach(() => {
-      tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
+		beforeEach(() => {
+			tOrgContactPersonServiceStub = sinon.createStubInstance<TOrgContactPersonService>(TOrgContactPersonService);
 
-      wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonDetailComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: { tOrgContactPersonService: () => tOrgContactPersonServiceStub, alertService: () => new AlertService() },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TOrgContactPersonClass>(TOrgContactPersonDetailComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: { tOrgContactPersonService: () => tOrgContactPersonServiceStub, alertService: () => new AlertService() },
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('OnInit', () => {
-      it('Should call load all on init', async () => {
-        // GIVEN
-        const foundTOrgContactPerson = { id: 123 };
-        tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
+		describe('OnInit', () => {
+			it('Should call load all on init', async () => {
+				// GIVEN
+				const foundTOrgContactPerson = { id: 123 };
+				tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
 
-        // WHEN
-        comp.retrieveTOrgContactPerson(123);
-        await comp.$nextTick();
+				// WHEN
+				comp.retrieveTOrgContactPerson(123);
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
-      });
-    });
+				// THEN
+				expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTOrgContactPerson = { id: 123 };
-        tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTOrgContactPerson = { id: 123 };
+				tOrgContactPersonServiceStub.find.resolves(foundTOrgContactPerson);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tOrgContactPersonId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tOrgContactPersonId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
-      });
-    });
+				// THEN
+				expect(comp.tOrgContactPerson).toBe(foundTOrgContactPerson);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

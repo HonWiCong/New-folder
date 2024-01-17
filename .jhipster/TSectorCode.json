@@ -1,40 +1,40 @@
 {
-  "applications": "*",
-  "changelogDate": "20240109064558",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "t_sector_code",
-  "fields": [
-    {
-      "fieldName": "sectorName",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "sectorDescription",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "enteredBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "enteredDate",
-      "fieldType": "ZonedDateTime"
-    },
-    {
-      "fieldName": "modifiedBy",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldName": "modifiedDate",
-      "fieldType": "ZonedDateTime"
-    }
-  ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "TSectorCode",
-  "pagination": "no",
-  "readOnly": false,
-  "relationships": [],
-  "service": "no"
+	"applications": "*",
+	"changelogDate": "20240109064558",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_sector_code",
+	"fields": [
+		{
+			"fieldName": "sectorName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectorDescription",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TSectorCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [],
+	"service": "no"
 }

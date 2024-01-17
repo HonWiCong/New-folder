@@ -1,0 +1,31 @@
+entity TUserRoleCode {
+	roleName String
+	enteredBy Integer
+	enteredDate ZonedDateTime
+	modifiedBy Integer
+	modifiedDate ZonedDateTime
+}
+enum SectPapActive {
+	A
+	I
+}
+enum SectSainsSubsidiary {
+	S
+	D
+}
+entity TSectionCode {
+	sectName String
+	sectHeadid Integer
+	sectActingHeadid Integer
+	sectSainsSubsidiary SectSainsSubsidiary
+	sectHrpayId String
+	sectPapId String
+	sectPapCode String
+	sectPapCompany String
+	sectPapActive SectPapActive
+	sectCcCode String
+	enteredBy Integer
+	enteredDate ZonedDateTime
+	modifiedBy Integer
+	modifiedDate ZonedDateTime
+}

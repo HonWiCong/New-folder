@@ -596,7 +596,7 @@
 						></label>
 					</div>
 				</div>
-				<div class="row" v-for="(contactPerson, i) in tOrganization.torgContactPeople" :key="i">
+				<div class="row" v-for="(contactPerson, i) in tOrganization.contactPersons" :key="i">
 					<div class="col-1 text-center">{{ i + 1 }}</div>
 					<div class="col-1 form-group">
 						<select name="" id="" v-model="contactPerson.ocpTitle" class="form-control">
@@ -606,13 +606,15 @@
 						</select>
 					</div>
 					<div class="col-2 form-group">
-						<input
+						<b-form-input
 							type="text"
 							class="form-control"
 							name="ocpName"
 							id="t-org-contact-person-ocpName"
-							data-cy="ocpName"
-							:class="{ valid: !$v.tOrgContactPerson.ocpName.$invalid, invalid: $v.tOrgContactPerson.ocpName.$invalid }"
+							:class="{
+								valid: contactPerson.ocpName !== undefined,
+								invalid: contactPerson.ocpName === undefined && contactPerson.ocpName === '',
+							}"
 							v-model="contactPerson.ocpName"
 						/>
 					</div>

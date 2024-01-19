@@ -1,0 +1,48 @@
+{
+	"applications": "*",
+	"changelogDate": "20240117070203",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_user_role_code",
+	"fields": [
+		{
+			"fieldName": "roleName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "roleHead",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "actApprover1",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "actApprover2",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TUserRoleCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [],
+	"service": "no"
+}

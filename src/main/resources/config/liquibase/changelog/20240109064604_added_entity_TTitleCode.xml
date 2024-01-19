@@ -9,7 +9,7 @@
     <!--
         Added the entity TTitleCode.
     -->
-    <changeSet id="20240109064604-1" author="jhipster">
+    <changeSet id="20240109064604-1" author="jhipster" runOnChange="true">
         <createTable tableName="t_title_code">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

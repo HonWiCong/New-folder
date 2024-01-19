@@ -35,14 +35,16 @@
 			"TSmTax",
 			"TOrgContactPerson",
 			"TTitleCode",
-			"TOrganization"
+			"TOrganization",
+			"TUserRoleCode",
+			"TSectionCode"
 		],
 		"entitySuffix": "",
 		"jhiPrefix": "jhi",
 		"jhipsterVersion": "7.9.4",
 		"jwtSecretKey": "OWQyN2FhOGVlM2IxMjE0ZTg0NGE3NzY4MTYxYWJmNjM4ZDBmOTdhOTJlYzJhNjBhMzg5OWM2MTc4MTA4NWY4ZGIxNTRjMTU4Zjg5MDEyODM4NzQyOTQzYjE4M2YwMjI2MzRlMTY0NDNlMGMwOWEyZWVmMGZhZGU0NTIxM2Y1YTM=",
 		"languages": ["en"],
-		"lastLiquibaseTimestamp": 1704782765000,
+		"lastLiquibaseTimestamp": 1705474924000,
 		"messageBroker": false,
 		"microfrontend": false,
 		"microfrontends": [],

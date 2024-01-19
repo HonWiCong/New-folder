@@ -1,5 +1,8 @@
 entity TUserRoleCode {
 	roleName String
+	roleHead String
+	actApprover1 Integer
+	actApprover2 Integer
 	enteredBy Integer
 	enteredDate ZonedDateTime
 	modifiedBy Integer
@@ -28,4 +31,54 @@ entity TSectionCode {
 	enteredDate ZonedDateTime
 	modifiedBy Integer
 	modifiedDate ZonedDateTime
+}
+entity TOfficeCode {
+	offName String
+	offAddress String
+	offPostcode String
+	offCity String
+	offState String
+	offOffphone String
+	offOfffax String
+	enteredBy Integer
+	enteredDate ZonedDateTime
+	modifiedBy Integer
+	modifiedDate ZonedDateTime
+}
+entity TUnitCode {
+	untUnit String maxlength(100)
+	untHeadid Integer
+	untActingHeadid Integer
+	untHrpayId String
+	untPapId String maxlength(10)
+	untPapCode String maxlength(10)
+	untPapActive String maxlength(1)
+	untPapDepartmentid String
+	enteredBy Integer
+	enteredDate ZonedDateTime
+	modifiedBy Integer
+	modifiedDate ZonedDateTime
+}
+entity TSubunitCode {
+	subuntSubunit String maxlength(100)
+	subuntHeadid Integer
+	subuntActingHeadid Integer
+	subuntHrpayId String
+	subuntPapId String maxlength(10)
+	subuntPapCode String maxlength(10)
+	subuntPapActive String maxlength(1)
+	subunyUnitid String maxlength(10)
+}
+entity ApplicationUser {
+	ic String maxlength(15)
+	status String maxlength(1)
+}
+relationship OneToOne {
+	ApplicationUser{division} to TSectionCode
+	ApplicationUser{section} to TUnitCode
+	ApplicationUser{unit} to TSubunitCode
+	ApplicationUser{office} to TOfficeCode
+}
+relationship ManyToOne {
+	TSubunitCode{unit} to TUnitCode{unit}
 }

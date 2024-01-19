@@ -9,7 +9,7 @@
     <!--
         Added the entity TSmTax.
     -->
-    <changeSet id="20240109064602-1" author="jhipster">
+    <changeSet id="20240109064602-1" author="jhipster" runOnChange="true">
         <createTable tableName="t_sm_tax">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

@@ -15,6 +15,8 @@ import TSmTaxService from './t-sm-tax/t-sm-tax.service';
 import TOrgContactPersonService from './t-org-contact-person/t-org-contact-person.service';
 import TTitleCodeService from './t-title-code/t-title-code.service';
 import TOrganizationService from './t-organization/t-organization.service';
+import TSectionCodeService from './t-section-code/t-section-code.service';
+import TUserRoleCodeService from './t-user-role-code/t-user-role-code.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -34,5 +36,7 @@ export default class Entities extends Vue {
 	@Provide('tOrgContactPersonService') private tOrgContactPersonService = () => new TOrgContactPersonService();
 	@Provide('tTitleCodeService') private tTitleCodeService = () => new TTitleCodeService();
 	@Provide('tOrganizationService') private tOrganizationService = () => new TOrganizationService();
+	@Provide('tSectionCodeService') private tSectionCodeService = () => new TSectionCodeService();
+	@Provide('tUserRoleCodeService') private tUserRoleCodeService = () => new TUserRoleCodeService();
 	// jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

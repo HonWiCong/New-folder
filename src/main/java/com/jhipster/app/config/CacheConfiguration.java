@@ -67,6 +67,8 @@ public class CacheConfiguration {
 			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName());
 			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".tOrgContactPeople");
 			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".contactPersons");
+			createCache(cm, com.jhipster.app.domain.TSectionCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TUserRoleCode.class.getName());
 			// jhipster-needle-ehcache-add-entry
 		};
 	}

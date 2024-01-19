@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity TDistrictCode.
     -->
-    <changeSet id="20240109064555-2" author="jhipster">
+    <changeSet id="20240109064555-2" author="jhipster" runOnChange="true">
 
         <addForeignKeyConstraint baseColumnNames="t_division_code_id"
                                  baseTableName="t_district_code"

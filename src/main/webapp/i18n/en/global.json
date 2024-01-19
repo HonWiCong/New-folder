@@ -21,6 +21,8 @@
 				"tOrgContactPerson": "T Org Contact Person",
 				"tTitleCode": "T Title Code",
 				"tOrganization": "T Organization",
+				"tSectionCode": "T Section Code",
+				"tUserRoleCode": "T User Role Code",
 				"jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
 			},
 			"account": {

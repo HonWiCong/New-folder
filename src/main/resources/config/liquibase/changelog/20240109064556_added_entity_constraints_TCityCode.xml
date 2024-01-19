@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity TCityCode.
     -->
-    <changeSet id="20240109064556-2" author="jhipster">
+    <changeSet id="20240109064556-2" author="jhipster" runOnChange="true">
 
         <addForeignKeyConstraint baseColumnNames="t_state_code_id"
                                  baseTableName="t_city_code"

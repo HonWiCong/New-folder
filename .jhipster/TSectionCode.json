@@ -1,0 +1,74 @@
+{
+	"applications": "*",
+	"changelogDate": "20240117070204",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_section_code",
+	"fields": [
+		{
+			"fieldName": "sectName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "sectActingHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "sectSainsSubsidiary",
+			"fieldType": "SectSainsSubsidiary",
+			"fieldValues": "S,D"
+		},
+		{
+			"fieldName": "sectHrpayId",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectPapId",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectPapCode",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectPapCompany",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "sectPapActive",
+			"fieldType": "SectPapActive",
+			"fieldValues": "A,I"
+		},
+		{
+			"fieldName": "sectCcCode",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TSectionCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [],
+	"service": "no"
+}

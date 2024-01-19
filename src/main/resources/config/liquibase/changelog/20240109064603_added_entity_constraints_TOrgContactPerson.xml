@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity TOrgContactPerson.
     -->
-    <changeSet id="20240109064603-2" author="jhipster">
+    <changeSet id="20240109064603-2" author="jhipster" runOnChange="true">
 
         <addForeignKeyConstraint baseColumnNames="organization_id"
                                  baseTableName="t_org_contact_person"

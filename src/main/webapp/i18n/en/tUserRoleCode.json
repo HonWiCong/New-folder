@@ -1,0 +1,31 @@
+{
+	"sainsApp": {
+		"tUserRoleCode": {
+			"home": {
+				"title": "T User Role Codes",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new T User Role Code",
+				"createOrEditLabel": "Create or edit a T User Role Code",
+				"notFound": "No T User Role Codes found"
+			},
+			"created": "A new T User Role Code is created with identifier {{ param }}",
+			"updated": "A T User Role Code is updated with identifier {{ param }}",
+			"deleted": "A T User Role Code is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete T User Role Code {{ id }}?"
+			},
+			"detail": {
+				"title": "T User Role Code"
+			},
+			"id": "ID",
+			"roleName": "Role Name",
+			"roleHead": "Role Head",
+			"actApprover1": "Act Approver 1",
+			"actApprover2": "Act Approver 2",
+			"enteredBy": "Entered By",
+			"enteredDate": "Entered Date",
+			"modifiedBy": "Modified By",
+			"modifiedDate": "Modified Date"
+		}
+	}
+}

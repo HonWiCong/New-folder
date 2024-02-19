@@ -596,10 +596,10 @@
 						></label>
 					</div>
 				</div>
-				<div class="row" v-for="(contactPerson, i) in tOrganization.contactPersons" :key="i">
-					<div class="col-1 text-center">{{ i + 1 }}</div>
+				<div class="row" v-for="(contactPerson, index) in $v.tOrganization.contactPersons.$each.$iter" :key="index">
+					<div class="col-1 text-center">{{ parseInt(index) + 1 }}</div>
 					<div class="col-1 form-group">
-						<select name="" id="" v-model="contactPerson.ocpTitle" class="form-control">
+						<select name="" id="" v-model="contactPerson.ocpTitle.$model" class="form-control">
 							<option v-for="title in tTitleCodes" :value="title.id" v-bind:key="title.id">
 								{{ title.ttTitle }}
 							</option>
@@ -612,10 +612,10 @@
 							name="ocpName"
 							id="t-org-contact-person-ocpName"
 							:class="{
-								valid: contactPerson.ocpName !== undefined,
-								invalid: contactPerson.ocpName === undefined && contactPerson.ocpName === '',
+								valid: contactPerson.ocpName.$invalid,
+								invalid: contactPerson.ocpName.$invalid,
 							}"
-							v-model="contactPerson.ocpName"
+							v-model="contactPerson.ocpName.$model"
 						/>
 					</div>
 					<div class="col-2 form-group">
@@ -626,10 +626,10 @@
 							id="t-org-contact-person-ocpDesignation"
 							data-cy="ocpDesignation"
 							:class="{
-								valid: !$v.tOrgContactPerson.ocpDesignation.$invalid,
-								invalid: $v.tOrgContactPerson.ocpDesignation.$invalid,
+								valid: !contactPerson.ocpDesignation.$invalid,
+								invalid: contactPerson.ocpDesignation.$invalid,
 							}"
-							v-model="contactPerson.ocpDesignation"
+							v-model="contactPerson.ocpDesignation.$model"
 						/>
 					</div>
 					<div class="col-2 form-group">
@@ -654,10 +654,10 @@
 							id="t-org-contact-person-ocpHandphone"
 							data-cy="ocpHandphone"
 							:class="{
-								valid: !$v.tOrgContactPerson.ocpHandphone.$invalid,
-								invalid: $v.tOrgContactPerson.ocpHandphone.$invalid,
+								valid: !contactPerson.ocpHandphone.$invalid,
+								invalid: contactPerson.ocpHandphone.$invalid,
 							}"
-							v-model="contactPerson.ocpHandphone"
+							v-model="contactPerson.ocpHandphone.$model"
 						/>
 					</div>
 					<div class="col-1 form-group">
@@ -667,13 +667,13 @@
 							name="ocpMail"
 							id="t-org-contact-person-ocpMail"
 							data-cy="ocpMail"
-							:class="{ valid: !$v.tOrgContactPerson.ocpMail.$invalid, invalid: $v.tOrgContactPerson.ocpMail.$invalid }"
-							v-model="contactPerson.ocpMail"
+							:class="{ valid: !contactPerson.ocpMail.$invalid, invalid: contactPerson.ocpMail.$invalid }"
+							v-model="contactPerson.ocpMail.$model"
 						/>
 					</div>
 					<div class="col-1 form-group d-flex justify-content-center align-items-center icon">
 						<svg
-							@click="removeContactPerson(i)"
+							@click="removeContactPerson(index)"
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
 							height="24"
@@ -716,7 +716,7 @@
 							v-text="$t('sainsApp.tOrgContactPerson.ocpStatus')"
 							for="t-org-contact-person-ocpStatus"
 						></label>
-						<select name="" id="" class="form-control" v-model="$v.tOrgContactPerson.ocpStatus.$model">
+						<select name="" id="" class="form-control" v-model="$v.tOrganization.orgActiveStatus.$model">
 							<option value="Y">Active</option>
 							<option value="N">Inactive</option>
 						</select>

@@ -1,0 +1,32 @@
+{
+	"sainsApp": {
+		"tSubunitCode": {
+			"home": {
+				"title": "T Subunit Codes",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new T Subunit Code",
+				"createOrEditLabel": "Create or edit a T Subunit Code",
+				"notFound": "No T Subunit Codes found"
+			},
+			"created": "A new T Subunit Code is created with identifier {{ param }}",
+			"updated": "A T Subunit Code is updated with identifier {{ param }}",
+			"deleted": "A T Subunit Code is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete T Subunit Code {{ id }}?"
+			},
+			"detail": {
+				"title": "T Subunit Code"
+			},
+			"id": "ID",
+			"subuntSubunit": "Subunt Subunit",
+			"subuntHeadid": "Subunt Headid",
+			"subuntActingHeadid": "Subunt Acting Headid",
+			"subuntHrpayId": "Subunt Hrpay Id",
+			"subuntPapId": "Subunt Pap Id",
+			"subuntPapCode": "Subunt Pap Code",
+			"subuntPapActive": "Subunt Pap Active",
+			"subunyUnitid": "Subuny Unitid",
+			"unit": "Unit"
+		}
+	}
+}

@@ -1,7 +1,10 @@
 package com.jhipster.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -45,6 +48,11 @@ public class TUserRoleCode implements Serializable {
 
 	@Column(name = "modified_date")
 	private ZonedDateTime modifiedDate;
+
+	@OneToMany(mappedBy = "role")
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	@JsonIgnoreProperties(value = { "role", "user" }, allowSetters = true)
+	private Set<TUserRole> userRoles = new HashSet<>();
 
 	// jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -163,6 +171,37 @@ public class TUserRoleCode implements Serializable {
 
 	public void setModifiedDate(ZonedDateTime modifiedDate) {
 		this.modifiedDate = modifiedDate;
+	}
+
+	public Set<TUserRole> getUserRoles() {
+		return this.userRoles;
+	}
+
+	public void setUserRoles(Set<TUserRole> tUserRoles) {
+		if (this.userRoles != null) {
+			this.userRoles.forEach(i -> i.setRole(null));
+		}
+		if (tUserRoles != null) {
+			tUserRoles.forEach(i -> i.setRole(this));
+		}
+		this.userRoles = tUserRoles;
+	}
+
+	public TUserRoleCode userRoles(Set<TUserRole> tUserRoles) {
+		this.setUserRoles(tUserRoles);
+		return this;
+	}
+
+	public TUserRoleCode addUserRole(TUserRole tUserRole) {
+		this.userRoles.add(tUserRole);
+		tUserRole.setRole(this);
+		return this;
+	}
+
+	public TUserRoleCode removeUserRole(TUserRole tUserRole) {
+		this.userRoles.remove(tUserRole);
+		tUserRole.setRole(null);
+		return this;
 	}
 
 	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

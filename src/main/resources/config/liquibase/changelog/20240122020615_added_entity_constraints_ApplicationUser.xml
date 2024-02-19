@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ApplicationUser.
+    -->
+    <changeSet id="20240122020615-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="internal_user_id"
+                                 baseTableName="application_user"
+                                 constraintName="fk_application_user__internal_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="division_id"
+                                 baseTableName="application_user"
+                                 constraintName="fk_application_user__division_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="t_section_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="section_id"
+                                 baseTableName="application_user"
+                                 constraintName="fk_application_user__section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="t_unit_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="unit_id"
+                                 baseTableName="application_user"
+                                 constraintName="fk_application_user__unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="t_subunit_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="office_id"
+                                 baseTableName="application_user"
+                                 constraintName="fk_application_user__office_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="t_office_code"/>
+    </changeSet>
+</databaseChangeLog>

@@ -129,25 +129,27 @@ const validations: any = {
 		enteredDate: {},
 		modifiedBy: {},
 		modifiedDate: {},
-	},
-	tOrgContactPerson: {
-		ocpOrgcodeid: {},
-		ocpTitle: {},
-		ocpName: {
-			required,
+		contactPersons: {
+			$each: {
+				ocpOrgcodeid: {},
+				ocpTitle: {},
+				ocpName: {
+					required,
+				},
+				ocpDesignation: {
+					required,
+				},
+				ocpTelephone1: {},
+				ocpHandphone: {},
+				ocpMail: {},
+				ocpSector: {},
+				ocpStatus: {},
+				enteredBy: {},
+				enteredDate: {},
+				modifiedBy: {},
+				modifiedDate: {},
+			},
 		},
-		ocpDesignation: {
-			required,
-		},
-		ocpTelephone1: {},
-		ocpHandphone: {},
-		ocpMail: {},
-		ocpSector: {},
-		ocpStatus: {},
-		enteredBy: {},
-		enteredDate: {},
-		modifiedBy: {},
-		modifiedDate: {},
 	},
 };
 
@@ -377,7 +379,6 @@ export default class TOrganizationUpdate extends Vue {
 
 	public checkInvalid() {
 		this.tOrganization.deletedId = this.deletedId;
-		console.log(this.tOrganization);
 		console.log(this.$v.tOrganization);
 	}
 }

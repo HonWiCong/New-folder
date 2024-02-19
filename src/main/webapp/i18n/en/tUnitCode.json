@@ -1,0 +1,36 @@
+{
+	"sainsApp": {
+		"tUnitCode": {
+			"home": {
+				"title": "T Unit Codes",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new T Unit Code",
+				"createOrEditLabel": "Create or edit a T Unit Code",
+				"notFound": "No T Unit Codes found"
+			},
+			"created": "A new T Unit Code is created with identifier {{ param }}",
+			"updated": "A T Unit Code is updated with identifier {{ param }}",
+			"deleted": "A T Unit Code is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete T Unit Code {{ id }}?"
+			},
+			"detail": {
+				"title": "T Unit Code"
+			},
+			"id": "ID",
+			"untUnit": "Unt Unit",
+			"untHeadid": "Unt Headid",
+			"untActingHeadid": "Unt Acting Headid",
+			"untHrpayId": "Unt Hrpay Id",
+			"untPapId": "Unt Pap Id",
+			"untPapCode": "Unt Pap Code",
+			"untPapActive": "Unt Pap Active",
+			"untPapDepartmentid": "Unt Pap Departmentid",
+			"enteredBy": "Entered By",
+			"enteredDate": "Entered Date",
+			"modifiedBy": "Modified By",
+			"modifiedDate": "Modified Date",
+			"subunit": "Subunit"
+		}
+	}
+}

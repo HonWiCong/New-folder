@@ -69,6 +69,23 @@ public class CacheConfiguration {
 			createCache(cm, com.jhipster.app.domain.TOrganization.class.getName() + ".contactPersons");
 			createCache(cm, com.jhipster.app.domain.TSectionCode.class.getName());
 			createCache(cm, com.jhipster.app.domain.TUserRoleCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TUnitCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TUnitCode.class.getName() + ".subunits");
+			createCache(cm, com.jhipster.app.domain.TSubunitCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.TOfficeCode.class.getName());
+			createCache(cm, com.jhipster.app.domain.ApplicationUser.class.getName());
+			createCache(cm, com.jhipster.app.domain.TSectionCode.class.getName() + ".users");
+			createCache(cm, com.jhipster.app.domain.TUnitCode.class.getName() + ".users");
+			createCache(cm, com.jhipster.app.domain.TSubunitCode.class.getName() + ".users");
+			createCache(cm, com.jhipster.app.domain.TOfficeCode.class.getName() + ".users");
+			createCache(cm, com.jhipster.app.domain.TUserRole.class.getName());
+			createCache(cm, com.jhipster.app.domain.TUserRole.class.getName() + ".roles");
+			createCache(cm, com.jhipster.app.domain.TUserRole.class.getName() + ".users");
+			createCache(cm, com.jhipster.app.domain.TUserRoleCode.class.getName() + ".tUserRoles");
+			createCache(cm, com.jhipster.app.domain.ApplicationUser.class.getName() + ".tUserRoles");
+			createCache(cm, com.jhipster.app.domain.TSectionCode.class.getName() + ".applicationUsers");
+			createCache(cm, com.jhipster.app.domain.TUserRoleCode.class.getName() + ".userRoles");
+			createCache(cm, com.jhipster.app.domain.ApplicationUser.class.getName() + ".userRoles");
 			// jhipster-needle-ehcache-add-entry
 		};
 	}

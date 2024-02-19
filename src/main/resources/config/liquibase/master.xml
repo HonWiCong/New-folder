@@ -22,12 +22,25 @@
 	<include file="config/liquibase/changelog/20240109064604_added_entity_TTitleCode.xml" relativeToChangelogFile="false" />
 	<include file="config/liquibase/changelog/20240109064605_added_entity_TOrganization.xml" relativeToChangelogFile="false" />
 	<include file="config/liquibase/changelog/20240117070204_added_entity_TSectionCode.xml" relativeToChangelogFile="false" />
-	<include file="config/liquibase/changelog/20240117070203_added_entity_TUserRoleCode.xml" relativeToChangelogFile="false" />
+	<!-- <include file="config/liquibase/changelog/20240117070203_added_entity_TUserRoleCode.xml" relativeToChangelogFile="false" /> -->
+	<include file="config/liquibase/changelog/20240122020616_added_entity_TOfficeCode.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240122020614_added_entity_TUnitCode.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240122020617_added_entity_TSubunitCode.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240130070812_added_entity_TUserRole.xml" relativeToChangelogFile="false" />
+	<!-- <include file="config/liquibase/changelog/20240122020615_added_entity_ApplicationUser.xml" relativeToChangelogFile="false" /> -->
+	<!-- <include file="config/liquibase/changelog/20240117070203_added_entity_TUserRoleCode.xml" relativeToChangelogFile="false"/> -->
+	<!-- <include file="config/liquibase/changelog/20240130070812_added_entity_TUserRole.xml" relativeToChangelogFile="false"/> -->
+	<include file="config/liquibase/changelog/20240122020615_added_entity_ApplicationUser.xml" relativeToChangelogFile="false" />
 	<!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 	<include file="config/liquibase/changelog/20240109064553_added_entity_constraints_TStateCode.xml" relativeToChangelogFile="false" />
 	<include file="config/liquibase/changelog/20240109064555_added_entity_constraints_TDistrictCode.xml" relativeToChangelogFile="false" />
 	<include file="config/liquibase/changelog/20240109064556_added_entity_constraints_TCityCode.xml" relativeToChangelogFile="false" />
 	<include file="config/liquibase/changelog/20240109064603_added_entity_constraints_TOrgContactPerson.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240122020617_added_entity_constraints_TSubunitCode.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240130070812_added_entity_constraints_TUserRole.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240122020615_added_entity_constraints_ApplicationUser.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240130070812_added_entity_constraints_TUserRole.xml" relativeToChangelogFile="false" />
+	<include file="config/liquibase/changelog/20240122020615_added_entity_constraints_ApplicationUser.xml" relativeToChangelogFile="false" />
 	<!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 	<!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

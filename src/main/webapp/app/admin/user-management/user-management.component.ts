@@ -4,12 +4,18 @@ import UserManagementService from './user-management.service';
 import AlertService from '@/shared/alert/alert.service';
 import { IUser } from '@/shared/model/user.model';
 
+import ApplicationUserService from '@/entities/application-user/application-user.service';
+import { IApplicationUser, ApplicationUser } from '@/shared/model/application-user.model';
 @Component({
 	mixins: [Vue2Filters.mixin],
 })
 export default class JhiUserManagementComponent extends Vue {
 	@Inject('userManagementService') private userManagementService: () => UserManagementService;
 	@Inject('alertService') private alertService: () => AlertService;
+
+	private applicationUserService: ApplicationUserService = new ApplicationUserService();
+	public applicationUsers: IApplicationUser[] = [];
+	public sortedApplicationUsers: IApplicationUser[] = [];
 
 	public error = '';
 	public success = '';
@@ -46,18 +52,19 @@ export default class JhiUserManagementComponent extends Vue {
 
 	public loadAll(): void {
 		this.isLoading = true;
-
-		this.userManagementService()
-			.retrieve({
-				page: this.page - 1,
-				size: this.itemsPerPage,
-				sort: this.sort(),
-			})
+		const paginationQuery = {
+			page: this.page - 1,
+			size: this.itemsPerPage,
+			sort: this.sort(),
+		};
+		this.applicationUserService
+			.retrieve(paginationQuery)
 			.then(res => {
-				this.isLoading = false;
-				this.users = res.data;
+				console.log(res.data);
+				this.applicationUsers = res.data;
 				this.totalItems = Number(res.headers['x-total-count']);
 				this.queryCount = this.totalItems;
+				this.isLoading = false;
 			})
 			.catch(() => {
 				this.isLoading = false;
@@ -68,7 +75,7 @@ export default class JhiUserManagementComponent extends Vue {
 		this.loadAll();
 	}
 
-	public sort(): any {
+	public sort(): Array<any> {
 		const result = [this.propOrder + ',' + (this.reverse ? 'desc' : 'asc')];
 		if (this.propOrder !== 'id') {
 			result.push('id');
@@ -94,8 +101,8 @@ export default class JhiUserManagementComponent extends Vue {
 	}
 
 	public deleteUser(): void {
-		this.userManagementService()
-			.remove(this.removeId)
+		this.applicationUserService
+			.delete(this.removeId)
 			.then(res => {
 				const message = this.$t(res.headers['x-sainsapp-alert'], {
 					param: decodeURIComponent(res.headers['x-sainsapp-params'].replace(/\+/g, ' ')),
@@ -117,7 +124,7 @@ export default class JhiUserManagementComponent extends Vue {
 	}
 
 	public prepareRemove(instance): void {
-		this.removeId = instance.login;
+		this.removeId = instance.id;
 		if (<any>this.$refs.removeUser) {
 			(<any>this.$refs.removeUser).show();
 		}

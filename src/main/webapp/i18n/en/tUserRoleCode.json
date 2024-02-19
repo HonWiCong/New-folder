@@ -25,7 +25,8 @@
 			"enteredBy": "Entered By",
 			"enteredDate": "Entered Date",
 			"modifiedBy": "Modified By",
-			"modifiedDate": "Modified Date"
+			"modifiedDate": "Modified Date",
+			"userRole": "User Role"
 		}
 	}
 }

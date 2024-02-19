@@ -23,6 +23,11 @@
 				"tOrganization": "T Organization",
 				"tSectionCode": "T Section Code",
 				"tUserRoleCode": "T User Role Code",
+				"tUnitCode": "T Unit Code",
+				"tSubunitCode": "T Subunit Code",
+				"tOfficeCode": "T Office Code",
+				"applicationUser": "Application User",
+				"tUserRole": "T User Role",
 				"jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
 			},
 			"account": {

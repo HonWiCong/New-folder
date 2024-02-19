@@ -1,0 +1,60 @@
+{
+	"applications": "*",
+	"changelogDate": "20240122020616",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_office_code",
+	"fields": [
+		{
+			"fieldName": "offName",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offAddress",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offPostcode",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offCity",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offState",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offOffphone",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "offOfffax",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TOfficeCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [],
+	"service": "no"
+}

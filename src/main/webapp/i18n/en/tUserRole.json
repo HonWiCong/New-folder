@@ -1,0 +1,31 @@
+{
+	"sainsApp": {
+		"tUserRole": {
+			"home": {
+				"title": "T User Roles",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new T User Role",
+				"createOrEditLabel": "Create or edit a T User Role",
+				"notFound": "No T User Roles found"
+			},
+			"created": "A new T User Role is created with identifier {{ param }}",
+			"updated": "A T User Role is updated with identifier {{ param }}",
+			"deleted": "A T User Role is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete T User Role {{ id }}?"
+			},
+			"detail": {
+				"title": "T User Role"
+			},
+			"id": "ID",
+			"sysuserId": "Sysuser Id",
+			"usrRoleid": "Usr Roleid",
+			"enteredBy": "Entered By",
+			"enteredDate": "Entered Date",
+			"modifiedBy": "Modified By",
+			"modifiedDate": "Modified Date",
+			"role": "Role",
+			"user": "User"
+		}
+	}
+}

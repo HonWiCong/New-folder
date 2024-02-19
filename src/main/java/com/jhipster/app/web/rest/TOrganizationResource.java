@@ -92,6 +92,12 @@ public class TOrganizationResource {
 			throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
 		}
 
+		if (tOrganization.getDeletedContactPersonIds() != null && tOrganization.getDeletedContactPersonIds().size() > 0) {
+			for (Long contactPersonId : tOrganization.getDeletedContactPersonIds()) {
+				tOrgContactPersonRepository.deleteById(contactPersonId);
+			}
+		}
+
 		if (tOrganization.getContactPersons() != null && tOrganization.getContactPersons().size() > 0) {
 			tOrgContactPersonRepository.saveAll(tOrganization.getContactPersons());
 		}

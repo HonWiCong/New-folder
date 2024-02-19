@@ -1,11 +1,13 @@
 package com.jhipster.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
@@ -26,6 +28,18 @@ public class TOrganization implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
+
+	@Transient
+	@JsonIncludeProperties
+	private List<Long> deletedContactPersonIds;
+
+	public List<Long> getDeletedContactPersonIds() {
+		return deletedContactPersonIds;
+	}
+
+	public void setDeletedContactPersonIds(List<Long> deletedContactPersonIds) {
+		this.deletedContactPersonIds = deletedContactPersonIds;
+	}
 
 	@Column(name = "org_hqid")
 	private Integer orgHqid;

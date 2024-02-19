@@ -1,0 +1,65 @@
+{
+	"applications": "*",
+	"changelogDate": "20240122020615",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "application_user",
+	"fields": [
+		{
+			"fieldName": "ic",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "15"
+		},
+		{
+			"fieldName": "status",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "1"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": true,
+	"name": "ApplicationUser",
+	"pagination": "pagination",
+	"readOnly": false,
+	"relationships": [
+		{
+			"options": {
+				"onDelete": "SET NULL",
+				"onUpdate": "CASCADE"
+			},
+			"otherEntityName": "user",
+			"ownerSide": true,
+			"relationshipName": "internalUser",
+			"relationshipType": "one-to-one"
+		},
+		{
+			"otherEntityName": "tUserRole",
+			"otherEntityRelationshipName": "user",
+			"relationshipName": "userRole",
+			"relationshipType": "one-to-many"
+		},
+		{
+			"otherEntityName": "tSectionCode",
+			"relationshipName": "division",
+			"relationshipType": "many-to-one"
+		},
+		{
+			"otherEntityName": "tUnitCode",
+			"relationshipName": "section",
+			"relationshipType": "many-to-one"
+		},
+		{
+			"otherEntityName": "tSubunitCode",
+			"relationshipName": "unit",
+			"relationshipType": "many-to-one"
+		},
+		{
+			"otherEntityName": "tOfficeCode",
+			"relationshipName": "office",
+			"relationshipType": "many-to-one"
+		}
+	],
+	"service": "serviceClass"
+}

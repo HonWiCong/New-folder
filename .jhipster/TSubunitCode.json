@@ -1,0 +1,65 @@
+{
+	"applications": "*",
+	"changelogDate": "20240122020617",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_subunit_code",
+	"fields": [
+		{
+			"fieldName": "subuntSubunit",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "100"
+		},
+		{
+			"fieldName": "subuntHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "subuntActingHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "subuntHrpayId",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "subuntPapId",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "10"
+		},
+		{
+			"fieldName": "subuntPapCode",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "10"
+		},
+		{
+			"fieldName": "subuntPapActive",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "1"
+		},
+		{
+			"fieldName": "subunyUnitid",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "10"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TSubunitCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tUnitCode",
+			"otherEntityRelationshipName": "subunit",
+			"relationshipName": "unit",
+			"relationshipType": "many-to-one"
+		}
+	],
+	"service": "no"
+}

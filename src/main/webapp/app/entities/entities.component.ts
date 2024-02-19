@@ -17,6 +17,11 @@ import TTitleCodeService from './t-title-code/t-title-code.service';
 import TOrganizationService from './t-organization/t-organization.service';
 import TSectionCodeService from './t-section-code/t-section-code.service';
 import TUserRoleCodeService from './t-user-role-code/t-user-role-code.service';
+import TUnitCodeService from './t-unit-code/t-unit-code.service';
+import TSubunitCodeService from './t-subunit-code/t-subunit-code.service';
+import TOfficeCodeService from './t-office-code/t-office-code.service';
+import ApplicationUserService from './application-user/application-user.service';
+import TUserRoleService from './t-user-role/t-user-role.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -38,5 +43,10 @@ export default class Entities extends Vue {
 	@Provide('tOrganizationService') private tOrganizationService = () => new TOrganizationService();
 	@Provide('tSectionCodeService') private tSectionCodeService = () => new TSectionCodeService();
 	@Provide('tUserRoleCodeService') private tUserRoleCodeService = () => new TUserRoleCodeService();
+	@Provide('tUnitCodeService') private tUnitCodeService = () => new TUnitCodeService();
+	@Provide('tSubunitCodeService') private tSubunitCodeService = () => new TSubunitCodeService();
+	@Provide('tOfficeCodeService') private tOfficeCodeService = () => new TOfficeCodeService();
+	@Provide('applicationUserService') private applicationUserService = () => new ApplicationUserService();
+	@Provide('tUserRoleService') private tUserRoleService = () => new TUserRoleService();
 	// jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

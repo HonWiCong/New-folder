@@ -99,6 +99,36 @@ const TUserRoleCode = () => import('@/entities/t-user-role-code/t-user-role-code
 const TUserRoleCodeUpdate = () => import('@/entities/t-user-role-code/t-user-role-code-update.vue');
 // prettier-ignore
 const TUserRoleCodeDetails = () => import('@/entities/t-user-role-code/t-user-role-code-details.vue');
+// prettier-ignore
+const TUnitCode = () => import('@/entities/t-unit-code/t-unit-code.vue');
+// prettier-ignore
+const TUnitCodeUpdate = () => import('@/entities/t-unit-code/t-unit-code-update.vue');
+// prettier-ignore
+const TUnitCodeDetails = () => import('@/entities/t-unit-code/t-unit-code-details.vue');
+// prettier-ignore
+const TSubunitCode = () => import('@/entities/t-subunit-code/t-subunit-code.vue');
+// prettier-ignore
+const TSubunitCodeUpdate = () => import('@/entities/t-subunit-code/t-subunit-code-update.vue');
+// prettier-ignore
+const TSubunitCodeDetails = () => import('@/entities/t-subunit-code/t-subunit-code-details.vue');
+// prettier-ignore
+const TOfficeCode = () => import('@/entities/t-office-code/t-office-code.vue');
+// prettier-ignore
+const TOfficeCodeUpdate = () => import('@/entities/t-office-code/t-office-code-update.vue');
+// prettier-ignore
+const TOfficeCodeDetails = () => import('@/entities/t-office-code/t-office-code-details.vue');
+// prettier-ignore
+const ApplicationUser = () => import('@/entities/application-user/application-user.vue');
+// prettier-ignore
+const ApplicationUserUpdate = () => import('@/entities/application-user/application-user-update.vue');
+// prettier-ignore
+const ApplicationUserDetails = () => import('@/entities/application-user/application-user-details.vue');
+// prettier-ignore
+const TUserRole = () => import('@/entities/t-user-role/t-user-role.vue');
+// prettier-ignore
+const TUserRoleUpdate = () => import('@/entities/t-user-role/t-user-role-update.vue');
+// prettier-ignore
+const TUserRoleDetails = () => import('@/entities/t-user-role/t-user-role-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -487,6 +517,126 @@ export default {
 			path: 't-user-role-code/:tUserRoleCodeId/view',
 			name: 'TUserRoleCodeView',
 			component: TUserRoleCodeDetails,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-unit-code',
+			name: 'TUnitCode',
+			component: TUnitCode,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-unit-code/new',
+			name: 'TUnitCodeCreate',
+			component: TUnitCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-unit-code/:tUnitCodeId/edit',
+			name: 'TUnitCodeEdit',
+			component: TUnitCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-unit-code/:tUnitCodeId/view',
+			name: 'TUnitCodeView',
+			component: TUnitCodeDetails,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-subunit-code',
+			name: 'TSubunitCode',
+			component: TSubunitCode,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-subunit-code/new',
+			name: 'TSubunitCodeCreate',
+			component: TSubunitCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-subunit-code/:tSubunitCodeId/edit',
+			name: 'TSubunitCodeEdit',
+			component: TSubunitCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-subunit-code/:tSubunitCodeId/view',
+			name: 'TSubunitCodeView',
+			component: TSubunitCodeDetails,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-office-code',
+			name: 'TOfficeCode',
+			component: TOfficeCode,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-office-code/new',
+			name: 'TOfficeCodeCreate',
+			component: TOfficeCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-office-code/:tOfficeCodeId/edit',
+			name: 'TOfficeCodeEdit',
+			component: TOfficeCodeUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-office-code/:tOfficeCodeId/view',
+			name: 'TOfficeCodeView',
+			component: TOfficeCodeDetails,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 'application-user',
+			name: 'ApplicationUser',
+			component: ApplicationUser,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 'application-user/new',
+			name: 'ApplicationUserCreate',
+			component: ApplicationUserUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 'application-user/:applicationUserId/edit',
+			name: 'ApplicationUserEdit',
+			component: ApplicationUserUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 'application-user/:applicationUserId/view',
+			name: 'ApplicationUserView',
+			component: ApplicationUserDetails,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-user-role',
+			name: 'TUserRole',
+			component: TUserRole,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-user-role/new',
+			name: 'TUserRoleCreate',
+			component: TUserRoleUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-user-role/:tUserRoleId/edit',
+			name: 'TUserRoleEdit',
+			component: TUserRoleUpdate,
+			meta: { authorities: [Authority.USER] },
+		},
+		{
+			path: 't-user-role/:tUserRoleId/view',
+			name: 'TUserRoleView',
+			component: TUserRoleDetails,
 			meta: { authorities: [Authority.USER] },
 		},
 		// jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

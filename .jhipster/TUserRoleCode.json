@@ -43,6 +43,13 @@
 	"name": "TUserRoleCode",
 	"pagination": "no",
 	"readOnly": false,
-	"relationships": [],
+	"relationships": [
+		{
+			"otherEntityName": "tUserRole",
+			"otherEntityRelationshipName": "role",
+			"relationshipName": "userRole",
+			"relationshipType": "one-to-many"
+		}
+	],
 	"service": "no"
 }

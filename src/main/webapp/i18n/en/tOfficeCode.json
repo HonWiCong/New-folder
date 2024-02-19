@@ -1,0 +1,34 @@
+{
+	"sainsApp": {
+		"tOfficeCode": {
+			"home": {
+				"title": "T Office Codes",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new T Office Code",
+				"createOrEditLabel": "Create or edit a T Office Code",
+				"notFound": "No T Office Codes found"
+			},
+			"created": "A new T Office Code is created with identifier {{ param }}",
+			"updated": "A T Office Code is updated with identifier {{ param }}",
+			"deleted": "A T Office Code is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete T Office Code {{ id }}?"
+			},
+			"detail": {
+				"title": "T Office Code"
+			},
+			"id": "ID",
+			"offName": "Off Name",
+			"offAddress": "Off Address",
+			"offPostcode": "Off Postcode",
+			"offCity": "Off City",
+			"offState": "Off State",
+			"offOffphone": "Off Offphone",
+			"offOfffax": "Off Offfax",
+			"enteredBy": "Entered By",
+			"enteredDate": "Entered Date",
+			"modifiedBy": "Modified By",
+			"modifiedDate": "Modified Date"
+		}
+	}
+}

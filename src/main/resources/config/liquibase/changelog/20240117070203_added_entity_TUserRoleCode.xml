@@ -9,7 +9,7 @@
     <!--
         Added the entity TUserRoleCode.
     -->
-    <changeSet id="20240117070203-1" author="jhipster" runOnChange="true">
+    <changeSet id="20240117070203-1" author="jhipster">
         <createTable tableName="t_user_role_code">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

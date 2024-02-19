@@ -9,7 +9,7 @@
     <!--
         Added the entity TSectionCode.
     -->
-    <changeSet id="20240117070204-1" author="jhipster" runOnChange="true">
+    <changeSet id="20240117070204-1" author="jhipster">
         <createTable tableName="t_section_code">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

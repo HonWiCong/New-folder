@@ -1,5 +1,5 @@
 entity TUserRoleCode {
-	roleName String
+    roleName String
 	roleHead String
 	actApprover1 Integer
 	actApprover2 Integer
@@ -9,15 +9,15 @@ entity TUserRoleCode {
 	modifiedDate ZonedDateTime
 }
 enum SectPapActive {
-	A
+    A
 	I
 }
 enum SectSainsSubsidiary {
-	S
+    S
 	D
 }
 entity TSectionCode {
-	sectName String
+    sectName String
 	sectHeadid Integer
 	sectActingHeadid Integer
 	sectSainsSubsidiary SectSainsSubsidiary
@@ -33,7 +33,7 @@ entity TSectionCode {
 	modifiedDate ZonedDateTime
 }
 entity TOfficeCode {
-	offName String
+    offName String
 	offAddress String
 	offPostcode String
 	offCity String
@@ -46,7 +46,7 @@ entity TOfficeCode {
 	modifiedDate ZonedDateTime
 }
 entity TUnitCode {
-	untUnit String maxlength(100)
+    untUnit String maxlength(100)
 	untHeadid Integer
 	untActingHeadid Integer
 	untHrpayId String
@@ -60,7 +60,7 @@ entity TUnitCode {
 	modifiedDate ZonedDateTime
 }
 entity TSubunitCode {
-	subuntSubunit String maxlength(100)
+    subuntSubunit String maxlength(100)
 	subuntHeadid Integer
 	subuntActingHeadid Integer
 	subuntHrpayId String
@@ -69,16 +69,151 @@ entity TSubunitCode {
 	subuntPapActive String maxlength(1)
 	subunyUnitid String maxlength(10)
 }
+entity TUserRole {
+    sysuserId Integer
+	usrRoleid Integer
+	enteredBy Integer
+	enteredDate ZonedDateTime
+	modifiedBy Integer
+	modifiedDate ZonedDateTime
+}
 entity ApplicationUser {
-	ic String maxlength(15)
+    ic String maxlength(15)
 	status String maxlength(1)
+
+    supervisor String maxlength(100)
+    procureOffice String maxlength(100)
+    viewInvPrice String maxlength(1)
+    posoReprint String maxlength(1)
+    pettyCashReprint String maxlength(1)
+    posoCancellation String maxlength(1)
+    dosdnCancellation String maxlength(1)
+    assetRequisition String maxlength(1)
+    reqSearchAllAsset String maxlength(1)
+    changeAssetHolder String maxlength(1)
+    travelRequestVerifier String maxlength(1)
+    travelRequestCancel String maxlength(1)
+    travelRequestReprint String maxlength(1)
+    travelRequestApproval String maxlength(1)
+    poCipmVerifier String maxlength(1)
+    procurementVerifier String maxlength(1)
 }
 relationship OneToOne {
-	ApplicationUser{division} to TSectionCode
+    ApplicationUser{internalUser} to @OnDelete("SET NULL") @OnUpdate("CASCADE") User
+}
+relationship ManyToOne {
+    ApplicationUser{division} to TSectionCode
 	ApplicationUser{section} to TUnitCode
 	ApplicationUser{unit} to TSubunitCode
 	ApplicationUser{office} to TOfficeCode
 }
 relationship ManyToOne {
-	TSubunitCode{unit} to TUnitCode{unit}
+    TSubunitCode{unit} to TUnitCode{subunit}
+}
+relationship OneToMany {
+    TUserRoleCode{userRole} to TUserRole{role}
+	ApplicationUser{userRole} to TUserRole{user}
+}
+entity TSystemUser {
+    sysStaffNo String
+    sysNewIc String
+    sysOldIc String
+    sysUsername String
+    sysEmail String
+    sysActive String
+    sysStatusDate ZonedDateTime
+    sysStatusUpdatedBy Integer
+    sysRemark String
+    sysIsAdmin String
+    sysOrgId String
+    sysTransferOrgId String
+    sysTransferEffective ZonedDateTime
+    // sysUnitId Integer
+    // sysSectionId Integer
+    sysSectionName String
+    sysDesignation String
+    // sysOfficeId Integer
+    sysSupervisor String
+    sysProcureOffice String
+    sysViewInvPrice String
+    sysPosoReprint String
+    sysPettyCashReprint String
+    sysPosoCancellation String
+    sysDosdnCancellation String
+    sysAssetRequisition String
+    sysReqSearchAllAsset String
+    sysChangeAssetHolder String
+    sysTravelRequestVerifier String
+    sysTravelRequestCancel String
+    sysTravelRequestReprint String
+    sysTravelRequestApproval String
+    sysPoCipmVerifier String
+    sysProcurementVerifier String
+    sysContractVerifier String
+    sysConsignmentVerifier String
+    sysContractPoReprint String
+    sysConsignmentPoReprint String
+    sysContractPoCancellation String
+    sysConsignmentPoCancellation String
+    sysPoForceClosed String
+    sysContractPoForceClosed String
+    sysConsignmentPoForceClosed String
+    sysReqlimitMon Integer
+    sysReqlimitTue Integer
+    sysReqlimitWed Integer
+    sysReqlimitThu Integer
+    sysReqlimitFri Integer
+    sysReqlimitSat Integer
+    sysReqlimitSun Integer
+    sysMdoVerifier String
+    sysReqViewPrice String
+    sysLoginId String
+    sysAuthenticationType String
+    sysPassword String
+    sysResetPassword String
+    sysChangePassword String
+    sysPassNeverExpires String
+    sysAccountLockedOut String
+    sysAccountLockedBy Integer
+    sysAccountLockedDate ZonedDateTime
+    sysPasswordDate ZonedDateTime
+    sysFailedPassAttempts Integer
+    sysAccEffectiveStartDate ZonedDateTime
+    sysAccEffectiveToDate ZonedDateTime
+    sysLimitGl String
+    sysLimitGlAcoFlag String
+    sysFasAccessGroupCode String
+    sysFasSalesPersonFlag String
+    sysFasProjectRole String
+    sysFasSlaRole String
+    sysFasAdmRole String
+    sysLastLoginDate ZonedDateTime
+    sysLimitFa String
+    sysLimitPvAco String
+    sysDisplayName String
+    sysOldUserId String
+    sysFasAuditAdjustment String
+    sysOStaffFileNo String
+    sysOStaffNameAlias String
+    sysONationality String
+    sysOGender String
+    sysOReligion String
+    sysORace String
+    sysOMarriedStatus String
+    sysODob ZonedDateTime
+    sysViewStQty String
+    sysCancelStocktake String
+    sysVerifySt String
+    sysAdjGstSetting String
+    sysBiAcknowReceived String
+    sysSubUnitId Integer
+    sysSearchInventory String
+	enteredBy Integer
+    enteredDate ZonedDateTime
+    createdBy Integer
+    createdDate ZonedDateTime
+	confirmedBy Integer
+    confirmedDate ZonedDateTime
+    modifiedBy Integer
+    modifiedDate ZonedDateTime
 }

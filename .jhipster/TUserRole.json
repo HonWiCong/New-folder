@@ -1,0 +1,53 @@
+{
+	"applications": "*",
+	"changelogDate": "20240130070812",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_user_role",
+	"fields": [
+		{
+			"fieldName": "sysuserId",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "usrRoleid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TUserRole",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tUserRoleCode",
+			"otherEntityRelationshipName": "userRole",
+			"relationshipName": "role",
+			"relationshipType": "many-to-one"
+		},
+		{
+			"otherEntityName": "applicationUser",
+			"otherEntityRelationshipName": "userRole",
+			"relationshipName": "user",
+			"relationshipType": "many-to-one"
+		}
+	],
+	"service": "no"
+}

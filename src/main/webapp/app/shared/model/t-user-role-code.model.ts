@@ -1,3 +1,5 @@
+import { ITUserRole } from '@/shared/model/t-user-role.model';
+
 export interface ITUserRoleCode {
 	id?: number;
 	roleName?: string | null;
@@ -8,6 +10,7 @@ export interface ITUserRoleCode {
 	enteredDate?: Date | null;
 	modifiedBy?: number | null;
 	modifiedDate?: Date | null;
+	userRoles?: ITUserRole[] | null;
 }
 
 export class TUserRoleCode implements ITUserRoleCode {
@@ -20,6 +23,7 @@ export class TUserRoleCode implements ITUserRoleCode {
 		public enteredBy?: number | null,
 		public enteredDate?: Date | null,
 		public modifiedBy?: number | null,
-		public modifiedDate?: Date | null
+		public modifiedDate?: Date | null,
+		public userRoles?: ITUserRole[] | null
 	) {}
 }

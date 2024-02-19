@@ -12,6 +12,7 @@ import TUserRoleCodeUpdateComponent from '@/entities/t-user-role-code/t-user-rol
 import TUserRoleCodeClass from '@/entities/t-user-role-code/t-user-role-code-update.component';
 import TUserRoleCodeService from '@/entities/t-user-role-code/t-user-role-code.service';
 
+import TUserRoleService from '@/entities/t-user-role/t-user-role.service';
 import AlertService from '@/shared/alert/alert.service';
 
 const localVue = createLocalVue();
@@ -45,6 +46,11 @@ describe('Component Tests', () => {
 				provide: {
 					tUserRoleCodeService: () => tUserRoleCodeServiceStub,
 					alertService: () => new AlertService(),
+
+					tUserRoleService: () =>
+						sinon.createStubInstance<TUserRoleService>(TUserRoleService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
 				},
 			});
 			comp = wrapper.vm;

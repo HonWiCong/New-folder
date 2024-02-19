@@ -1,0 +1,79 @@
+{
+	"applications": "*",
+	"changelogDate": "20240122020614",
+	"dto": "no",
+	"embedded": false,
+	"entityTableName": "t_unit_code",
+	"fields": [
+		{
+			"fieldName": "untUnit",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "100"
+		},
+		{
+			"fieldName": "untHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "untActingHeadid",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "untHrpayId",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "untPapId",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "10"
+		},
+		{
+			"fieldName": "untPapCode",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "10"
+		},
+		{
+			"fieldName": "untPapActive",
+			"fieldType": "String",
+			"fieldValidateRules": ["maxlength"],
+			"fieldValidateRulesMaxlength": "1"
+		},
+		{
+			"fieldName": "untPapDepartmentid",
+			"fieldType": "String"
+		},
+		{
+			"fieldName": "enteredBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "enteredDate",
+			"fieldType": "ZonedDateTime"
+		},
+		{
+			"fieldName": "modifiedBy",
+			"fieldType": "Integer"
+		},
+		{
+			"fieldName": "modifiedDate",
+			"fieldType": "ZonedDateTime"
+		}
+	],
+	"fluentMethods": true,
+	"jpaMetamodelFiltering": false,
+	"name": "TUnitCode",
+	"pagination": "no",
+	"readOnly": false,
+	"relationships": [
+		{
+			"otherEntityName": "tSubunitCode",
+			"otherEntityRelationshipName": "unit",
+			"relationshipName": "subunit",
+			"relationshipType": "one-to-many"
+		}
+	],
+	"service": "no"
+}

@@ -64,6 +64,26 @@
 			<font-awesome-icon icon="asterisk" />
 			<span v-text="$t('global.menu.entities.tUserRoleCode')">T User Role Code</span>
 		</b-dropdown-item>
+		<b-dropdown-item to="/t-unit-code">
+			<font-awesome-icon icon="asterisk" />
+			<span v-text="$t('global.menu.entities.tUnitCode')">T Unit Code</span>
+		</b-dropdown-item>
+		<b-dropdown-item to="/t-subunit-code">
+			<font-awesome-icon icon="asterisk" />
+			<span v-text="$t('global.menu.entities.tSubunitCode')">T Subunit Code</span>
+		</b-dropdown-item>
+		<b-dropdown-item to="/t-office-code">
+			<font-awesome-icon icon="asterisk" />
+			<span v-text="$t('global.menu.entities.tOfficeCode')">T Office Code</span>
+		</b-dropdown-item>
+		<b-dropdown-item to="/application-user">
+			<font-awesome-icon icon="asterisk" />
+			<span v-text="$t('global.menu.entities.applicationUser')">Application User</span>
+		</b-dropdown-item>
+		<b-dropdown-item to="/t-user-role">
+			<font-awesome-icon icon="asterisk" />
+			<span v-text="$t('global.menu.entities.tUserRole')">T User Role</span>
+		</b-dropdown-item>
 		<!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
 	</div>
 </template>

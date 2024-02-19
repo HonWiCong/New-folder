@@ -5,6 +5,9 @@ import { DATE_TIME_LONG_FORMAT } from '@/shared/date/filters';
 
 import AlertService from '@/shared/alert/alert.service';
 
+import TUserRoleService from '@/entities/t-user-role/t-user-role.service';
+import { ITUserRole } from '@/shared/model/t-user-role.model';
+
 import { ITUserRoleCode, TUserRoleCode } from '@/shared/model/t-user-role-code.model';
 import TUserRoleCodeService from './t-user-role-code.service';
 
@@ -29,6 +32,10 @@ export default class TUserRoleCodeUpdate extends Vue {
 	@Inject('alertService') private alertService: () => AlertService;
 
 	public tUserRoleCode: ITUserRoleCode = new TUserRoleCode();
+
+	@Inject('tUserRoleService') private tUserRoleService: () => TUserRoleService;
+
+	public tUserRoles: ITUserRole[] = [];
 	public isSaving = false;
 	public currentLanguage = '';
 
@@ -37,6 +44,7 @@ export default class TUserRoleCodeUpdate extends Vue {
 			if (to.params.tUserRoleCodeId) {
 				vm.retrieveTUserRoleCode(to.params.tUserRoleCodeId);
 			}
+			vm.initRelationships();
 		});
 	}
 
@@ -133,5 +141,11 @@ export default class TUserRoleCodeUpdate extends Vue {
 		this.$router.go(-1);
 	}
 
-	public initRelationships(): void {}
+	public initRelationships(): void {
+		this.tUserRoleService()
+			.retrieve()
+			.then(res => {
+				this.tUserRoles = res.data;
+			});
+	}
 }

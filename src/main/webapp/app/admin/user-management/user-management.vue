@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="custom-container">
 		<h2>
 			<span id="user-management-page-heading" v-text="$t('userManagement.home.title')" data-cy="userManagementPageHeading"
 				>Users</span
@@ -9,7 +9,7 @@
 					<font-awesome-icon icon="sync" :spin="isLoading"></font-awesome-icon>
 					<span v-text="$t('userManagement.home.refreshListLabel')">Refresh List</span>
 				</button>
-				<router-link custom v-slot="{ navigate }" :to="{ name: 'JhiUserCreate' }">
+				<router-link custom v-slot="{ navigate }" :to="{ name: 'JhiUserEditDetail' }">
 					<button @click="navigate" class="btn btn-primary jh-create-entity">
 						<font-awesome-icon icon="plus"></font-awesome-icon>
 						<span v-text="$t('userManagement.home.createLabel')">Create a new User</span>
@@ -134,3 +134,11 @@
 </template>
 
 <script lang="ts" src="./user-management.component.ts"></script>
+
+<style scoped>
+.custom-container {
+	padding: 2rem;
+	background-color: white;
+	border-radius: 10px;
+}
+</style>

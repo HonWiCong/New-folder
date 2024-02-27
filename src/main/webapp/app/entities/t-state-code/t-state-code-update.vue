@@ -9,7 +9,7 @@
 				>
 					Create or edit a TStateCode
 				</h2>
-				<div class="form-layout">
+				<div>
 					<div class="form-group" v-if="tStateCode.id">
 						<label for="id" v-text="$t('global.field.id')">ID</label>
 						<input type="text" class="form-control" id="id" name="id" v-model="tStateCode.id" readonly />

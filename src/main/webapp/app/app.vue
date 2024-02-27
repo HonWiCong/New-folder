@@ -18,11 +18,22 @@
 </template>
 <style scoped>
 .layout {
+	/* height: 100vh; */
 	display: flex;
-	min-height: 100vh;
+	/* flex-direction: column; */
 }
 .container-fluid {
+	/* flex: 1 1 auto; */
+	/* position: relative; */
+	display: flex;
+	flex-direction: column;
 	padding: 0;
+}
+.jh-card {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	margin-top: 0;
 }
 </style>
 <script lang="ts" src="./app.component.ts"></script>

@@ -39,9 +39,9 @@
 		}
 	],
 	"fluentMethods": true,
-	"jpaMetamodelFiltering": false,
+	"jpaMetamodelFiltering": true,
 	"name": "TCountryCode",
-	"pagination": "no",
+	"pagination": "pagination",
 	"readOnly": false,
 	"relationships": [
 		{
@@ -51,5 +51,5 @@
 			"relationshipType": "one-to-many"
 		}
 	],
-	"service": "no"
+	"service": "serviceClass"
 }

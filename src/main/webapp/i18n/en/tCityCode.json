@@ -1,30 +1,30 @@
 {
-  "sainsApp": {
-    "tCityCode": {
-      "home": {
-        "title": "T City Codes",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new T City Code",
-        "createOrEditLabel": "Create or edit a T City Code",
-        "notFound": "No T City Codes found"
-      },
-      "created": "A new T City Code is created with identifier {{ param }}",
-      "updated": "A T City Code is updated with identifier {{ param }}",
-      "deleted": "A T City Code is deleted with identifier {{ param }}",
-      "delete": {
-        "question": "Are you sure you want to delete T City Code {{ id }}?"
-      },
-      "detail": {
-        "title": "T City Code"
-      },
-      "id": "ID",
-      "cityCode": "City Code",
-      "cityName": "City Name",
-      "enteredBy": "Entered By",
-      "enteredDate": "Entered Date",
-      "modifiedBy": "Modified By",
-      "modifiedDate": "Modified Date",
-      "tStateCode": "T State Code"
-    }
-  }
+	"sainsApp": {
+		"tCityCode": {
+			"home": {
+				"title": "Citys",
+				"refreshListLabel": "Refresh list",
+				"createLabel": "Create a new City",
+				"createOrEditLabel": "Create or edit a City",
+				"notFound": "No City found"
+			},
+			"created": "A new City is created with identifier {{ param }}",
+			"updated": "A City is updated with identifier {{ param }}",
+			"deleted": "A City is deleted with identifier {{ param }}",
+			"delete": {
+				"question": "Are you sure you want to delete City {{ id }}?"
+			},
+			"detail": {
+				"title": "City"
+			},
+			"id": "ID",
+			"cityCode": "Code",
+			"cityName": "Name",
+			"enteredBy": "Entered By",
+			"enteredDate": "Entered Date",
+			"modifiedBy": "Modified By",
+			"modifiedDate": "Modified Date",
+			"tStateCode": "State"
+		}
+	}
 }

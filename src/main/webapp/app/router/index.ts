@@ -15,6 +15,8 @@ import account from '@/router/account';
 import admin from '@/router/admin';
 import entities from '@/router/entities';
 import pages from '@/router/pages';
+import location from '@/router/location';
+import system_configuration from './system-configuration';
 
 Vue.use(Router);
 
@@ -33,7 +35,7 @@ const router = new Router({
 			component: Entities
 		},
 		{
-			path: '/administration',
+			path: '/admin',
 			name: 'Administration',
 			component: Administration
 		},
@@ -52,7 +54,9 @@ const router = new Router({
 		...account,
 		...admin,
 		entities,
-		...pages
+		...pages,
+		...location,
+		...system_configuration,
 	]
 });
 

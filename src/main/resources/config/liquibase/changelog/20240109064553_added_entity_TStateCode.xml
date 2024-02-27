@@ -9,7 +9,7 @@
     <!--
         Added the entity TStateCode.
     -->
-    <changeSet id="20240109064553-1" author="jhipster" runOnChange="true">
+    <changeSet id="20240109064553-1" author="jhipster">
         <createTable tableName="t_state_code">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

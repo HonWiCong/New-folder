@@ -20,61 +20,61 @@ localVue.component('font-awesome-icon', {});
 localVue.component('router-link', {});
 
 describe('Component Tests', () => {
-  describe('TCityCode Management Detail Component', () => {
-    let wrapper: Wrapper<TCityCodeClass>;
-    let comp: TCityCodeClass;
-    let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
+	describe('TCityCode Management Detail Component', () => {
+		let wrapper: Wrapper<TCityCodeClass>;
+		let comp: TCityCodeClass;
+		let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
 
-    beforeEach(() => {
-      tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
+		beforeEach(() => {
+			tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
 
-      wrapper = shallowMount<TCityCodeClass>(TCityCodeDetailComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: { tCityCodeService: () => tCityCodeServiceStub, alertService: () => new AlertService() },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TCityCodeClass>(TCityCodeDetailComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: { tCityCodeService: () => tCityCodeServiceStub, alertService: () => new AlertService() },
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('OnInit', () => {
-      it('Should call load all on init', async () => {
-        // GIVEN
-        const foundTCityCode = { id: 123 };
-        tCityCodeServiceStub.find.resolves(foundTCityCode);
+		describe('OnInit', () => {
+			it('Should call load all on init', async () => {
+				// GIVEN
+				const foundTCityCode = { id: 123 };
+				tCityCodeServiceStub.find.resolves(foundTCityCode);
 
-        // WHEN
-        comp.retrieveTCityCode(123);
-        await comp.$nextTick();
+				// WHEN
+				comp.retrieveTCityCode(123);
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tCityCode).toBe(foundTCityCode);
-      });
-    });
+				// THEN
+				expect(comp.tCityCode).toBe(foundTCityCode);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTCityCode = { id: 123 };
-        tCityCodeServiceStub.find.resolves(foundTCityCode);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTCityCode = { id: 123 };
+				tCityCodeServiceStub.find.resolves(foundTCityCode);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tCityCodeId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tCityCodeId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tCityCode).toBe(foundTCityCode);
-      });
-    });
+				// THEN
+				expect(comp.tCityCode).toBe(foundTCityCode);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

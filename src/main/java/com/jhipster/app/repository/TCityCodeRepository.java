@@ -9,4 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface TCityCodeRepository extends JpaRepository<TCityCode, Long> {}
+public interface TCityCodeRepository extends JpaRepository<TCityCode, Long>, JpaSpecificationExecutor<TCityCode> {}

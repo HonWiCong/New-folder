@@ -30,104 +30,104 @@ localVue.component('b-form-datepicker', {});
 localVue.component('b-form-input', {});
 
 describe('Component Tests', () => {
-  describe('TCityCode Management Update Component', () => {
-    let wrapper: Wrapper<TCityCodeClass>;
-    let comp: TCityCodeClass;
-    let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
+	describe('TCityCode Management Update Component', () => {
+		let wrapper: Wrapper<TCityCodeClass>;
+		let comp: TCityCodeClass;
+		let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
 
-    beforeEach(() => {
-      tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
+		beforeEach(() => {
+			tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
 
-      wrapper = shallowMount<TCityCodeClass>(TCityCodeUpdateComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: {
-          tCityCodeService: () => tCityCodeServiceStub,
-          alertService: () => new AlertService(),
+			wrapper = shallowMount<TCityCodeClass>(TCityCodeUpdateComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: {
+					tCityCodeService: () => tCityCodeServiceStub,
+					alertService: () => new AlertService(),
 
-          tStateCodeService: () =>
-            sinon.createStubInstance<TStateCodeService>(TStateCodeService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
-        },
-      });
-      comp = wrapper.vm;
-    });
+					tStateCodeService: () =>
+						sinon.createStubInstance<TStateCodeService>(TStateCodeService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('load', () => {
-      it('Should convert date from string', () => {
-        // GIVEN
-        const date = new Date('2019-10-15T11:42:02Z');
+		describe('load', () => {
+			it('Should convert date from string', () => {
+				// GIVEN
+				const date = new Date('2019-10-15T11:42:02Z');
 
-        // WHEN
-        const convertedDate = comp.convertDateTimeFromServer(date);
+				// WHEN
+				const convertedDate = comp.convertDateTimeFromServer(date);
 
-        // THEN
-        expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
-      });
+				// THEN
+				expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
+			});
 
-      it('Should not convert date if date is not present', () => {
-        expect(comp.convertDateTimeFromServer(null)).toBeNull();
-      });
-    });
+			it('Should not convert date if date is not present', () => {
+				expect(comp.convertDateTimeFromServer(null)).toBeNull();
+			});
+		});
 
-    describe('save', () => {
-      it('Should call update service on save for existing entity', async () => {
-        // GIVEN
-        const entity = { id: 123 };
-        comp.tCityCode = entity;
-        tCityCodeServiceStub.update.resolves(entity);
+		describe('save', () => {
+			it('Should call update service on save for existing entity', async () => {
+				// GIVEN
+				const entity = { id: 123 };
+				comp.tCityCode = entity;
+				tCityCodeServiceStub.update.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tCityCodeServiceStub.update.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
+				// THEN
+				expect(tCityCodeServiceStub.update.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
 
-      it('Should call create service on save for new entity', async () => {
-        // GIVEN
-        const entity = {};
-        comp.tCityCode = entity;
-        tCityCodeServiceStub.create.resolves(entity);
+			it('Should call create service on save for new entity', async () => {
+				// GIVEN
+				const entity = {};
+				comp.tCityCode = entity;
+				tCityCodeServiceStub.create.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tCityCodeServiceStub.create.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
-    });
+				// THEN
+				expect(tCityCodeServiceStub.create.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTCityCode = { id: 123 };
-        tCityCodeServiceStub.find.resolves(foundTCityCode);
-        tCityCodeServiceStub.retrieve.resolves([foundTCityCode]);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTCityCode = { id: 123 };
+				tCityCodeServiceStub.find.resolves(foundTCityCode);
+				tCityCodeServiceStub.retrieve.resolves([foundTCityCode]);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tCityCodeId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tCityCodeId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tCityCode).toBe(foundTCityCode);
-      });
-    });
+				// THEN
+				expect(comp.tCityCode).toBe(foundTCityCode);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

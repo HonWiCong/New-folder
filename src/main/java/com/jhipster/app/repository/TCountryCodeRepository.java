@@ -9,4 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface TCountryCodeRepository extends JpaRepository<TCountryCode, Long> {}
+public interface TCountryCodeRepository extends JpaRepository<TCountryCode, Long>, JpaSpecificationExecutor<TCountryCode> {}

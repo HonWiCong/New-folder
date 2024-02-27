@@ -32,109 +32,109 @@ localVue.component('b-form-datepicker', {});
 localVue.component('b-form-input', {});
 
 describe('Component Tests', () => {
-  describe('TStateCode Management Update Component', () => {
-    let wrapper: Wrapper<TStateCodeClass>;
-    let comp: TStateCodeClass;
-    let tStateCodeServiceStub: SinonStubbedInstance<TStateCodeService>;
+	describe('TStateCode Management Update Component', () => {
+		let wrapper: Wrapper<TStateCodeClass>;
+		let comp: TStateCodeClass;
+		let tStateCodeServiceStub: SinonStubbedInstance<TStateCodeService>;
 
-    beforeEach(() => {
-      tStateCodeServiceStub = sinon.createStubInstance<TStateCodeService>(TStateCodeService);
+		beforeEach(() => {
+			tStateCodeServiceStub = sinon.createStubInstance<TStateCodeService>(TStateCodeService);
 
-      wrapper = shallowMount<TStateCodeClass>(TStateCodeUpdateComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: {
-          tStateCodeService: () => tStateCodeServiceStub,
-          alertService: () => new AlertService(),
+			wrapper = shallowMount<TStateCodeClass>(TStateCodeUpdateComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: {
+					tStateCodeService: () => tStateCodeServiceStub,
+					alertService: () => new AlertService(),
 
-          tCountryCodeService: () =>
-            sinon.createStubInstance<TCountryCodeService>(TCountryCodeService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
+					tCountryCodeService: () =>
+						sinon.createStubInstance<TCountryCodeService>(TCountryCodeService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
 
-          tCityCodeService: () =>
-            sinon.createStubInstance<TCityCodeService>(TCityCodeService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
-        },
-      });
-      comp = wrapper.vm;
-    });
+					tCityCodeService: () =>
+						sinon.createStubInstance<TCityCodeService>(TCityCodeService, {
+							retrieve: sinon.stub().resolves({}),
+						} as any),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('load', () => {
-      it('Should convert date from string', () => {
-        // GIVEN
-        const date = new Date('2019-10-15T11:42:02Z');
+		describe('load', () => {
+			it('Should convert date from string', () => {
+				// GIVEN
+				const date = new Date('2019-10-15T11:42:02Z');
 
-        // WHEN
-        const convertedDate = comp.convertDateTimeFromServer(date);
+				// WHEN
+				const convertedDate = comp.convertDateTimeFromServer(date);
 
-        // THEN
-        expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
-      });
+				// THEN
+				expect(convertedDate).toEqual(dayjs(date).format(DATE_TIME_LONG_FORMAT));
+			});
 
-      it('Should not convert date if date is not present', () => {
-        expect(comp.convertDateTimeFromServer(null)).toBeNull();
-      });
-    });
+			it('Should not convert date if date is not present', () => {
+				expect(comp.convertDateTimeFromServer(null)).toBeNull();
+			});
+		});
 
-    describe('save', () => {
-      it('Should call update service on save for existing entity', async () => {
-        // GIVEN
-        const entity = { id: 123 };
-        comp.tStateCode = entity;
-        tStateCodeServiceStub.update.resolves(entity);
+		describe('save', () => {
+			it('Should call update service on save for existing entity', async () => {
+				// GIVEN
+				const entity = { id: 123 };
+				comp.tStateCode = entity;
+				tStateCodeServiceStub.update.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tStateCodeServiceStub.update.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
+				// THEN
+				expect(tStateCodeServiceStub.update.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
 
-      it('Should call create service on save for new entity', async () => {
-        // GIVEN
-        const entity = {};
-        comp.tStateCode = entity;
-        tStateCodeServiceStub.create.resolves(entity);
+			it('Should call create service on save for new entity', async () => {
+				// GIVEN
+				const entity = {};
+				comp.tStateCode = entity;
+				tStateCodeServiceStub.create.resolves(entity);
 
-        // WHEN
-        comp.save();
-        await comp.$nextTick();
+				// WHEN
+				comp.save();
+				await comp.$nextTick();
 
-        // THEN
-        expect(tStateCodeServiceStub.create.calledWith(entity)).toBeTruthy();
-        expect(comp.isSaving).toEqual(false);
-      });
-    });
+				// THEN
+				expect(tStateCodeServiceStub.create.calledWith(entity)).toBeTruthy();
+				expect(comp.isSaving).toEqual(false);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTStateCode = { id: 123 };
-        tStateCodeServiceStub.find.resolves(foundTStateCode);
-        tStateCodeServiceStub.retrieve.resolves([foundTStateCode]);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTStateCode = { id: 123 };
+				tStateCodeServiceStub.find.resolves(foundTStateCode);
+				tStateCodeServiceStub.retrieve.resolves([foundTStateCode]);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tStateCodeId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tStateCodeId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tStateCode).toBe(foundTStateCode);
-      });
-    });
+				// THEN
+				expect(comp.tStateCode).toBe(foundTStateCode);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

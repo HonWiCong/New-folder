@@ -31,9 +31,9 @@
 		}
 	],
 	"fluentMethods": true,
-	"jpaMetamodelFiltering": false,
+	"jpaMetamodelFiltering": true,
 	"name": "TCityCode",
-	"pagination": "no",
+	"pagination": "pagination",
 	"readOnly": false,
 	"relationships": [
 		{
@@ -43,5 +43,5 @@
 			"relationshipType": "many-to-one"
 		}
 	],
-	"service": "no"
+	"service": "serviceClass"
 }

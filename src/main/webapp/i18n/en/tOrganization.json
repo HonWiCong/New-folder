@@ -2,20 +2,20 @@
 	"sainsApp": {
 		"tOrganization": {
 			"home": {
-				"title": "T Organizations",
+				"title": "Suppliers",
 				"refreshListLabel": "Refresh list",
-				"createLabel": "Create a new T Organization",
-				"createOrEditLabel": "Create or edit a T Organization",
-				"notFound": "No T Organizations found"
+				"createLabel": "Add new Supplier",
+				"createOrEditLabel": "Create or edit a Supplier",
+				"notFound": "No Suppliers found"
 			},
-			"created": "A new T Organization is created with identifier {{ param }}",
-			"updated": "A T Organization is updated with identifier {{ param }}",
-			"deleted": "A T Organization is deleted with identifier {{ param }}",
+			"created": "A new Supplier is created with identifier {{ param }}",
+			"updated": "A Supplier is updated with identifier {{ param }}",
+			"deleted": "A Supplier is deleted with identifier {{ param }}",
 			"delete": {
-				"question": "Are you sure you want to delete T Organization {{ id }}?"
+				"question": "Are you sure you want to delete Supplier {{ id }}?"
 			},
 			"detail": {
-				"title": "T Organization"
+				"title": "Supplier"
 			},
 			"id": "ID",
 			"orgHqid": "Hqid",

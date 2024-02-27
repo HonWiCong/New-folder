@@ -20,61 +20,61 @@ localVue.component('font-awesome-icon', {});
 localVue.component('router-link', {});
 
 describe('Component Tests', () => {
-  describe('TCountryCode Management Detail Component', () => {
-    let wrapper: Wrapper<TCountryCodeClass>;
-    let comp: TCountryCodeClass;
-    let tCountryCodeServiceStub: SinonStubbedInstance<TCountryCodeService>;
+	describe('TCountryCode Management Detail Component', () => {
+		let wrapper: Wrapper<TCountryCodeClass>;
+		let comp: TCountryCodeClass;
+		let tCountryCodeServiceStub: SinonStubbedInstance<TCountryCodeService>;
 
-    beforeEach(() => {
-      tCountryCodeServiceStub = sinon.createStubInstance<TCountryCodeService>(TCountryCodeService);
+		beforeEach(() => {
+			tCountryCodeServiceStub = sinon.createStubInstance<TCountryCodeService>(TCountryCodeService);
 
-      wrapper = shallowMount<TCountryCodeClass>(TCountryCodeDetailComponent, {
-        store,
-        i18n,
-        localVue,
-        router,
-        provide: { tCountryCodeService: () => tCountryCodeServiceStub, alertService: () => new AlertService() },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TCountryCodeClass>(TCountryCodeDetailComponent, {
+				store,
+				i18n,
+				localVue,
+				router,
+				provide: { tCountryCodeService: () => tCountryCodeServiceStub, alertService: () => new AlertService() },
+			});
+			comp = wrapper.vm;
+		});
 
-    describe('OnInit', () => {
-      it('Should call load all on init', async () => {
-        // GIVEN
-        const foundTCountryCode = { id: 123 };
-        tCountryCodeServiceStub.find.resolves(foundTCountryCode);
+		describe('OnInit', () => {
+			it('Should call load all on init', async () => {
+				// GIVEN
+				const foundTCountryCode = { id: 123 };
+				tCountryCodeServiceStub.find.resolves(foundTCountryCode);
 
-        // WHEN
-        comp.retrieveTCountryCode(123);
-        await comp.$nextTick();
+				// WHEN
+				comp.retrieveTCountryCode(123);
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tCountryCode).toBe(foundTCountryCode);
-      });
-    });
+				// THEN
+				expect(comp.tCountryCode).toBe(foundTCountryCode);
+			});
+		});
 
-    describe('Before route enter', () => {
-      it('Should retrieve data', async () => {
-        // GIVEN
-        const foundTCountryCode = { id: 123 };
-        tCountryCodeServiceStub.find.resolves(foundTCountryCode);
+		describe('Before route enter', () => {
+			it('Should retrieve data', async () => {
+				// GIVEN
+				const foundTCountryCode = { id: 123 };
+				tCountryCodeServiceStub.find.resolves(foundTCountryCode);
 
-        // WHEN
-        comp.beforeRouteEnter({ params: { tCountryCodeId: 123 } }, null, cb => cb(comp));
-        await comp.$nextTick();
+				// WHEN
+				comp.beforeRouteEnter({ params: { tCountryCodeId: 123 } }, null, cb => cb(comp));
+				await comp.$nextTick();
 
-        // THEN
-        expect(comp.tCountryCode).toBe(foundTCountryCode);
-      });
-    });
+				// THEN
+				expect(comp.tCountryCode).toBe(foundTCountryCode);
+			});
+		});
 
-    describe('Previous state', () => {
-      it('Should go previous state', async () => {
-        comp.previousState();
-        await comp.$nextTick();
+		describe('Previous state', () => {
+			it('Should go previous state', async () => {
+				comp.previousState();
+				await comp.$nextTick();
 
-        expect(comp.$router.currentRoute.fullPath).toContain('/');
-      });
-    });
-  });
+				expect(comp.$router.currentRoute.fullPath).toContain('/');
+			});
+		});
+	});
 });

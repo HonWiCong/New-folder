@@ -132,7 +132,7 @@ const TUserRoleDetails = () => import('@/entities/t-user-role/t-user-role-detail
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
-	path: '/',
+	path: '/entities',
 	component: Entities,
 	children: [
 		{
@@ -141,24 +141,24 @@ export default {
 			component: TCountryCode,
 			meta: { authorities: [Authority.USER] },
 		},
-		{
-			path: 't-country-code/new',
-			name: 'TCountryCodeCreate',
-			component: TCountryCodeUpdate,
-			meta: { authorities: [Authority.USER] },
-		},
-		{
-			path: 't-country-code/:tCountryCodeId/edit',
-			name: 'TCountryCodeEdit',
-			component: TCountryCodeUpdate,
-			meta: { authorities: [Authority.USER] },
-		},
-		{
-			path: 't-country-code/:tCountryCodeId/view',
-			name: 'TCountryCodeView',
-			component: TCountryCodeDetails,
-			meta: { authorities: [Authority.USER] },
-		},
+		// {
+		// 	path: 't-country-code/new',
+		// 	name: 'TCountryCodeCreate',
+		// 	component: TCountryCodeUpdate,
+		// 	meta: { authorities: [Authority.USER] },
+		// },
+		// {
+		// 	path: 't-country-code/:tCountryCodeId/edit',
+		// 	name: 'TCountryCodeEdit',
+		// 	component: TCountryCodeUpdate,
+		// 	meta: { authorities: [Authority.USER] },
+		// },
+		// {
+		// 	path: 't-country-code/:tCountryCodeId/view',
+		// 	name: 'TCountryCodeView',
+		// 	component: TCountryCodeDetails,
+		// 	meta: { authorities: [Authority.USER] },
+		// },
 		{
 			path: 't-state-code',
 			name: 'TStateCode',

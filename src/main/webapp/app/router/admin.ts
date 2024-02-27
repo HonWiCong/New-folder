@@ -24,6 +24,20 @@ export default [
 		name: 'JhiUserCreate',
 		component: JhiUserManagementEditComponent,
 		meta: { authorities: [Authority.ADMIN] },
+		children: [
+			{
+				path: 'user-detail',
+				name: 'JhiUserEditDetail',
+				component: JhiUserManagementEditUserDetailComponent,
+				meta: { authorities: [Authority.ADMIN] },
+			},
+			{
+				path: 'access-right',
+				name: 'JhiUserEditAccessRight',
+				component: JhiUserManagementEditAccessRightComponent,
+				meta: { authorities: [Authority.ADMIN] },
+			},
+		],
 	},
 	{
 		path: '/admin/user-management/:userId/edit',

@@ -9,7 +9,7 @@
     <!--
         Added the entity TCityCode.
     -->
-    <changeSet id="20240109064556-1" author="jhipster" runOnChange="true">
+    <changeSet id="20240109064556-1" author="jhipster">
         <createTable tableName="t_city_code">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

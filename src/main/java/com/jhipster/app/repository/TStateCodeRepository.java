@@ -9,4 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface TStateCodeRepository extends JpaRepository<TStateCode, Long> {}
+public interface TStateCodeRepository extends JpaRepository<TStateCode, Long>, JpaSpecificationExecutor<TStateCode> {}

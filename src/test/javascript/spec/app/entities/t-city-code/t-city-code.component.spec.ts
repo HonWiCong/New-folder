@@ -17,67 +17,130 @@ const i18n = config.initI18N(localVue);
 const store = config.initVueXStore(localVue);
 localVue.component('font-awesome-icon', {});
 localVue.component('b-badge', {});
+localVue.component('jhi-sort-indicator', {});
 localVue.directive('b-modal', {});
 localVue.component('b-button', {});
 localVue.component('router-link', {});
 
 const bModalStub = {
-  render: () => {},
-  methods: {
-    hide: () => {},
-    show: () => {},
-  },
+	render: () => {},
+	methods: {
+		hide: () => {},
+		show: () => {},
+	},
 };
 
 describe('Component Tests', () => {
-  describe('TCityCode Management Component', () => {
-    let wrapper: Wrapper<TCityCodeClass>;
-    let comp: TCityCodeClass;
-    let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
+	describe('TCityCode Management Component', () => {
+		let wrapper: Wrapper<TCityCodeClass>;
+		let comp: TCityCodeClass;
+		let tCityCodeServiceStub: SinonStubbedInstance<TCityCodeService>;
 
-    beforeEach(() => {
-      tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
-      tCityCodeServiceStub.retrieve.resolves({ headers: {} });
+		beforeEach(() => {
+			tCityCodeServiceStub = sinon.createStubInstance<TCityCodeService>(TCityCodeService);
+			tCityCodeServiceStub.retrieve.resolves({ headers: {} });
 
-      wrapper = shallowMount<TCityCodeClass>(TCityCodeComponent, {
-        store,
-        i18n,
-        localVue,
-        stubs: { bModal: bModalStub as any },
-        provide: {
-          tCityCodeService: () => tCityCodeServiceStub,
-          alertService: () => new AlertService(),
-        },
-      });
-      comp = wrapper.vm;
-    });
+			wrapper = shallowMount<TCityCodeClass>(TCityCodeComponent, {
+				store,
+				i18n,
+				localVue,
+				stubs: { jhiItemCount: true, bPagination: true, bModal: bModalStub as any },
+				provide: {
+					tCityCodeService: () => tCityCodeServiceStub,
+					alertService: () => new AlertService(),
+				},
+			});
+			comp = wrapper.vm;
+		});
 
-    it('Should call load all on init', async () => {
-      // GIVEN
-      tCityCodeServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
+		it('Should call load all on init', async () => {
+			// GIVEN
+			tCityCodeServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
 
-      // WHEN
-      comp.retrieveAllTCityCodes();
-      await comp.$nextTick();
+			// WHEN
+			comp.retrieveAllTCityCodes();
+			await comp.$nextTick();
 
-      // THEN
-      expect(tCityCodeServiceStub.retrieve.called).toBeTruthy();
-      expect(comp.tCityCodes[0]).toEqual(expect.objectContaining({ id: 123 }));
-    });
-    it('Should call delete service on confirmDelete', async () => {
-      // GIVEN
-      tCityCodeServiceStub.delete.resolves({});
+			// THEN
+			expect(tCityCodeServiceStub.retrieve.called).toBeTruthy();
+			expect(comp.tCityCodes[0]).toEqual(expect.objectContaining({ id: 123 }));
+		});
 
-      // WHEN
-      comp.prepareRemove({ id: 123 });
-      expect(tCityCodeServiceStub.retrieve.callCount).toEqual(1);
+		it('should load a page', async () => {
+			// GIVEN
+			tCityCodeServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
+			comp.previousPage = 1;
 
-      comp.removeTCityCode();
-      await comp.$nextTick();
+			// WHEN
+			comp.loadPage(2);
+			await comp.$nextTick();
 
-      // THEN
-      expect(tCityCodeServiceStub.delete.called).toBeTruthy();
-      expect(tCityCodeServiceStub.retrieve.callCount).toEqual(2);
-    });
-  });
+			// THEN
+			expect(tCityCodeServiceStub.retrieve.called).toBeTruthy();
+			expect(comp.tCityCodes[0]).toEqual(expect.objectContaining({ id: 123 }));
+		});
+
+		it('should not load a page if the page is the same as the previous page', () => {
+			// GIVEN
+			tCityCodeServiceStub.retrieve.reset();
+			comp.previousPage = 1;
+
+			// WHEN
+			comp.loadPage(1);
+
+			// THEN
+			expect(tCityCodeServiceStub.retrieve.called).toBeFalsy();
+		});
+
+		it('should re-initialize the page', async () => {
+			// GIVEN
+			tCityCodeServiceStub.retrieve.reset();
+			tCityCodeServiceStub.retrieve.resolves({ headers: {}, data: [{ id: 123 }] });
+
+			// WHEN
+			comp.loadPage(2);
+			await comp.$nextTick();
+			comp.clear();
+			await comp.$nextTick();
+
+			// THEN
+			expect(tCityCodeServiceStub.retrieve.callCount).toEqual(3);
+			expect(comp.page).toEqual(1);
+			expect(comp.tCityCodes[0]).toEqual(expect.objectContaining({ id: 123 }));
+		});
+
+		it('should calculate the sort attribute for an id', () => {
+			// WHEN
+			const result = comp.sort();
+
+			// THEN
+			expect(result).toEqual(['id,asc']);
+		});
+
+		it('should calculate the sort attribute for a non-id attribute', () => {
+			// GIVEN
+			comp.propOrder = 'name';
+
+			// WHEN
+			const result = comp.sort();
+
+			// THEN
+			expect(result).toEqual(['name,asc', 'id']);
+		});
+		it('Should call delete service on confirmDelete', async () => {
+			// GIVEN
+			tCityCodeServiceStub.delete.resolves({});
+
+			// WHEN
+			comp.prepareRemove({ id: 123 });
+			expect(tCityCodeServiceStub.retrieve.callCount).toEqual(1);
+
+			comp.removeTCityCode();
+			await comp.$nextTick();
+
+			// THEN
+			expect(tCityCodeServiceStub.delete.called).toBeTruthy();
+			expect(tCityCodeServiceStub.retrieve.callCount).toEqual(2);
+		});
+	});
 });
